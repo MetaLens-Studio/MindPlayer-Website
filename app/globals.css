@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #070707;
+  --bg-secondary: #0e1525;
+  --cyan: #5debff;
+  --purple: #8a6fff;
+  --gold: #ffd76a;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--bg-primary);
+  color: #fff;
+  overflow-x: hidden;
+  font-family: var(--font-inter), sans-serif;
+}
+
+@media (pointer: fine) {
+  body { cursor: none; }
+}
+
+::selection {
+  background: rgba(93, 235, 255, 0.25);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #070707;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(93, 235, 255, 0.25);
+  border-radius: 2px;
+}
+
+/* ── Bento grid — equal rows so immersion (row-span-2) aligns with both right cards ── */
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-rows: clamp(200px, 28vw, 280px) clamp(200px, 28vw, 280px);
+  }
+}
+
+/* ── Aurora background — GPU-composited blobs, no canvas ── */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+.aurora-cyan-1 {
+  width: 70vw; height: 55vh;
+  top: -10%; left: -15%;
+  background: radial-gradient(ellipse, rgba(93,235,255,0.28) 0%, transparent 70%);
+  filter: blur(60px);
+}
+.aurora-purple-1 {
+  width: 60vw; height: 65vh;
+  top: 10%; left: 20%;
+  background: radial-gradient(ellipse, rgba(138,111,255,0.30) 0%, transparent 70%);
+  filter: blur(70px);
+}
+.aurora-cyan-2 {
+  width: 50vw; height: 45vh;
+  top: 30%; right: -10%;
+  background: radial-gradient(ellipse, rgba(93,235,255,0.20) 0%, transparent 70%);
+  filter: blur(55px);
+}
+.aurora-gold-1 {
+  width: 45vw; height: 40vh;
+  bottom: 5%; left: 15%;
+  background: radial-gradient(ellipse, rgba(255,215,106,0.15) 0%, transparent 70%);
+  filter: blur(65px);
+}
+.aurora-pink-1 {
+  width: 35vw; height: 35vh;
+  bottom: 20%; right: 5%;
+  background: radial-gradient(ellipse, rgba(255,107,157,0.13) 0%, transparent 70%);
+  filter: blur(50px);
+}
+.aurora-purple-2 {
+  width: 40vw; height: 40vh;
+  top: 0%; right: 10%;
+  background: radial-gradient(ellipse, rgba(138,111,255,0.18) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+/* ── Typography ── */
+.gradient-text {
+  background: linear-gradient(135deg, #5debff 0%, #8a6fff 50%, #ffd76a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #5debff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass ── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* glass-card: no backdrop-filter — too expensive when many cards on screen */
+.glass-card {
+  background: rgba(14, 21, 37, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Animated gradient border ── */
+.grad-border {
+  position: relative;
+}
+.grad-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #5debff, #8a6fff, #ffd76a);
+  /* static gradient — removes expensive animation on every card */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Floating animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33%      { transform: translateY(-12px) translateX(8px); }
+  66%      { transform: translateY(8px) translateX(-5px); }
+}
+
+/* ── Glow helpers ── */
+.glow-cyan  { box-shadow: 0 0 30px rgba(93,235,255,0.25), 0 0 60px rgba(93,235,255,0.1); }
+.glow-purple{ box-shadow: 0 0 30px rgba(138,111,255,0.25), 0 0 60px rgba(138,111,255,0.1); }
