@@ -81,7 +81,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <Link
-              href="/faq"
+              href="/early-access"
               className="hidden md:inline-flex items-center px-5 py-2 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-200"
               style={{
                 background: 'linear-gradient(135deg, rgba(93,235,255,0.12), rgba(138,111,255,0.12))',
@@ -141,7 +141,7 @@ export default function Navbar() {
             transition={{ delay: menuOpen ? 0.42 : 0 }}
           >
             <Link
-              href="/faq"
+              href="/early-access"
               className="mt-4 block rounded-full px-8 py-3 text-sm font-bold tracking-widest uppercase text-[#070707]"
               style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)' }}
             >

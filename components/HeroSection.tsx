@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
+import Link from 'next/link'
 
 // ─────────────────────────────────────────────
 // MindPlayer-themed GLSL shader
@@ -255,14 +256,15 @@ export default function HeroSection() {
           >
             Explore
           </button>
-          <button
+          <Link
+            href="/early-access"
             className="rounded-full px-9 py-4 text-sm font-semibold tracking-[0.18em] uppercase text-white transition-colors duration-200"
             style={{ border: '1px solid rgba(255,255,255,0.18)' }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(93,235,255,0.5)'; e.currentTarget.style.color = '#5DEBFF' }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; e.currentTarget.style.color = '#fff' }}
           >
             Get Early Access
-          </button>
+          </Link>
         </motion.div>
       </motion.div>
 

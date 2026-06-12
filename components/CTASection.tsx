@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function CTASection() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -53,7 +54,7 @@ export default function CTASection() {
 
   return (
     <section
-      className="relative flex min-h-[65vh] items-center justify-center overflow-hidden"
+      className="relative flex min-h-[65vh] items-center justify-center overflow-hidden py-24"
       style={{ background:'linear-gradient(180deg, #070707 0%, #0E1525 50%, #070707 100%)' }}
     >
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" style={{ willChange:'auto' }} />
@@ -81,20 +82,21 @@ export default function CTASection() {
             The next evolution of human experience is waiting. Step into it.
           </p>
 
-          <motion.button
+          <motion.a
             whileHover={{ scale:1.05 }}
             whileTap={{ scale:0.97 }}
             transition={{ type:'spring', stiffness:400, damping:20 }}
-            className="mt-12 rounded-full px-14 py-5 font-display text-lg font-black tracking-[0.18em] uppercase text-[#070707]"
+            className="mt-12 inline-block rounded-full px-14 py-5 font-display text-lg font-black tracking-[0.18em] uppercase text-[#070707]"
             style={{
               background:'linear-gradient(135deg, #5DEBFF, #8A6FFF)',
               boxShadow:'0 0 40px rgba(93,235,255,0.3)',
             }}
             onMouseEnter={e => (e.currentTarget.style.boxShadow='0 0 70px rgba(93,235,255,0.5)')}
             onMouseLeave={e => (e.currentTarget.style.boxShadow='0 0 40px rgba(93,235,255,0.3)')}
+            href="/early-access"
           >
             Join The Journey
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

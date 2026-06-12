@@ -176,17 +176,18 @@ export default function Footer() {
           <div>
             <p className="mb-5 text-xs tracking-[0.25em] uppercase text-[#B8B8B8]">Stay Connected</p>
             <p className="mb-4 text-sm text-[#B8B8B8]">Be first to experience the future of mental performance.</p>
-            <motion.button
+            <motion.a
+              href="/early-access"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="w-full rounded-full py-3 text-sm font-bold tracking-widest uppercase text-[#070707] transition-all duration-300"
+              className="block w-full rounded-full py-3 text-sm font-bold tracking-widest uppercase text-[#070707] text-center transition-all duration-300"
               style={{
                 background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)',
                 boxShadow: '0 0 24px rgba(93,235,255,0.25)',
               }}
             >
               Get Early Access
-            </motion.button>
+            </motion.a>
             <p className="mt-3 text-center text-[10px] text-[#B8B8B8]">No spam. Just early access.</p>
           </div>
         </div>
