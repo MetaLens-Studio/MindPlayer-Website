@@ -21,8 +21,6 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
           className="object-cover"
           style={{ opacity: 0.55, objectPosition: '65% 35%' }}
           priority
-          placeholder="blur"
-          blurDataURL={blurDataURLs['about-bg.webp']}
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, #070707 0%, transparent 30%, transparent 70%, #070707 100%)' }} />
       </div>

@@ -15,6 +15,31 @@ const NAV = [
   { label: 'Contact',      href: '/contact' },
 ]
 
+// Images to preload for each page on nav hover
+const PAGE_IMAGES: Record<string, string[]> = {
+  '/about':        ['/images/about-bg.webp', '/images/immersion.webp', '/images/intelligence.webp', '/images/human-centered.webp'],
+  '/how-it-works': ['/images/howitworksbg.webp', '/images/step-goal.webp'],
+  '/experiences':  ['/images/exp-focus.webp', '/images/exp-relax.webp', '/images/exp-sleep.webp'],
+  '/science':      ['/images/science-hero.webp'],
+}
+
+let preloaded: Set<string>
+function preloadPageImages(href: string) {
+  if (typeof window === 'undefined') return
+  if (!preloaded) preloaded = new Set()
+  const srcs = PAGE_IMAGES[href]
+  if (!srcs) return
+  srcs.forEach(src => {
+    if (preloaded.has(src)) return
+    preloaded.add(src)
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.as = 'image'
+    link.href = src
+    document.head.appendChild(link)
+  })
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -63,6 +88,7 @@ export default function Navbar() {
                   <Link
                     key={href}
                     href={href}
+                    onMouseEnter={() => preloadPageImages(href)}
                     className="relative text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-200"
                     style={{ color: active ? '#5DEBFF' : '#B8B8B8' }}
                   >
@@ -129,6 +155,7 @@ export default function Navbar() {
             >
               <Link
                 href={href}
+                onMouseEnter={() => preloadPageImages(href)}
                 className="font-display text-3xl font-bold transition-colors duration-200"
                 style={{ color: pathname === href ? '#5DEBFF' : 'white' }}
               >

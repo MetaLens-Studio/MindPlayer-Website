@@ -60,8 +60,6 @@ export default function HowItWorksPage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={85}
                 priority
-                placeholder="blur"
-                blurDataURL={blurDataURLs['howitworksbg.webp']}
                 className="object-cover"
                 style={{ objectPosition: '90% center' }}
               />
