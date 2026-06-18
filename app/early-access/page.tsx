@@ -6,15 +6,18 @@ import Link from 'next/link'
 export default function EarlyAccessPage() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (loading) return
     if (!email.includes('@') || !email.includes('.')) {
       setError('Please enter a valid email address.')
       return
     }
     setError('')
+    setLoading(true)
     try {
       const res = await fetch('https://formspree.io/f/xzdorqkv', {
         method: 'POST',
@@ -29,6 +32,8 @@ export default function EarlyAccessPage() {
       }
     } catch {
       setError('Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -119,10 +124,11 @@ export default function EarlyAccessPage() {
                   />
                   <button
                     type="submit"
-                    className="rounded-full px-6 py-3.5 text-sm font-bold tracking-wide text-[#070707] transition-opacity hover:opacity-90 whitespace-nowrap"
-                    style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)' }}
+                    disabled={loading}
+                    className="rounded-full px-6 py-3.5 text-sm font-bold tracking-wide text-[#070707] whitespace-nowrap transition-opacity"
+                    style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)', opacity: loading ? 0.7 : 1 }}
                   >
-                    Join Waitlist
+                    {loading ? 'Joining…' : 'Join Waitlist'}
                   </button>
                 </form>
 

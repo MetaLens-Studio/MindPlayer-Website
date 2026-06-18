@@ -12,6 +12,7 @@ const NAV = [
   { label: 'Experiences',  href: '/experiences' },
   { label: 'Science',      href: '/science' },
   { label: 'FAQ',          href: '/faq' },
+  { label: 'Contact',      href: '/contact' },
 ]
 
 export default function Navbar() {

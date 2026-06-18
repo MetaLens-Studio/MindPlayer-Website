@@ -7,6 +7,8 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
     let rafId: number
 
     const init = async () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
       const Lenis = (await import('lenis')).default
       lenis = new Lenis({
         duration: 1.2,

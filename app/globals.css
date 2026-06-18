@@ -170,3 +170,13 @@ body {
 /* ── Glow helpers ── */
 .glow-cyan  { box-shadow: 0 0 30px rgba(93,235,255,0.25), 0 0 60px rgba(93,235,255,0.1); }
 .glow-purple{ box-shadow: 0 0 30px rgba(138,111,255,0.25), 0 0 60px rgba(138,111,255,0.1); }
+
+/* ── Accessibility: respect reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto !important; }
+}

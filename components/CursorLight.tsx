@@ -6,9 +6,15 @@ export default function CursorLight() {
   const dotRef  = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Skip on touch-only devices — no cursor, no wasted rAF
+    if (!window.matchMedia('(pointer: fine)').matches) return
+
     const glow = glowRef.current
     const dot  = dotRef.current
     if (!glow || !dot) return
+
+    // Skip animations if user prefers reduced motion
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     let mx = 0, my = 0, cx = 0, cy = 0
     let frame: number
@@ -18,17 +24,23 @@ export default function CursorLight() {
       my = e.clientY
       dot.style.left = `${mx}px`
       dot.style.top  = `${my}px`
+      if (reducedMotion) {
+        glow.style.left = `${mx}px`
+        glow.style.top  = `${my}px`
+      }
     }
 
     const tick = () => {
-      cx += (mx - cx) * 0.07
-      cy += (my - cy) * 0.07
-      glow.style.left = `${cx}px`
-      glow.style.top  = `${cy}px`
+      if (!reducedMotion) {
+        cx += (mx - cx) * 0.07
+        cy += (my - cy) * 0.07
+        glow.style.left = `${cx}px`
+        glow.style.top  = `${cy}px`
+      }
       frame = requestAnimationFrame(tick)
     }
 
-    window.addEventListener('mousemove', onMove)
+    window.addEventListener('mousemove', onMove, { passive: true })
     frame = requestAnimationFrame(tick)
     return () => {
       window.removeEventListener('mousemove', onMove)
