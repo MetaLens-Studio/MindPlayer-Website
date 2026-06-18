@@ -219,7 +219,7 @@ const CARDS: CardItem[] = [
     title: 'Focus & Deep Work',
     description: 'Reduce distractions and support sustained attention and flow.',
     color: '#5DEBFF',
-    image: '/images/exp-focus.jpg',
+    image: '/images/exp-focus.webp',
     tags: ['Concentration', 'Deep Work', 'Clarity'],
     icon: (
       <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
@@ -235,7 +235,7 @@ const CARDS: CardItem[] = [
     title: 'Relax & Unwind',
     description: 'Decompress and calm your mind with immersive soundscapes.',
     color: '#8A6FFF',
-    image: '/images/exp-relax.jpg',
+    image: '/images/exp-relax.webp',
     tags: ['Relaxation', 'Stress Relief', 'Calm'],
     icon: (
       <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
@@ -248,7 +248,7 @@ const CARDS: CardItem[] = [
     title: 'Sleep & Recovery',
     description: 'Support your body and mind for deeper, more restorative sleep.',
     color: '#FFD76A',
-    image: '/images/exp-sleep.jpg',
+    image: '/images/exp-sleep.webp',
     tags: ['Sleep', 'Recovery', 'Restoration'],
     icon: (
       <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
@@ -264,7 +264,7 @@ const CARDS: CardItem[] = [
     title: 'Emotional Balance',
     description: 'Reduce overwhelm and support emotional regulation.',
     color: '#FF6B9D',
-    image: '/images/exp-balance.jpg',
+    image: '/images/exp-balance.webp',
     tags: ['Balance', 'Stability', 'Wellbeing'],
     icon: (
       <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
@@ -278,7 +278,7 @@ const CARDS: CardItem[] = [
     title: 'Creativity & Flow',
     description: 'Unlock creativity and enter a state of inspiration and flow.',
     color: '#5DEBFF',
-    image: '/images/exp-creativity.jpg',
+    image: '/images/exp-creativity.webp',
     tags: ['Creativity', 'Imagination', 'Flow'],
     icon: (
       <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
@@ -292,7 +292,7 @@ const CARDS: CardItem[] = [
     title: 'Performance & Activation',
     description: 'Increase motivation, energy and cognitive readiness.',
     color: '#8A6FFF',
-    image: '/images/exp-performance.jpg',
+    image: '/images/exp-performance.webp',
     tags: ['Energy', 'Motivation', 'Performance'],
     icon: (
       <svg width="40" height="40" viewBox="0 0 36 36" fill="none">

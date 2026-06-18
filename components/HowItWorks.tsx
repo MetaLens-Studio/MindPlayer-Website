@@ -10,7 +10,7 @@ const STEPS = [
     desc: 'Select your desired outcome — focus, sleep, relaxation, recovery, or peak performance. Every journey starts with intention.',
     color: '#5DEBFF',
     tags: ['Focus', 'Sleep', 'Relaxation', 'Recovery', 'Performance'],
-    image: '/images/step-goal.jpg',
+    image: '/images/step-goal.webp',
     imgW: 831, imgH: 449,
   },
   {
@@ -19,7 +19,7 @@ const STEPS = [
     desc: 'MindPlayer reads where you are right now — mentally and emotionally — so the experience meets you exactly where you need it.',
     color: '#8A6FFF',
     tags: ['State Sensing', 'Emotional Mapping', 'Real-time Insight'],
-    image: '/images/step-state.jpg',
+    image: '/images/step-state.webp',
     imgW: 725, imgH: 597,
   },
   {
@@ -28,7 +28,7 @@ const STEPS = [
     desc: 'Step into precisely engineered environments — spatial audio, guided cues, and sensory design working in harmony to shift your mental state.',
     color: '#FFD76A',
     tags: ['Spatial Audio', 'Visual Depth', 'Guided Sessions'],
-    image: '/images/step-immersive.jpg',
+    image: '/images/step-immersive.webp',
     imgW: 799, imgH: 865,
   },
   {
@@ -37,7 +37,7 @@ const STEPS = [
     desc: 'Build and save your own immersive mind sessions — a personal library of mental states designed by you, for you.',
     color: '#FF6B9D',
     tags: ['Custom Sessions', 'Personal Library', 'Your Blueprint'],
-    image: '/images/step-create.jpg',
+    image: '/images/step-create.webp',
     imgW: 845, imgH: 314,
   },
   {
@@ -46,7 +46,7 @@ const STEPS = [
     desc: 'Over time MindPlayer helps you build lasting mental resilience — better focus, deeper sleep, faster recovery, and lasting emotional balance.',
     color: '#5DEBFF',
     tags: ['Long-term Resilience', 'Progress Tracking', 'Mental Wellness'],
-    image: '/images/step-support.jpg',
+    image: '/images/step-support.webp',
     imgW: 868, imgH: 462,
   },
 ]

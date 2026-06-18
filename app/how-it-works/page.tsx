@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
             <div className="rounded-3xl overflow-hidden w-full"
               style={{
                 height: 'clamp(260px, 45vw, 520px)',
-                backgroundImage: 'url(/images/howitworksbg.png)',
+                backgroundImage: 'url(/images/howitworksbg.webp)',
                 backgroundSize: 'cover',
                 backgroundPosition: '90% center',
                 backgroundRepeat: 'no-repeat',

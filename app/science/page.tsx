@@ -73,7 +73,7 @@ export default function SciencePage() {
 
             <div className="relative w-full max-w-2xl md:max-w-none md:scale-125 md:origin-center">
               <Image
-                src="/images/science-hero.png"
+                src="/images/science-hero.webp"
                 alt="Science — neural and molecular research"
                 width={1515}
                 height={1038}

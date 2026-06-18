@@ -9,7 +9,7 @@ const CARDS = [
     title: 'Focus',
     description: 'Constant notifications, multitasking, and digital noise destroy your ability to enter deep, sustained concentration.',
     color: '#5DEBFF',
-    image: '/images/Focus.jpg',
+    image: '/images/Focus.webp',
     accent: 'rgba(93,235,255,0.18)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -25,7 +25,7 @@ const CARDS = [
     title: 'Sleep',
     description: 'Blue light, racing thoughts, and chronic stress disrupt the sleep cycles your brain needs to consolidate and repair.',
     color: '#8A6FFF',
-    image: '/images/Sleep.jpg',
+    image: '/images/Sleep.webp',
     accent: 'rgba(138,111,255,0.18)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -41,7 +41,7 @@ const CARDS = [
     title: 'Recovery',
     description: 'Mental and physical fatigue accumulate faster than ever — without the right tools, true restoration is impossible.',
     color: '#FFD76A',
-    image: '/images/Recovery.jpg',
+    image: '/images/Recovery.webp',
     accent: 'rgba(255,215,106,0.15)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -56,7 +56,7 @@ const CARDS = [
     title: 'Emotional Balance',
     description: 'Unregulated stress responses, anxiety loops, and emotional dysregulation quietly erode your quality of life.',
     color: '#FF6B9D',
-    image: '/images/Emotional-Balance.jpg',
+    image: '/images/Emotional-Balance.webp',
     accent: 'rgba(255,107,157,0.15)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -70,7 +70,7 @@ const CARDS = [
     title: 'Cognitive Performance',
     description: 'Decision fatigue, information overload, and poor mental hygiene cap your potential far below what you\'re capable of.',
     color: '#5DEBFF',
-    image: '/images/Cognitive.jpg',
+    image: '/images/Cognitive.webp',
     accent: 'rgba(93,235,255,0.15)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
