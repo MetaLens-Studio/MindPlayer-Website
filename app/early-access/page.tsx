@@ -2,23 +2,34 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import type { Metadata } from 'next'
-
 
 export default function EarlyAccessPage() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email.includes('@') || !email.includes('.')) {
       setError('Please enter a valid email address.')
       return
     }
     setError('')
-    // Backend will be wired here later
-    setSubmitted(true)
+    try {
+      const res = await fetch('https://formspree.io/f/xzdorqkv', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (data.ok) {
+        setSubmitted(true)
+      } else {
+        setError('Something went wrong. Please try again.')
+      }
+    } catch {
+      setError('Something went wrong. Please try again.')
+    }
   }
 
   return (

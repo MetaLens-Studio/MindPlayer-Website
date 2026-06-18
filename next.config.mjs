@@ -14,7 +14,7 @@ const securityHeaders = [
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https://images.unsplash.com",
       "media-src 'self'",
-      "connect-src 'self'",
+      "connect-src 'self' https://formspree.io",
       "frame-ancestors 'none'",
     ].join('; '),
   },
