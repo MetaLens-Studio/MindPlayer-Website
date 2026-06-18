@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 
 const cardBase = {
   background: 'linear-gradient(145deg, rgba(14,21,37,0.85) 0%, rgba(7,7,7,0.95) 100%)',
@@ -20,6 +21,8 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
           className="object-cover"
           style={{ opacity: 0.55, objectPosition: '65% 35%' }}
           priority
+          placeholder="blur"
+          blurDataURL={blurDataURLs['about-bg.webp']}
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, #070707 0%, transparent 30%, transparent 70%, #070707 100%)' }} />
       </div>
@@ -53,7 +56,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
             style={{ ...cardBase, minHeight: 'clamp(260px, 50vw, 400px)' }}
           >
             {/* Background image */}
-            <Image src="/images/immersion.webp" alt="Immersion" fill sizes="(max-width:768px) 100vw, 66vw" quality={72} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/images/immersion.webp" alt="Immersion" fill sizes="(max-width:768px) 100vw, 66vw" quality={72} placeholder="blur" blurDataURL={blurDataURLs['immersion.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
             {/* Dark overlay */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(7,7,7,0.65) 0%, rgba(7,7,7,0.35) 100%)' }} />
             {/* Accent glow */}
@@ -93,7 +96,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
             className="group relative rounded-3xl overflow-hidden"
             style={{ ...cardBase }}
           >
-            <Image src="/images/intelligence.webp" alt="Intelligence" fill sizes="(max-width:768px) 100vw, 33vw" quality={72} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/images/intelligence.webp" alt="Intelligence" fill sizes="(max-width:768px) 100vw, 33vw" quality={72} placeholder="blur" blurDataURL={blurDataURLs['intelligence.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(7,7,7,0.65) 0%, rgba(7,7,7,0.35) 100%)' }} />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(138,111,255,0.12), transparent 65%)' }} />
@@ -130,7 +133,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
             className="group relative rounded-3xl overflow-hidden"
             style={{ ...cardBase }}
           >
-            <Image src="/images/human-centered.webp" alt="Human-Centered Design" fill sizes="(max-width:768px) 100vw, 33vw" quality={72} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/images/human-centered.webp" alt="Human-Centered Design" fill sizes="(max-width:768px) 100vw, 33vw" quality={72} placeholder="blur" blurDataURL={blurDataURLs['human-centered.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(7,7,7,0.65) 0%, rgba(7,7,7,0.35) 100%)' }} />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(255,215,106,0.1), transparent 65%)' }} />

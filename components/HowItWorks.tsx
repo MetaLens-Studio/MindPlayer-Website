@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform, useInView, MotionValue } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 
 const STEPS = [
   {
@@ -91,6 +92,9 @@ function ImageBlock({ step }: { step: typeof STEPS[0] }) {
         height={step.imgH}
         sizes="(max-width: 768px) 100vw, 45vw"
         quality={85}
+        loading="lazy"
+        placeholder="blur"
+        blurDataURL={blurDataURLs[step.image.replace('/images/', '')]}
         className="w-full h-auto block"
       />
     </div>

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 
 const CARDS = [
   {
@@ -160,10 +161,12 @@ export default function ProblemSection() {
                   src={card.image}
                   alt={card.title}
                   fill
-                  // active card gets a wide share; others are narrow slivers
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
                   quality={72}
                   priority={index === 0}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  placeholder="blur"
+                  blurDataURL={blurDataURLs[card.image.replace('/images/', '')]}
                   className="object-cover transition-all duration-500"
                   style={{
                     transform: isActive ? 'scale(1.0)' : 'scale(1.06)',

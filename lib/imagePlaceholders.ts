@@ -1,0 +1,23 @@
+export const blurDataURLs: Record<string, string> = {
+  "about-bg.webp": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoIAAgABUB8JQBOgCgAAP7wir+qH/e8FxEWuvpYz6MAAA==",
+  "immersion.webp": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAgABUB8JZgCdADz22zjgAD+m2RtBpr17YiFZEWm4UMgKZepZEx+NQ9ChAhASGAAAA==",
+  "intelligence.webp": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAABwAQCdASoIAAgABUB8JZgCw7F1AAD+8Iq/qjkgn/3n9aoVZOJmtVShZwvAAA==",
+  "human-centered.webp": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoIAAgABUB8JbACdADcV9afgAD8dwwQ6dOGJ0YCITxE/x8Cgdh3vqNt2P2z8MvAAAA=",
+  "science-hero.webp": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4WAoAAAAQAAAABwAABwAAQUxQSCwAAAABUBRJUnOkVwZJmAEv2MECkvjl5CEiJgCejF8ut3qFOeeVPuUTP8qPdgFQDFZQOCA0AAAAsAEAnQEqCAAIAAVAfCWwAnQA82vhAADVn/huEg+axRii9G2milwNtiGI8ck771cZyyHAAA==",
+  "Focus.webp": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoIAAgABUB8JZACdAELMSI1gAD+vIcvAFoT1vhxUVbJ0ESZ5HIgjq0Sj3kqA9c2PDkdiLGBcgAAAA==",
+  "Sleep.webp": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAADQAQCdASoIAAgABUB8JZQC7ADx/McoAAD+6aw/ZfHwlXnaItKKuQAA",
+  "Recovery.webp": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoIAAgABUB8JQBOgB6UPwfC6AAA/u1qSiWY6iKAXtxJeYqNMBK+dgxIzAA=",
+  "Emotional-Balance.webp": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoIAAgABUB8JbACdADzHDwAAP11CC0nKmFaOen84Kta+sN9yB1HYQTpwk/G3zXUKCeypgELcpInmfuxuwAAAA==",
+  "Cognitive.webp": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACQAQCdASoIAAgABUB8JZACdACewAAA/lI/e/8qUQpWEuOp1aYIYDvN61drXd2EVRCVbmQA",
+  "step-goal.webp": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABwAQCdASoIAAgABUB8JZQC7AFAAAD+7+YXl2iBcbFZdVB8cvDJ3hAGl8AdiAAA",
+  "step-state.webp": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAADQAQCdASoIAAgABUB8JYwAAxZdxgTYQAD+7B9Wq8+Z3LHw8gAAAA==",
+  "step-immersive.webp": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoIAAgABUB8JbACxC8AGBrQ5kgA/t2mVckBI4VMIPWFFwZ1EpfE3hctjAAAAA==",
+  "step-create.webp": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoIAAgABUB8JZQAAp1EMKIAAP7u3q3Rjww/Aebj5w1u9IO4Pk7IAA==",
+  "step-support.webp": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAABQAQCdASoIAAgABUB8JZwABAAAAP7wBRI6ibKX1nKlQ2euaCi0cji5oAA=",
+  "exp-focus.webp": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoIAAgABUB8JQBOgBuSKlMAAP7lqZKweVAb+zg1O4CR4owuY5NxgAAA",
+  "exp-relax.webp": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoIAAgABUB8JZgCdAEQFWncURgA/NkDWwD+8/o1urbwylXKwJww3i6AAAA=",
+  "exp-sleep.webp": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoIAAgABUB8JYgCdAD0cVXAAP7dgPeN4Y9vp3hhNSiij/FvUQAAAA==",
+  "exp-balance.webp": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoIAAgABUB8JbACdAEOum2QAP6jMd73FervC/YFj435jgUVB155Rtyb3UEAAA==",
+  "exp-creativity.webp": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoIAAgABUB8JbACdADbVC1+4ADiP6Q3sSbpYMpXqoF78BpfGIea3a3t67ZQMVcAAAA=",
+  "exp-performance.webp": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoIAAgABUB8JbACdAD0La5lAAD+k9QGwkOqtQL13wbg50l2Qhofw+y+2WZed1FwMkAMbVZiAAA="
+}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 import PageWrapper from '@/components/PageWrapper'
 import VisionSection from '@/components/VisionSection'
 import NeuralNetwork from '@/components/NeuralNetwork'
@@ -79,6 +80,8 @@ export default function SciencePage() {
                 height={1038}
                 quality={90}
                 priority
+                placeholder="blur"
+                blurDataURL={blurDataURLs['science-hero.webp']}
                 className="w-full h-auto block"
                 style={{
                   filter: 'saturate(0.7) brightness(0.9) drop-shadow(0 0 40px rgba(93,235,255,0.25)) drop-shadow(0 0 80px rgba(138,111,255,0.15))',
