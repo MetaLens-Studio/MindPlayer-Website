@@ -127,17 +127,16 @@ function CardStack({ items }: { items: CardItem[] }) {
                     width: cardWidth,
                     height: cardHeight,
                     zIndex,
-                    transformStyle: 'preserve-3d',
                     border: `1px solid ${isActive ? item.color + '80' : 'rgba(0,0,0,0.08)'}`,
                     boxShadow: isActive ? `0 20px 60px ${item.color}22, 0 8px 24px rgba(0,0,0,0.1)` : '0 4px 20px rgba(0,0,0,0.08)',
                   }}
-                  initial={reduceMotion ? false : { opacity: 0, y: y + 40, x, rotateZ, rotateX, scale }}
-                  animate={{ opacity: 1, x, y: y + lift, rotateZ, rotateX, scale }}
+                  initial={reduceMotion ? false : { opacity: 0, y: y + 40, x, rotateZ, scale }}
+                  animate={{ opacity: 1, x, y: y + lift, rotateZ, scale }}
                   transition={{ type: 'spring', stiffness: 280, damping: 28 }}
                   onClick={() => setActive(i)}
                   {...dragProps}
                 >
-                  <div className="h-full w-full" style={{ transform: `translateZ(${z}px)`, transformStyle: 'preserve-3d' }}>
+                  <div className="h-full w-full">
                     {/* Background — image if provided, else gradient */}
                     {item.image ? (
                       <>

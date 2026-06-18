@@ -14,7 +14,7 @@ export default function ExperiencesPage() {
       {/* Hero — full screen intro */}
       <div
         className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 pt-28 overflow-hidden"
-        style={{ background: '#05080f' }}
+        style={{ background: '#05080f', contain: 'layout style', willChange: 'auto' }}
       >
         {/* Galaxy canvas background */}
         <GalaxyBackground />
