@@ -161,14 +161,33 @@ export default function HeroSection() {
     if (!renderer) return
 
     let raf: number
+    let paused = false
+
     const loop = (now: number) => {
       renderer.render(now)
-      raf = requestAnimationFrame(loop)
+      if (!paused) raf = requestAnimationFrame(loop)
     }
+
+    const onVisibility = () => {
+      if (document.hidden) { paused = true; cancelAnimationFrame(raf) }
+      else { paused = false; raf = requestAnimationFrame(loop) }
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (paused) { paused = false; raf = requestAnimationFrame(loop) }
+      } else { paused = true; cancelAnimationFrame(raf) }
+    }, { rootMargin: '200px' })
+    io.observe(canvas)
+
     raf = requestAnimationFrame(loop)
 
     return () => {
+      paused = true
       cancelAnimationFrame(raf)
+      document.removeEventListener('visibilitychange', onVisibility)
+      io.disconnect()
       window.removeEventListener('resize', resize)
       renderer.destroy()
     }

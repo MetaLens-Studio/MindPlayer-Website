@@ -10,6 +10,8 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
     window.scrollTo(0, 0)
 
+    let onVisibility: (() => void) | null = null
+
     const init = async () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
@@ -24,12 +26,19 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
         rafId = requestAnimationFrame(raf)
       }
       rafId = requestAnimationFrame(raf)
+
+      onVisibility = () => {
+        if (document.hidden) cancelAnimationFrame(rafId)
+        else rafId = requestAnimationFrame(raf)
+      }
+      document.addEventListener('visibilitychange', onVisibility)
     }
 
     init()
     return () => {
       cancelAnimationFrame(rafId)
       lenis?.destroy()
+      if (onVisibility) document.removeEventListener('visibilitychange', onVisibility)
     }
   }, [])
 

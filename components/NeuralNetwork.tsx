@@ -83,11 +83,33 @@ export default function NeuralNetwork() {
         ctx.shadowBlur  = 0
       }
 
-      raf = requestAnimationFrame(draw)
+      if (!paused) raf = requestAnimationFrame(draw)
     }
+
+    let paused = false
+
+    const onVisibility = () => {
+      if (document.hidden) { paused = true; cancelAnimationFrame(raf) }
+      else { paused = false; raf = requestAnimationFrame(draw) }
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (paused) { paused = false; raf = requestAnimationFrame(draw) }
+      } else { paused = true; cancelAnimationFrame(raf) }
+    }, { rootMargin: '200px' })
+    io.observe(canvas)
+
     draw()
 
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
+    return () => {
+      paused = true
+      cancelAnimationFrame(raf)
+      document.removeEventListener('visibilitychange', onVisibility)
+      io.disconnect()
+      window.removeEventListener('resize', resize)
+    }
   }, [])
 
   return (

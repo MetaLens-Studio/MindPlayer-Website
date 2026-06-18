@@ -40,10 +40,17 @@ export default function CursorLight() {
       frame = requestAnimationFrame(tick)
     }
 
+    const onVisibility = () => {
+      if (document.hidden) cancelAnimationFrame(frame)
+      else frame = requestAnimationFrame(tick)
+    }
+
     window.addEventListener('mousemove', onMove, { passive: true })
+    document.addEventListener('visibilitychange', onVisibility)
     frame = requestAnimationFrame(tick)
     return () => {
       window.removeEventListener('mousemove', onMove)
+      document.removeEventListener('visibilitychange', onVisibility)
       cancelAnimationFrame(frame)
     }
   }, [])

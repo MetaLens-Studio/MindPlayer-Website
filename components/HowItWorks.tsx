@@ -104,7 +104,7 @@ function ImageBlock({ step }: { step: typeof STEPS[0] }) {
 // Mobile single-column step card
 function MobileStepRow({ step, index }: { step: typeof STEPS[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: false, margin: '0px 0px -15% 0px' })
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -15% 0px' })
 
   return (
     <motion.div
@@ -139,7 +139,7 @@ function MobileStepRow({ step, index }: { step: typeof STEPS[0]; index: number }
 // Desktop 3-column row
 function DesktopStepRow({ step, index }: { step: typeof STEPS[0]; index: number }) {
   const nodeRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(nodeRef, { once: false, margin: '0px 0px -25% 0px' })
+  const isInView = useInView(nodeRef, { once: true, margin: '0px 0px -25% 0px' })
 
   const imageFromRight = index % 2 === 0
   const imageX = imageFromRight ? 120 : -120
