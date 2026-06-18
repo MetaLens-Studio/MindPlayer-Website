@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, ReactNode } from 'react'
 
+
 export default function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let lenis: { raf: (time: number) => void; destroy: () => void } | null = null
