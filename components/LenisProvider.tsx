@@ -6,6 +6,10 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
     let lenis: { raf: (time: number) => void; destroy: () => void } | null = null
     let rafId: number
 
+    // Always start at the top on every load / reload
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+
     const init = async () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
