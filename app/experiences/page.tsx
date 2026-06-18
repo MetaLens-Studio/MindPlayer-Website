@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import PageWrapper from '@/components/PageWrapper'
 import SolutionSection from '@/components/SolutionSection'
-import GalaxyBackground from '@/components/GalaxyBackground'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 
 export const metadata: Metadata = {
   title: 'Experiences — MindPlayer',
@@ -14,10 +15,20 @@ export default function ExperiencesPage() {
       {/* Hero — full screen intro */}
       <div
         className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 pt-28 overflow-hidden"
-        style={{ background: '#05080f', contain: 'layout style', willChange: 'auto' }}
+        style={{ background: '#05080f' }}
       >
-        {/* Galaxy canvas background */}
-        <GalaxyBackground />
+        {/* Static background image */}
+        <Image
+          src="/images/experiences-bg.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={85}
+          priority
+          placeholder="blur"
+          blurDataURL={blurDataURLs['experiences-bg.webp']}
+          className="object-cover object-center pointer-events-none"
+        />
 
         {/* Soft vignette so text stays readable */}
         <div

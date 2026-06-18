@@ -1,4 +1,5 @@
 export const blurDataURLs: Record<string, string> = {
+  "experiences-bg.webp": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoIAAgABUB8JYwAA3AA/vDGKZhfEAAA",
   "howitworksbg.webp": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoIAAgABUB8JYwAAudmZaXQAP7unHQhN7kXSYn50leaAAAA",
   "about-bg.webp": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoIAAgABUB8JQBOgCgAAP7wir+qH/e8FxEWuvpYz6MAAA==",
   "immersion.webp": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAgABUB8JZgCdADz22zjgAD+m2RtBpr17YiFZEWm4UMgKZepZEx+NQ9ChAhASGAAAA==",
