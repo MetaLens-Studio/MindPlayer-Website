@@ -1,5 +1,5 @@
 'use client'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { motion, useScroll, useTransform, useInView, MotionValue } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 
@@ -206,6 +206,50 @@ function DesktopStepRow({ step, index }: { step: typeof STEPS[0]; index: number 
   )
 }
 
+function ZigzagLines({ progress }: { progress: MotionValue<number> }) {
+  const p1 = useTransform(progress, [0, 1], [0, 1])
+  const p2 = useTransform(progress, [0.05, 1], [0, 1])
+  const p3 = useTransform(progress, [0.1, 1], [0, 1])
+
+  // Three wavy zigzag paths across left / center-left / right of the section
+  const paths = [
+    // Cyan — left sweep
+    'M 180,0 C 380,280 120,560 360,840 C 120,1120 380,1400 140,1680 C 360,1960 120,2240 340,2520 C 120,2800 360,3000 200,3200',
+    // Purple — center, wider swing
+    'M 500,0 C 750,300 280,600 720,900 C 280,1200 750,1500 260,1800 C 740,2100 260,2400 720,2700 C 260,2900 680,3100 500,3200',
+    // Gold — right sweep
+    'M 820,0 C 620,280 880,560 640,840 C 880,1120 620,1400 860,1680 C 640,1960 880,2240 660,2520 C 880,2800 640,3000 800,3200',
+  ]
+  const colors  = ['#5DEBFF', '#8A6FFF', '#FFD76A']
+  const opacities = [0.13, 0.11, 0.10]
+  const progValues = [p1, p2, p3]
+
+  return (
+    <svg
+      className="pointer-events-none absolute inset-0 w-full h-full"
+      viewBox="0 0 1000 3200"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      {paths.map((d, i) => (
+        <motion.path
+          key={i}
+          d={d}
+          fill="none"
+          stroke={colors[i]}
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          style={{
+            pathLength: progValues[i],
+            opacity: opacities[i],
+            filter: `drop-shadow(0 0 4px ${colors[i]})`,
+          }}
+        />
+      ))}
+    </svg>
+  )
+}
+
 export default function HowItWorks({ hideHeader }: { hideHeader?: boolean } = {}) {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start center', 'end center'] })
@@ -245,6 +289,9 @@ export default function HowItWorks({ hideHeader }: { hideHeader?: boolean } = {}
 
       {/* Desktop layout */}
       <div ref={containerRef} className="hidden md:block max-w-7xl mx-auto px-8 relative">
+        {/* Scroll-driven zigzag background lines */}
+        <ZigzagLines progress={scrollYProgress} />
+
         {/* Background track */}
         <div
           className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
