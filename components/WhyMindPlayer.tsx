@@ -56,7 +56,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
             style={{ ...cardBase, minHeight: 'clamp(260px, 50vw, 400px)' }}
           >
             {/* Background image */}
-            <Image src="/images/immersion.webp" alt="Immersion" fill sizes="(max-width:768px) 100vw, 66vw" quality={72} placeholder="blur" blurDataURL={blurDataURLs['immersion.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/images/immersion.webp" alt="Immersion" fill sizes="(max-width:768px) 100vw, 66vw" quality={72} priority placeholder="blur" blurDataURL={blurDataURLs['immersion.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
             {/* Dark overlay */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(7,7,7,0.65) 0%, rgba(7,7,7,0.35) 100%)' }} />
             {/* Accent glow */}

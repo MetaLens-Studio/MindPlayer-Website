@@ -76,7 +76,7 @@ function TextBlock({ step }: { step: typeof STEPS[0] }) {
   )
 }
 
-function ImageBlock({ step }: { step: typeof STEPS[0] }) {
+function ImageBlock({ step, priority }: { step: typeof STEPS[0]; priority?: boolean }) {
   return (
     <div
       className="rounded-2xl overflow-hidden w-full"
@@ -92,7 +92,8 @@ function ImageBlock({ step }: { step: typeof STEPS[0] }) {
         height={step.imgH}
         sizes="(max-width: 768px) 100vw, 45vw"
         quality={85}
-        loading="lazy"
+        priority={priority}
+        loading={priority ? 'eager' : 'lazy'}
         placeholder="blur"
         blurDataURL={blurDataURLs[step.image.replace('/images/', '')]}
         className="w-full h-auto block"
@@ -131,7 +132,7 @@ function MobileStepRow({ step, index }: { step: typeof STEPS[0]; index: number }
       </div>
 
       <TextBlock step={step} />
-      <ImageBlock step={step} />
+      <ImageBlock step={step} priority={index === 0} />
     </motion.div>
   )
 }
@@ -163,7 +164,7 @@ function DesktopStepRow({ step, index }: { step: typeof STEPS[0]; index: number 
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="w-full"
           >
-            <ImageBlock step={step} />
+            <ImageBlock step={step} priority={index === 0} />
           </motion.div>
         )}
       </div>
@@ -194,7 +195,7 @@ function DesktopStepRow({ step, index }: { step: typeof STEPS[0]; index: number 
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: imageX }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           >
-            <ImageBlock step={step} />
+            <ImageBlock step={step} priority={index === 0} />
           </motion.div>
         ) : (
           <motion.div

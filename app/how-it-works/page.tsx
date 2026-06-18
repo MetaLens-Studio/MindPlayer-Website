@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import PageWrapper from '@/components/PageWrapper'
 import HowItWorks from '@/components/HowItWorks'
 import Timeline from '@/components/Timeline'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 
 export const metadata: Metadata = {
   title: 'How It Works — MindPlayer',
@@ -44,17 +46,25 @@ export default function HowItWorksPage() {
 
           {/* Image container — right */}
           <div className="relative">
-            <div className="rounded-3xl overflow-hidden w-full"
+            <div className="rounded-3xl overflow-hidden w-full relative"
               style={{
                 height: 'clamp(260px, 45vw, 520px)',
-                backgroundImage: 'url(/images/howitworksbg.webp)',
-                backgroundSize: 'cover',
-                backgroundPosition: '90% center',
-                backgroundRepeat: 'no-repeat',
                 border: '2px solid rgba(93,235,255,0.6)',
                 outline: '1px solid rgba(138,111,255,0.4)',
                 outlineOffset: '6px',
               }}>
+              <Image
+                src="/images/howitworksbg.webp"
+                alt="How It Works"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
+                priority
+                placeholder="blur"
+                blurDataURL={blurDataURLs['howitworksbg.webp']}
+                className="object-cover"
+                style={{ objectPosition: '90% center' }}
+              />
             </div>
           </div>
         </div>

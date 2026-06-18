@@ -1,6 +1,8 @@
 'use client'
 import * as React from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import Image from 'next/image'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 
 // ── CardStack ────────────────────────────────────────────────────────────────
 
@@ -139,11 +141,17 @@ function CardStack({ items }: { items: CardItem[] }) {
                     {/* Background — image if provided, else gradient */}
                     {item.image ? (
                       <>
-                        <div className="absolute inset-0" style={{
-                          backgroundImage: `url(${item.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        }} />
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 40vw"
+                          quality={72}
+                          priority={i === 0}
+                          placeholder="blur"
+                          blurDataURL={blurDataURLs[item.image.replace('/images/', '')]}
+                          className="object-cover object-center"
+                        />
                         {/* Dark overlay so text stays readable */}
                         <div className="absolute inset-0" style={{
                           background: 'linear-gradient(to top, rgba(7,7,7,0.85) 0%, rgba(7,7,7,0.45) 55%, rgba(7,7,7,0.2) 100%)',
