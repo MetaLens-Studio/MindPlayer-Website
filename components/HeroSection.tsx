@@ -143,10 +143,12 @@ export default function HeroSection() {
   const sx = useSpring(mouseX, { stiffness: 60, damping: 22 })
   const sy = useSpring(mouseY, { stiffness: 60, damping: 22 })
 
-  // WebGL render loop
+  // WebGL render loop — desktop only
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+    // Skip WebGL on mobile — too expensive for low-end devices
+    if (window.innerWidth < 768) return
 
     const dpr = Math.max(1, window.devicePixelRatio * 0.6) // 0.6× for perf
 
@@ -209,10 +211,18 @@ export default function HeroSection() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#070707]"
       onMouseMove={onMouseMove}
     >
-      {/* WebGL background */}
+      {/* Mobile static gradient — no JS, no canvas */}
+      <div
+        className="md:hidden absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 120% 80% at 20% 40%, rgba(93,235,255,0.18) 0%, transparent 55%), radial-gradient(ellipse 80% 70% at 80% 70%, rgba(138,111,255,0.15) 0%, transparent 55%), #070707',
+        }}
+      />
+
+      {/* WebGL background — desktop only */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 h-full w-full touch-none"
+        className="hidden md:block absolute inset-0 h-full w-full touch-none"
         style={{ display: 'block' }}
       />
 

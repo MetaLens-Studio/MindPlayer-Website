@@ -15,7 +15,11 @@ export default function NeuralNetwork() {
     const ctx = canvas.getContext('2d')!
     let raf: number
     let nodes: Node[] = []
-    const COUNT = 38 // reduced from 65
+    const isMobile = window.innerWidth < 768
+    const COUNT = isMobile ? 16 : 38
+    const MAX_DIST = isMobile ? 80 : 130
+    const FPS_INTERVAL = isMobile ? 50 : 0 // ~20fps on mobile, uncapped on desktop
+    let lastTime = 0
 
     const resize = () => {
       canvas.width  = canvas.offsetWidth
@@ -39,7 +43,11 @@ export default function NeuralNetwork() {
     canvas.addEventListener('mousemove', onMove, { passive: true })
     canvas.addEventListener('mouseleave', () => { mouse.current = { x:-9999, y:-9999 } })
 
-    const draw = () => {
+    const draw = (now: number) => {
+      if (!paused) raf = requestAnimationFrame(draw)
+      if (FPS_INTERVAL && now - lastTime < FPS_INTERVAL) return
+      lastTime = now
+
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       for (const n of nodes) {
@@ -54,7 +62,6 @@ export default function NeuralNetwork() {
       }
 
       // Connections — only check pairs within rough distance (skip heavy sqrt for all)
-      const MAX_DIST = 130
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i], b = nodes[j]
@@ -83,7 +90,6 @@ export default function NeuralNetwork() {
         ctx.shadowBlur  = 0
       }
 
-      if (!paused) raf = requestAnimationFrame(draw)
     }
 
     let paused = false
@@ -101,7 +107,7 @@ export default function NeuralNetwork() {
     }, { rootMargin: '200px' })
     io.observe(canvas)
 
-    draw()
+    raf = requestAnimationFrame(draw)
 
     return () => {
       paused = true

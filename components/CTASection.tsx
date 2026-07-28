@@ -12,7 +12,8 @@ export default function CTASection() {
     const ctx = canvas.getContext('2d')!
     let raf: number
     const COLORS = ['#5DEBFF','#8A6FFF','#FFD76A']
-    const COUNT = 55 // reduced from 120
+    const isMobile = window.innerWidth < 768
+    const COUNT = isMobile ? 18 : 55
 
     const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight }
     resize()

@@ -14,6 +14,8 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
     let onVisibility: (() => void) | null = null
 
     const init = async () => {
+      // Skip on touch devices — native scroll is already smooth and Lenis adds overhead
+      if (!window.matchMedia('(pointer: fine)').matches) return
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
       const Lenis = (await import('lenis')).default
