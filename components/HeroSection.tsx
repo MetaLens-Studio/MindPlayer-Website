@@ -223,7 +223,6 @@ export default function HeroSection() {
       <canvas
         ref={canvasRef}
         className="hidden md:block absolute inset-0 h-full w-full touch-none"
-        style={{ display: 'block' }}
       />
 
       {/* Dark vignette overlay so text stays readable */}
