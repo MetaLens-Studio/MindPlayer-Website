@@ -142,22 +142,31 @@ export default function Navbar() {
       <motion.div
         initial={false}
         animate={{ opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? 'auto' : 'none' }}
-        className="fixed inset-0 z-40 md:hidden flex flex-col items-center justify-center"
+        className="fixed inset-0 z-40 md:hidden flex flex-col items-center justify-center overflow-y-auto"
         style={{ background: 'rgba(7,7,7,0.96)', backdropFilter: 'blur(16px)' }}
       >
-        <nav className="flex flex-col items-center gap-8">
+        <nav className="flex flex-col items-center gap-3 w-full px-8 py-24">
           {NAV.map(({ label, href }, i) => (
             <motion.div
               key={href}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: menuOpen ? 1 : 0, y: menuOpen ? 0 : 20 }}
               transition={{ delay: menuOpen ? i * 0.07 : 0 }}
+              className="w-full"
             >
               <Link
                 href={href}
                 onMouseEnter={() => preloadPageImages(href)}
-                className="font-display text-3xl font-bold transition-colors duration-200"
-                style={{ color: pathname === href ? '#5DEBFF' : 'white' }}
+                className="block w-full text-center font-display text-xl font-bold transition-all duration-200 rounded-2xl px-8 py-4"
+                style={{
+                  color: pathname === href ? '#5DEBFF' : 'white',
+                  background: pathname === href
+                    ? 'linear-gradient(135deg, rgba(93,235,255,0.12), rgba(138,111,255,0.10))'
+                    : 'rgba(255,255,255,0.04)',
+                  border: pathname === href
+                    ? '1px solid rgba(93,235,255,0.25)'
+                    : '1px solid rgba(255,255,255,0.07)',
+                }}
               >
                 {label}
               </Link>
