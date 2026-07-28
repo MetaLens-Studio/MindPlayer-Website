@@ -309,13 +309,73 @@ const CARDS: CardItem[] = [
   },
 ]
 
+// ── Mobile card list ─────────────────────────────────────────────────────────
+
+function MobileCardList({ items }: { items: CardItem[] }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {items.map((item, i) => (
+        <motion.div
+          key={item.id}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '100px' }}
+          transition={{ duration: 0.3, delay: i * 0.04 }}
+          className="relative rounded-2xl overflow-hidden"
+          style={{
+            background: '#0d1628',
+            border: `1px solid ${item.color}60`,
+            boxShadow: `0 2px 24px rgba(0,0,0,0.5), 0 0 0 0.5px ${item.color}20`,
+          }}
+        >
+          {/* Left accent bar */}
+          <div className="absolute left-0 top-0 bottom-0 w-[4px]"
+            style={{ background: `linear-gradient(to bottom, ${item.color}, ${item.color}50)`, borderRadius: '16px 0 0 16px' }} />
+
+          {/* Glow in top-right */}
+          <div className="pointer-events-none absolute top-0 right-0 w-32 h-32 rounded-full"
+            style={{ background: `radial-gradient(circle, ${item.color}28 0%, transparent 70%)` }} />
+
+          <div className="relative pl-5 pr-4 py-4">
+            {/* Header row */}
+            <div className="flex items-center gap-3 mb-2">
+              <div className="shrink-0 w-8 h-8 flex items-center justify-center"
+                style={{ color: item.color, filter: `drop-shadow(0 0 6px ${item.color}88)` }}>
+                <div style={{ transform: 'scale(0.65)', transformOrigin: 'center' }}>{item.icon}</div>
+              </div>
+              <h3 className="font-display text-base font-bold text-white leading-tight">{item.title}</h3>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm leading-relaxed mb-3 ml-11" style={{ color: 'rgba(184,184,184,0.85)' }}>
+              {item.description}
+            </p>
+
+            {/* Tags */}
+            {item.tags && (
+              <div className="ml-11 flex flex-wrap gap-1.5">
+                {item.tags.map((tag, j) => (
+                  <span key={j} className="rounded-full px-2.5 py-0.5 text-[11px] font-medium"
+                    style={{ color: item.color, background: `${item.color}15`, border: `1px solid ${item.color}35` }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
 // ── Section ───────────────────────────────────────────────────────────────────
 
 export default function SolutionSection({ hideHeader }: { hideHeader?: boolean } = {}) {
   return (
     <section
       className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center"
-      style={{ background: '#FAFAFA' }}
+      style={{ background: '#070707' }}
     >
       {/* Cozy gradient blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -343,9 +403,16 @@ export default function SolutionSection({ hideHeader }: { hideHeader?: boolean }
         </motion.div>
       )}
 
-      <div className="max-w-6xl mx-auto px-8">
-        <CardStack items={CARDS} />
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
+        {/* Mobile: vertical accent-card list */}
+        <div className="md:hidden">
+          <MobileCardList items={CARDS} />
+        </div>
 
+        {/* Desktop: 3D card stack */}
+        <div className="hidden md:block">
+          <CardStack items={CARDS} />
+        </div>
       </div>
     </section>
   )
