@@ -16,9 +16,9 @@ export default function NeuralNetwork() {
     let raf: number
     let nodes: Node[] = []
     const isMobile = window.innerWidth < 768
-    const COUNT = isMobile ? 16 : 38
-    const MAX_DIST = isMobile ? 80 : 130
-    const FPS_INTERVAL = isMobile ? 50 : 0 // ~20fps on mobile, uncapped on desktop
+    const COUNT = isMobile ? 12 : 38
+    const MAX_DIST = isMobile ? 70 : 130
+    const FPS_INTERVAL = isMobile ? 66 : 0 // ~15fps on mobile, uncapped on desktop
     let lastTime = 0
 
     const resize = () => {
@@ -40,8 +40,15 @@ export default function NeuralNetwork() {
       const rect = canvas.getBoundingClientRect()
       mouse.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
     }
+    const onTouch = (e: TouchEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      const t = e.touches[0]
+      mouse.current = { x: t.clientX - rect.left, y: t.clientY - rect.top }
+    }
     canvas.addEventListener('mousemove', onMove, { passive: true })
     canvas.addEventListener('mouseleave', () => { mouse.current = { x:-9999, y:-9999 } })
+    canvas.addEventListener('touchmove', onTouch, { passive: true })
+    canvas.addEventListener('touchend', () => { mouse.current = { x:-9999, y:-9999 } })
 
     const draw = (now: number) => {
       if (!paused) raf = requestAnimationFrame(draw)
@@ -79,15 +86,14 @@ export default function NeuralNetwork() {
         }
       }
 
-      // Nodes
+      // Nodes — skip shadowBlur on mobile (expensive)
       for (const n of nodes) {
         ctx.beginPath()
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
-        ctx.fillStyle   = n.color
-        ctx.shadowBlur  = 8
-        ctx.shadowColor = n.color
+        ctx.fillStyle = n.color
+        if (!isMobile) { ctx.shadowBlur = 8; ctx.shadowColor = n.color }
         ctx.fill()
-        ctx.shadowBlur  = 0
+        if (!isMobile) ctx.shadowBlur = 0
       }
 
     }
@@ -119,14 +125,14 @@ export default function NeuralNetwork() {
   }, [])
 
   return (
-    <section id="science" className="relative py-32 overflow-hidden"
+    <section id="science" className="relative py-16 md:py-32 overflow-hidden"
       style={{ background:'linear-gradient(180deg, #070707 0%, #0E1525 100%)' }}>
       <motion.div
         initial={{ opacity:0, y:24 }}
         whileInView={{ opacity:1, y:0 }}
         viewport={{ once:true, margin:'-80px' }}
         transition={{ duration:0.6 }}
-        className="relative z-10 mb-12 px-8 text-center"
+        className="relative z-10 mb-12 px-4 md:px-8 text-center"
       >
         <p className="mb-4 text-xs tracking-[0.3em] uppercase" style={{ color:'#5DEBFF' }}>Intelligence</p>
         <h2 className="font-display text-4xl md:text-6xl font-bold text-white">
@@ -142,7 +148,7 @@ export default function NeuralNetwork() {
         whileInView={{ opacity:1, scale:1 }}
         viewport={{ once:true, margin:'-80px' }}
         transition={{ duration:0.5 }}
-        className="relative mx-8 h-[380px] overflow-hidden rounded-3xl"
+        className="relative mx-2 md:mx-8 h-[280px] md:h-[380px] overflow-hidden rounded-3xl"
         style={{ background:'rgba(14,21,37,0.5)', border:'1px solid rgba(93,235,255,0.07)' }}
       >
         <canvas ref={canvasRef} className="h-full w-full" style={{ willChange:'auto' }} />

@@ -197,7 +197,10 @@ export default function HeroSection() {
 
   // Parallax — throttled
   const lastMove = useRef(0)
+  const isMobileRef = useRef(false)
+  useEffect(() => { isMobileRef.current = window.innerWidth < 768 }, [])
   const onMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (isMobileRef.current) return
     if (Date.now() - lastMove.current < 28) return
     lastMove.current = Date.now()
     const rect = e.currentTarget.getBoundingClientRect()
@@ -256,7 +259,7 @@ export default function HeroSection() {
           style={{ fontSize: 'clamp(3.5rem, 10vw, 9.5rem)' }}
         >
           <span className="block text-white">YOUR MIND.</span>
-          <span className="block gradient-text">LIMITLESS.</span>
+          <span className="block gradient-text">ON DEMAND.</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -274,10 +277,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.95 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-4"
+          className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-3 md:gap-4"
         >
           <button
-            className="rounded-full px-9 py-4 text-sm font-bold tracking-[0.18em] uppercase text-[#070707] transition-shadow duration-200"
+            className="rounded-full px-6 md:px-9 py-3 md:py-4 text-sm font-bold tracking-[0.18em] uppercase text-[#070707] transition-shadow duration-200"
             style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)', boxShadow: '0 0 28px rgba(93,235,255,0.35)' }}
             onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 55px rgba(93,235,255,0.55)')}
             onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 0 28px rgba(93,235,255,0.35)')}
@@ -286,7 +289,7 @@ export default function HeroSection() {
           </button>
           <Link
             href="/early-access"
-            className="rounded-full px-9 py-4 text-sm font-semibold tracking-[0.18em] uppercase text-white transition-colors duration-200"
+            className="rounded-full px-6 md:px-9 py-3 md:py-4 text-sm font-semibold tracking-[0.18em] uppercase text-white transition-colors duration-200"
             style={{ border: '1px solid rgba(255,255,255,0.18)' }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(93,235,255,0.5)'; e.currentTarget.style.color = '#5DEBFF' }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; e.currentTarget.style.color = '#fff' }}

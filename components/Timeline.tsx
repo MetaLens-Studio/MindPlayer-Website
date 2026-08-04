@@ -10,7 +10,7 @@ const NODES = [
 
 export default function Timeline() {
   return (
-    <section className="relative py-20 md:py-44 overflow-hidden" style={{ background: '#070707' }}>
+    <section className="relative py-16 md:py-28 overflow-hidden" style={{ background: '#070707' }}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export default function Timeline() {
           style={{ background: 'linear-gradient(90deg, #5DEBFF44, #8A6FFF44, #FFD76A44, #FF6B9D44)' }}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-14">
           {NODES.map((n, i) => (
             <motion.div
               key={i}

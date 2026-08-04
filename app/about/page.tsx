@@ -14,13 +14,14 @@ export default function AboutPage() {
     <PageWrapper>
       {/* Page hero */}
       <div
-        className="flex items-end px-6 md:px-8 pb-12 md:pb-16 pt-32 md:pt-40"
-        style={{ background: 'linear-gradient(180deg, #0E1525 0%, #070707 100%)', minHeight: '35vh' }}
+        className="flex items-end px-6 md:px-8 pb-6 md:pb-8 pt-24 md:pt-28"
+        style={{ background: 'linear-gradient(180deg, #0E1525 0%, #070707 100%)' }}
       >
         <div className="max-w-7xl mx-auto w-full">
           <p className="mb-3 text-xs tracking-[0.3em] uppercase" style={{ color: '#8A6FFF' }}>About</p>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white leading-none">
-            Why <span className="gradient-text">MindPlayer</span>
+          <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
+            We are not building<br className="hidden sm:block" />
+            {' '}<span className="gradient-text">another wellness app.</span>
           </h1>
         </div>
       </div>

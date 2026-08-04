@@ -129,7 +129,7 @@ export default function Footer() {
       />
 
       {/* Top section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8 pt-16 pb-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
           {/* Brand */}
@@ -195,7 +195,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div
-        className="relative z-10 max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4"
+        className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4"
         style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
       >
         <p className="text-xs text-[#B8B8B8]">© 2026 Mind Player. All rights reserved.</p>

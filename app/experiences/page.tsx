@@ -41,12 +41,11 @@ export default function ExperiencesPage() {
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <p className="mb-4 md:mb-6 text-sm tracking-[0.3em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>Experiences</p>
           <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight mb-6 md:mb-8">
-            Immersive experiences<br />
-            <span className="gradient-text">designed for different</span><br />
-            mental states.
+            Experiences designed for<br />
+            <span className="gradient-text">how you want to feel.</span>
           </h1>
           <p className="text-base md:text-xl text-[#B8B8B8] leading-relaxed max-w-2xl mx-auto">
-            Mind Player Experiences combine sound, immersive environments and guided sessions designed to support your focus, recovery, sleep, emotional balance and performance.
+            Whatever you need — focus, calm, sleep, energy or clarity — there&apos;s a Mind for that.
           </p>
         </div>
 

@@ -53,6 +53,19 @@ const CARDS = [
     ),
   },
   {
+    id: 'motivation',
+    title: 'Motivation',
+    description: 'Burnout, low dopamine, and constant comparison drain the drive you need to pursue what actually matters.',
+    color: '#FFD76A',
+    image: '/images/Recovery.webp',
+    accent: 'rgba(255,215,106,0.15)',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 6l2.5 7H26l-6 4.5 2.5 7L16 20l-6.5 4.5 2.5-7L6 13h7.5z" stroke="#FFD76A" strokeWidth="1.5" fill="none" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
     id: 'emotional',
     title: 'Emotional Balance',
     description: 'Unregulated stress responses, anxiety loops, and emotional dysregulation quietly erode your quality of life.',
@@ -79,6 +92,21 @@ const CARDS = [
         <path d="M12 20h8M13 23h6" stroke="#5DEBFF" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
         <circle cx="13" cy="13" r="1.5" fill="#5DEBFF" opacity="0.6"/>
         <circle cx="19" cy="13" r="1.5" fill="#5DEBFF" opacity="0.6"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'creativity',
+    title: 'Creativity',
+    description: 'Mental rigidity, stress, and routine suppress original thinking and the imaginative flow states that fuel great work.',
+    color: '#8A6FFF',
+    image: '/images/Sleep.webp',
+    accent: 'rgba(138,111,255,0.18)',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 8c-2 0-4 1.5-4 4 0 1.5.7 2.8 1.8 3.6C12.3 16.3 12 17 12 18c0 1.5 1 2.5 2 2.5h4c1 0 2-1 2-2.5 0-1-.3-1.7-1.8-2.4C19.3 14.8 20 13.5 20 12c0-2.5-2-4-4-4z" stroke="#8A6FFF" strokeWidth="1.5" fill="none"/>
+        <path d="M13 21v3M19 21v3M14 24h4" stroke="#8A6FFF" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
+        <path d="M8 12h2M22 12h2M10 8l1.5 1.5M20.5 8L19 9.5" stroke="#8A6FFF" strokeWidth="1.2" strokeLinecap="round" opacity="0.4"/>
       </svg>
     ),
   },
@@ -138,7 +166,7 @@ export default function ProblemSection() {
         <ul
           className="grid w-full gap-2"
           style={{
-            height: isDesktop ? '520px' : '700px',
+            height: isDesktop ? '520px' : '900px',
             transition: 'grid-template-columns 0.5s ease-out, grid-template-rows 0.5s ease-out',
             ...gridStyle,
           }}

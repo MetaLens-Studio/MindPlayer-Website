@@ -5,34 +5,49 @@ const STYLE_ID = 'mindplayer-faq-animations'
 
 const FAQS = [
   {
-    question: 'What is MindPlayer?',
-    answer: 'MindPlayer is a mental state regulation platform that uses spatial sound, immersive environments, guided sessions, music, and sensory experiences to help you improve focus, recovery, sleep, and overall wellbeing — on demand.',
+    question: 'What is Mind Player?',
+    answer: 'Mind Player is a mental state regulation platform. It combines sound, immersive environments, and guidance into experiences designed to shift how you feel — helping you access focus, calm, sleep, energy, or clarity on demand.',
     meta: 'Overview',
   },
   {
-    question: 'How does it actually work?',
-    answer: 'You choose a goal (focus, sleep, relaxation, recovery, or performance), enter a tailored immersive environment, and let the combination of sound, visuals, and guided cues shift your mental state. Your brain responds to these inputs naturally and consistently.',
+    question: 'Is Mind Player a meditation app?',
+    answer: 'No. Meditation requires practice and discipline. Mind Player is designed to work without effort — you simply enter the experience and let the environment do the work. No training needed.',
+    meta: 'About',
+  },
+  {
+    question: 'How does Mind Player work?',
+    answer: 'Mind Player uses a combination of spatial audio, curated sound design, visual environments, and guided cues to influence your nervous system and shift your mental state. The experiences are designed around scientific principles — not beliefs or rituals.',
     meta: 'How It Works',
   },
   {
-    question: 'Who is MindPlayer for?',
-    answer: 'Professionals, students, athletes, creators, and high performers — anyone who wants to take control of their mental state and operate at their best. If you have a mind, MindPlayer is for you.',
+    question: 'What are Minds?',
+    answer: 'Minds are individual experiences within Mind Player — each one designed to support a specific mental state. There are Minds for focus, sleep, calm, recovery, energy, and more.',
+    meta: 'Features',
+  },
+  {
+    question: 'Is there science behind Mind Player?',
+    answer: 'Yes. Mind Player draws on research in cognitive performance, attention regulation, stress and nervous system science, environmental psychology, music and emotional regulation, spatial audio, and neuroplasticity. We apply this research practically — not theoretically.',
+    meta: 'Science',
+  },
+  {
+    question: 'Who is Mind Player for?',
+    answer: 'Anyone who wants more control over how they feel. People use Mind Player to get into focus before deep work, decompress after a hard day, fall asleep faster, or recover mentally and physically.',
     meta: 'Audience',
   },
   {
-    question: 'What devices does it support?',
-    answer: 'MindPlayer is designed across VR, AR, mobile, and AI-powered interfaces — so you can access it wherever you are, with whatever device you have.',
+    question: 'Who created Mind Player?',
+    answer: 'Mind Player was created by a small team obsessed with the gap between how people feel and how they want to feel. We believe the tools to close that gap should be accessible to everyone.',
+    meta: 'Team',
+  },
+  {
+    question: 'Does Mind Player require VR?',
+    answer: 'No. Mind Player is designed to work across devices — mobile, desktop, and VR. You can access the experiences wherever you are, with whatever you have.',
     meta: 'Platform',
   },
   {
-    question: 'When will it be available?',
-    answer: "We're currently in early access. Join the waitlist to be among the first to experience the future of mental performance. No spam — just early access.",
-    meta: 'Access',
-  },
-  {
-    question: 'Is there science behind it?',
-    answer: 'Yes. MindPlayer is built on decades of neuroscience research around brainwave entrainment, binaural audio, and immersive environment design. Every session is engineered to produce measurable, repeatable mental state shifts.',
-    meta: 'Science',
+    question: 'Is Mind Player a medical treatment?',
+    answer: 'No. Mind Player is not a medical device, therapy, or treatment. It is a tool for mental state regulation and wellbeing. If you have a medical or psychological condition, please consult a qualified professional.',
+    meta: 'Medical',
   },
 ]
 

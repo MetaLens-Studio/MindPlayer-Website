@@ -109,7 +109,7 @@ export default function CTASection() {
             whileHover={{ scale:1.05 }}
             whileTap={{ scale:0.97 }}
             transition={{ type:'spring', stiffness:400, damping:20 }}
-            className="mt-12 inline-block rounded-full px-14 py-5 font-display text-lg font-black tracking-[0.18em] uppercase text-[#070707]"
+            className="mt-10 md:mt-12 inline-block rounded-full px-8 md:px-14 py-4 md:py-5 font-display text-base md:text-lg font-black tracking-[0.18em] uppercase text-[#070707]"
             style={{
               background:'linear-gradient(135deg, #5DEBFF, #8A6FFF)',
               boxShadow:'0 0 40px rgba(93,235,255,0.3)',

@@ -69,14 +69,14 @@ export default function ProductShowcase({ hideHeader }: { hideHeader?: boolean }
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <section id="experiences" className="relative py-36 overflow-hidden" style={{ background: '#070707' }}>
+    <section id="experiences" className="relative py-16 md:py-36 overflow-hidden" style={{ background: '#070707' }}>
       {!hideHeader && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20 px-8 text-center"
+          className="mb-10 md:mb-20 px-4 md:px-8 text-center"
         >
           <p className="mb-4 text-xs tracking-[0.3em] uppercase" style={{ color: '#5DEBFF' }}>Products</p>
           <h2 className="font-display text-4xl md:text-6xl font-bold text-white">
@@ -85,7 +85,7 @@ export default function ProductShowcase({ hideHeader }: { hideHeader?: boolean }
         </motion.div>
       )}
 
-      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {PRODUCTS.map((p, i) => {
           const isHovered = hovered === p.id
           return (
@@ -98,7 +98,7 @@ export default function ProductShowcase({ hideHeader }: { hideHeader?: boolean }
               whileHover={{ y: -18, transition: { type: 'spring', stiffness: 280, damping: 20 } }}
               onHoverStart={() => setHovered(p.id)}
               onHoverEnd={() => setHovered(null)}
-              className="relative rounded-2xl p-8 overflow-hidden cursor-pointer transition-all duration-500"
+              className="relative rounded-2xl p-5 md:p-8 overflow-hidden cursor-pointer transition-all duration-500"
               style={{
                 background: isHovered
                   ? `linear-gradient(145deg, ${p.color}18, ${p.color}05)`

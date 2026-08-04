@@ -17,7 +17,7 @@ export default function FAQPage() {
       >
         <div className="max-w-7xl mx-auto w-full">
           <p className="mb-3 text-xs tracking-[0.3em] uppercase" style={{ color: '#5DEBFF' }}>Support</p>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white leading-none">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-black text-white leading-tight">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h1>
         </div>

@@ -36,7 +36,7 @@ const TESTIMONIALS = [
   },
 ]
 
-const randomRotate = () => `${Math.floor(Math.random() * 16) - 8}deg`
+const ROTATIONS = ['-6deg', '4deg', '-3deg', '7deg', '-5deg']
 
 export default function Testimonials() {
   const [active, setActive] = useState(0)
@@ -84,13 +84,13 @@ export default function Testimonials() {
                 {TESTIMONIALS.map((t, index) => (
                   <motion.div
                     key={t.src}
-                    initial={{ opacity: 0, scale: 0.9, y: 50, rotate: randomRotate() }}
+                    initial={{ opacity: 0, scale: 0.9, y: 50, rotate: ROTATIONS[index] }}
                     animate={{
                       opacity: index === active ? 1 : 0.4,
                       scale: index === active ? 1 : 0.9,
                       y: index === active ? 0 : 20,
                       zIndex: index === active ? TESTIMONIALS.length : TESTIMONIALS.length - Math.abs(index - active),
-                      rotate: index === active ? '0deg' : randomRotate(),
+                      rotate: index === active ? '0deg' : ROTATIONS[index],
                     }}
                     exit={{ opacity: 0, scale: 0.9, y: -50 }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
@@ -101,6 +101,8 @@ export default function Testimonials() {
                       src={t.src}
                       alt={t.name}
                       draggable={false}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full rounded-3xl object-cover"
                       style={{ boxShadow: '0 0 40px rgba(93,235,255,0.12)' }}
                     />

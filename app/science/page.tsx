@@ -50,8 +50,8 @@ export default function SciencePage() {
               Science
             </p>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 md:mb-8">
-              Inspired by science.<br />
-              <span className="gradient-text">Built for modern life.</span>
+              Built on science.<br />
+              <span className="gradient-text">Designed for real life.</span>
             </h1>
             <p className="text-base md:text-lg text-[#B8B8B8] leading-relaxed max-w-xl mb-4">
               Mind Player is inspired by scientific research in cognitive performance, attention regulation, stress and recovery, environmental psychology and immersive audio.

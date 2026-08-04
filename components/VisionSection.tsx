@@ -21,7 +21,7 @@ export default function VisionSection() {
   return (
     <section
       ref={ref}
-      className="relative py-24 md:py-48 overflow-hidden"
+      className="relative py-16 md:py-32 overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #0E1525 0%, #070707 100%)' }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">

@@ -98,12 +98,12 @@ export default function EarlyAccessPage() {
                 </div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6">
-                  Be first to experience<br />
-                  <span className="gradient-text">a limitless mind.</span>
+                  Be among the first<br />
+                  <span className="gradient-text">to control your mind.</span>
                 </h1>
 
                 <p className="text-[#B8B8B8] text-lg leading-relaxed max-w-lg mx-auto mb-12">
-                  MindPlayer is launching soon. Join the waitlist and get exclusive early access before anyone else.
+                  Mind Player is launching soon. Join the waitlist for early access, founder updates, and the chance to shape what we build.
                 </p>
 
                 {/* Email form */}
