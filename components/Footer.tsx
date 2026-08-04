@@ -1,4 +1,5 @@
 'use client'
+// footer
 import { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
