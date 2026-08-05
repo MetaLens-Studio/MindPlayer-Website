@@ -117,14 +117,28 @@ export default function ScienceOutcomes() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-16 md:pt-24 pb-4 text-center">
         <p className="mb-4 text-sm tracking-[0.3em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>Outcomes</p>
         <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4">
-          What science helps<br />
-          <span className="gradient-text">you achieve.</span>
+          Better mental states<br />
+          <span className="gradient-text">can support:</span>
         </h2>
         <p className="text-[#B8B8B8] max-w-xl mx-auto text-base md:text-lg">
           Tap any node to explore how each outcome connects to the science behind it.
         </p>
       </div>
       <RadialOrbitalTimeline timelineData={OUTCOMES} />
+      <div className="max-w-2xl mx-auto px-6 md:px-8 pb-16 md:pb-20">
+        <div
+          className="rounded-xl px-5 py-4 text-center"
+          style={{
+            background: 'rgba(255,255,255,0.05)',
+            border: '1px solid rgba(255,255,255,0.08)',
+          }}
+        >
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <span style={{ color: '#5DEBFF', fontWeight: 600 }}>Important: </span>
+            Mind Player is not a medical treatment or replacement for professional healthcare. It is a platform designed to support mental state regulation and cognitive wellbeing in everyday life.
+          </p>
+        </div>
+      </div>
     </section>
   )
 }

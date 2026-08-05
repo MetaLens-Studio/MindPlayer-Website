@@ -247,74 +247,8 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
                       width: 1, height: 12, background: 'rgba(93,235,255,0.4)',
                     }} />
 
-                    {/* Status + date */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                      <span style={{
-                        fontSize: 10, fontWeight: 700, letterSpacing: '0.1em',
-                        borderRadius: 20, padding: '2px 8px',
-                        ...statusColor(item.status),
-                      }}>
-                        {statusLabel(item.status)}
-                      </span>
-                      <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)' }}>
-                        {item.date}
-                      </span>
-                    </div>
-
                     <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{item.title}</div>
-                    <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 12 }}>{item.content}</p>
-
-                    {/* Energy bar */}
-                    <div style={{ marginBottom: 12 }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                        <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <Zap size={10} /> Effectiveness
-                        </span>
-                        <span style={{ fontSize: 10, fontFamily: 'monospace', color: '#5DEBFF' }}>{item.energy}%</span>
-                      </div>
-                      <div style={{ width: '100%', height: 3, background: 'rgba(255,255,255,0.08)', borderRadius: 4, overflow: 'hidden' }}>
-                        <div style={{
-                          height: '100%',
-                          width: `${item.energy}%`,
-                          background: 'linear-gradient(to right, #5DEBFF, #8A6FFF)',
-                          borderRadius: 4,
-                        }} />
-                      </div>
-                    </div>
-
-                    {/* Related nodes */}
-                    {item.relatedIds.length > 0 && (
-                      <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 10 }}>
-                        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', display: 'flex', alignItems: 'center', gap: 4, marginBottom: 8, letterSpacing: '0.08em' }}>
-                          <Link2 size={10} /> CONNECTED STATES
-                        </div>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
-                          {item.relatedIds.map(relId => {
-                            const rel = timelineData.find(i => i.id === relId)
-                            return (
-                              <button
-                                key={relId}
-                                onClick={e => { e.stopPropagation(); toggleItem(relId) }}
-                                style={{
-                                  display: 'flex', alignItems: 'center', gap: 4,
-                                  fontSize: 10, padding: '3px 8px',
-                                  background: 'rgba(93,235,255,0.08)',
-                                  border: '1px solid rgba(93,235,255,0.2)',
-                                  borderRadius: 4,
-                                  color: 'rgba(255,255,255,0.7)',
-                                  cursor: 'pointer',
-                                  transition: 'all 0.2s',
-                                }}
-                                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(93,235,255,0.15)'; (e.currentTarget as HTMLElement).style.color = '#fff' }}
-                                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(93,235,255,0.08)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)' }}
-                              >
-                                {rel?.title} <ArrowRight size={8} />
-                              </button>
-                            )
-                          })}
-                        </div>
-                      </div>
-                    )}
+                    <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, margin: 0 }}>{item.content}</p>
                   </div>
                 )}
               </div>

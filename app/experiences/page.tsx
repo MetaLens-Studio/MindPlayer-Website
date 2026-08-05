@@ -14,7 +14,7 @@ export default function ExperiencesPage() {
     <PageWrapper>
       {/* Hero — full screen intro */}
       <div
-        className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 pt-28 overflow-hidden"
+        className="relative flex flex-col items-center justify-center min-h-[75vh] md:min-h-screen px-6 md:px-16 pt-16 md:pt-20 overflow-hidden"
         style={{ background: '#05080f' }}
       >
         {/* Static background image */}

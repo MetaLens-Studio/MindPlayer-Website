@@ -3,10 +3,15 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = ['Home', 'About', 'How It Works', 'Experiences', 'Science', 'FAQ']
-const LEGAL = ['Terms & Conditions', 'Privacy Policy', 'Cookies']
+const LEGAL = [
+  { label: 'Terms & Conditions', href: '/terms' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Cookies', href: '/cookies' },
+]
 
 // ── TextHoverEffect ──────────────────────────────────────────────────────────
 const TextHoverEffect = ({
@@ -142,6 +147,7 @@ export default function Footer() {
                 width={96}
                 height={96}
                 className="object-contain flex-shrink-0 translate-y-1"
+                style={{ marginLeft: -30 }}
               />
               <span className="font-display text-lg font-semibold text-white select-none -ml-5">
                 Mind<span style={{ color: '#5DEBFF' }}>Player</span>
@@ -203,9 +209,9 @@ export default function Footer() {
 
         <div className="flex items-center gap-6">
           {LEGAL.map(l => (
-            <button key={l} className="text-xs text-[#B8B8B8] hover:text-white transition-colors duration-200">
-              {l}
-            </button>
+            <Link key={l.href} href={l.href} className="text-xs text-[#B8B8B8] hover:text-white transition-colors duration-200">
+              {l.label}
+            </Link>
           ))}
         </div>
       </div>

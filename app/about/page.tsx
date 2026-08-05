@@ -23,6 +23,10 @@ export default function AboutPage() {
             We are not building<br className="hidden sm:block" />
             {' '}<span className="gradient-text">another wellness app.</span>
           </h1>
+          <p className="mt-4 md:mt-6 text-base md:text-lg leading-relaxed max-w-xl" style={{ color: '#B8B8B8' }}>
+            Most technology was built to capture your attention.<br className="hidden sm:block" />
+            Mind Player was built to give it back.
+          </p>
         </div>
       </div>
 

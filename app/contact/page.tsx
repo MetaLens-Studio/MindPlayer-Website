@@ -73,18 +73,6 @@ export default function ContactPage() {
         <path d="M1100 -50 C 1050 200, 1200 400, 1100 700" fill="none" stroke="rgba(93,235,255,0.04)" strokeWidth="0.9" />
       </svg>
 
-      {/* Back link */}
-      <div className="relative z-10 px-6 md:px-12 pt-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-[#B8B8B8] hover:text-white transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          Back to MindPlayer
-        </Link>
-      </div>
 
       {/* Main content */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-6 py-16">

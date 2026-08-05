@@ -256,10 +256,10 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="font-display font-black leading-none tracking-tight"
-          style={{ fontSize: 'clamp(3.5rem, 10vw, 9.5rem)' }}
+          style={{ fontSize: 'clamp(2.6rem, 10vw, 9.5rem)' }}
         >
           <span className="block text-white">YOUR MIND.</span>
-          <span className="block gradient-text">ON DEMAND.</span>
+          <span className="block gradient-text whitespace-nowrap">ON DEMAND.</span>
         </motion.h1>
 
         {/* Sub-headline */}

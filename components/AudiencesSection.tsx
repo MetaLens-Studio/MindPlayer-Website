@@ -53,7 +53,7 @@ export default function AudiencesSection() {
         </p>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-3 gap-6 md:gap-8">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
         {AUDIENCES.map((a, i) => (
           <motion.div
             key={a.title}

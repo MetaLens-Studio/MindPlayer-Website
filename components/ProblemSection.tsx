@@ -230,24 +230,24 @@ export default function ProblemSection() {
                   }}
                 />
 
-                {/* ── Collapsed label (desktop only) ─────────────── */}
-                {/* Uses writing-mode so the full title always fits — no clipping */}
-                {isDesktop && (
-                  <div
-                    className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
-                    style={{ opacity: isActive ? 0 : 1, pointerEvents: 'none' }}
-                  >
+                {/* ── Collapsed label ─────────────────────────────── */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
+                  style={{ opacity: isActive ? 0 : 1, pointerEvents: 'none' }}
+                >
+                  {isDesktop ? (
                     <span
                       className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70 select-none whitespace-nowrap"
-                      style={{
-                        writingMode: 'vertical-rl',
-                        transform: 'rotate(180deg)', // reads bottom → top
-                      }}
+                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
                     >
                       {card.title}
                     </span>
-                  </div>
-                )}
+                  ) : (
+                    <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80 select-none whitespace-nowrap px-4">
+                      {card.title}
+                    </span>
+                  )}
+                </div>
 
                 {/* ── Expanded content ───────────────────────────── */}
                 <article className="absolute inset-0 flex flex-col justify-end gap-3 p-7">
@@ -297,6 +297,28 @@ export default function ProblemSection() {
             )
           })}
         </ul>
+      </motion.div>
+
+      {/* Solution */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="mx-auto max-w-2xl px-6 md:px-8 mt-20 md:mt-28 text-center"
+      >
+        <p className="mb-4 text-xs tracking-[0.3em] uppercase" style={{ color: '#5DEBFF' }}>The Solution</p>
+        <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">
+          A new kind of <span className="gradient-text">experience.</span>
+        </h2>
+        <p className="text-base md:text-lg leading-relaxed" style={{ color: '#B8B8B8' }}>
+          Mind Player combines sound, immersive environments and guidance into experiences designed to shift how you feel — not just distract you from how you feel.
+        </p>
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <div className="h-px w-10 rounded-full" style={{ background: '#5DEBFF' }} />
+          <div className="h-px w-6 rounded-full" style={{ background: '#8A6FFF' }} />
+          <div className="h-px w-3 rounded-full" style={{ background: '#FFD76A' }} />
+        </div>
       </motion.div>
     </section>
   )

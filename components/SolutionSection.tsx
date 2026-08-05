@@ -403,17 +403,15 @@ export default function SolutionSection({ hideHeader }: { hideHeader?: boolean }
         </motion.div>
       )}
 
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
-        {/* Mobile: vertical accent-card list */}
-        <div className="md:hidden">
-          <MobileCardList items={CARDS} />
-        </div>
-
-        {/* Desktop: 3D card stack */}
-        <div className="hidden md:block">
-          <CardStack items={CARDS} />
-        </div>
-      </div>
+      <motion.div
+        className="max-w-6xl mx-auto px-5 md:px-8"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '80px' }}
+        transition={{ duration: 0.7, ease: [0.22, 0.68, 0, 1] }}
+      >
+        <CardStack items={CARDS} />
+      </motion.div>
     </section>
   )
 }

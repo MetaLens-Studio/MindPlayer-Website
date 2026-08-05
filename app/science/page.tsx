@@ -5,6 +5,7 @@ import PageWrapper from '@/components/PageWrapper'
 import VisionSection from '@/components/VisionSection'
 import NeuralNetwork from '@/components/NeuralNetwork'
 import ScienceOutcomes from '@/components/ScienceOutcomes'
+import ScienceSections from '@/components/ScienceSections'
 
 export const metadata: Metadata = {
   title: 'Science — MindPlayer',
@@ -54,7 +55,7 @@ export default function SciencePage() {
               <span className="gradient-text">Designed for real life.</span>
             </h1>
             <p className="text-base md:text-lg text-[#B8B8B8] leading-relaxed max-w-xl mb-4">
-              Mind Player is inspired by scientific research in cognitive performance, attention regulation, stress and recovery, environmental psychology and immersive audio.
+              Every Mind, every sound, every environment in Mind Player is built on a body of research. Not as decoration — but as the foundation for every product decision we make.
             </p>
             <p className="text-base text-[#B8B8B8] leading-relaxed max-w-xl" style={{ opacity: 0.8 }}>
               We combine this knowledge with immersive technology to help support better mental states.
@@ -91,7 +92,7 @@ export default function SciencePage() {
         </div>
       </div>
 
-      <VisionSection />
+      <ScienceSections />
       <ScienceOutcomes />
       <NeuralNetwork />
     </PageWrapper>

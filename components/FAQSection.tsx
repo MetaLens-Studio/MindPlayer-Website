@@ -6,47 +6,47 @@ const STYLE_ID = 'mindplayer-faq-animations'
 const FAQS = [
   {
     question: 'What is Mind Player?',
-    answer: 'Mind Player is a mental state regulation platform. It combines sound, immersive environments, and guidance into experiences designed to shift how you feel — helping you access focus, calm, sleep, energy, or clarity on demand.',
+    answer: 'Mind Player is a platform designed to help you control how you feel, think and perform — on demand. It combines immersive sound, visual environments and guided experiences to help you shift your mental state when you need it. Whether you need to focus, sleep, recover or find calm — Mind Player gives you a way to get there intentionally.',
     meta: 'Overview',
   },
   {
     question: 'Is Mind Player a meditation app?',
-    answer: 'No. Meditation requires practice and discipline. Mind Player is designed to work without effort — you simply enter the experience and let the environment do the work. No training needed.',
+    answer: 'No. Mind Player is not a meditation app. It doesn\'t require you to sit still, clear your mind or follow a spiritual practice. Mind Player is about intentional mental state change — using immersive sound, environments and AI-guided experiences to help you move from how you feel now to how you need to feel. It\'s designed for performance, recovery and everyday mental clarity.',
     meta: 'About',
   },
   {
     question: 'How does Mind Player work?',
-    answer: 'Mind Player uses a combination of spatial audio, curated sound design, visual environments, and guided cues to influence your nervous system and shift your mental state. The experiences are designed around scientific principles — not beliefs or rituals.',
+    answer: 'Three steps. First, you tell Mind Player what you need — focus, sleep, calm, energy or creativity. Then you describe how you feel right now. Mind Player matches you with an immersive experience — a Mind — designed to help you shift from your current state to your desired one. The more you use it, the better it understands you.',
     meta: 'How It Works',
   },
   {
     question: 'What are Minds?',
-    answer: 'Minds are individual experiences within Mind Player — each one designed to support a specific mental state. There are Minds for focus, sleep, calm, recovery, energy, and more.',
+    answer: 'Minds are immersive experiences designed to support a specific mental state. A Mind can combine music, spatial sound, immersive visuals and guided sessions into one cohesive experience. Some Minds have a defined duration — like a 20-minute focus session. Others play continuously as a background environment while you work, rest or sleep. Every Mind is designed with a purpose — not just to sound good, but to help shift how you feel.',
     meta: 'Features',
   },
   {
     question: 'Is there science behind Mind Player?',
-    answer: 'Yes. Mind Player draws on research in cognitive performance, attention regulation, stress and nervous system science, environmental psychology, music and emotional regulation, spatial audio, and neuroplasticity. We apply this research practically — not theoretically.',
+    answer: 'Yes. Mind Player is built on research in cognitive performance, attention regulation, stress and the nervous system, sleep science, environmental psychology and spatial audio. Every product decision — from the frequencies used in our audio to the design of our visual environments — is informed by this research. Mind Player is not a medical treatment. But it is built on a serious body of scientific knowledge about how sound, environment and sensory input influence mental state.',
     meta: 'Science',
   },
   {
     question: 'Who is Mind Player for?',
-    answer: 'Anyone who wants more control over how they feel. People use Mind Player to get into focus before deep work, decompress after a hard day, fall asleep faster, or recover mentally and physically.',
+    answer: 'Mind Player is for anyone whose brain has to perform under pressure. Professionals who need sustained focus. Students facing exam stress. Athletes managing recovery and mental readiness. Creators looking for flow. High performers who need to be consistently at their best. And anyone who simply finds it hard to switch off at the end of the day.',
     meta: 'Audience',
   },
   {
     question: 'Who created Mind Player?',
-    answer: 'Mind Player was created by a small team obsessed with the gap between how people feel and how they want to feel. We believe the tools to close that gap should be accessible to everyone.',
+    answer: 'Mind Player was created by Jaime Inglez, a medical doctor with a background in health, performance and wellbeing. After years of observing how mental state affects focus, recovery and performance across very different types of people, Jaime became interested in a simple question: what if there was a way to intentionally shift mental state — not through willpower or habit alone, but through immersive technology designed specifically for that purpose? Mind Player is the answer to that question.',
     meta: 'Team',
   },
   {
     question: 'Does Mind Player require VR?',
-    answer: 'No. Mind Player is designed to work across devices — mobile, desktop, and VR. You can access the experiences wherever you are, with whatever you have.',
+    answer: 'No. Mind Player works on any smartphone. VR enhances the experience by creating fully immersive environments — but it is optional, not required. The core product is designed to deliver value on mobile, with or without VR.',
     meta: 'Platform',
   },
   {
     question: 'Is Mind Player a medical treatment?',
-    answer: 'No. Mind Player is not a medical device, therapy, or treatment. It is a tool for mental state regulation and wellbeing. If you have a medical or psychological condition, please consult a qualified professional.',
+    answer: 'No. Mind Player is not a medical treatment, a clinical tool or a replacement for professional healthcare. It is a platform designed to support mental state regulation and cognitive wellbeing in everyday life. If you are experiencing mental health issues, please consult a qualified healthcare professional.',
     meta: 'Medical',
   },
 ]
