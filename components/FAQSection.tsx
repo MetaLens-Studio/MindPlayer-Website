@@ -243,8 +243,8 @@ export default function FAQSection({ hideHeader }: { hideHeader?: boolean } = {}
                     </div>
 
                     <div
-                      className="overflow-hidden text-sm leading-relaxed transition-[max-height] duration-500 ease-out"
-                      style={{ maxHeight: open ? '16rem' : '0', color: '#B8B8B8' }}
+                      className="text-sm leading-relaxed transition-[max-height] duration-500 ease-out"
+                      style={{ maxHeight: open ? '16rem' : '0', overflowY: open ? 'auto' : 'hidden', color: '#B8B8B8' }}
                     >
                       <p className="pr-2 pb-1">{item.answer}</p>
                     </div>

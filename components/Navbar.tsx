@@ -62,22 +62,30 @@ export default function Navbar() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-0 inset-x-0 z-50"
       >
-        <div className={`mx-auto mt-4 max-w-7xl px-6 transition-all duration-300 ${scrolled ? 'mt-2' : ''}`}>
-          <div className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-300 ${scrolled ? 'glass' : ''}`}>
+        <div className={`mx-auto max-w-7xl px-2 transition-all duration-300 ${scrolled ? 'mt-2' : 'mt-1'}`}>
+          <div
+            className={`flex items-center justify-between px-2 py-2 transition-all duration-500 md:rounded-2xl md:px-6 md:py-3`}
+            style={scrolled ? {
+              background: 'rgba(7,7,7,0.45)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '999px',
+              paddingTop: '6px',
+              paddingBottom: '6px',
+            } : {}}
+          >
 
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
-                src="/images/logo.png"
+                src="/images/mindplayer-logo-new.png"
                 alt="MindPlayer logo"
-                width={96}
-                height={96}
-                className="object-contain flex-shrink-0 translate-y-1"
+                width={160}
+                height={50}
+                className="object-contain flex-shrink-0"
                 priority
               />
-              <span className="font-display text-white text-lg font-semibold tracking-wide select-none -ml-5">
-                Mind<span style={{ color: '#5DEBFF' }}>Player</span>
-              </span>
             </Link>
 
             {/* Desktop links */}

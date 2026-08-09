@@ -1,7 +1,37 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import React from 'react'
 import { blurDataURLs } from '@/lib/imagePlaceholders'
+
+// ── GridPattern ──────────────────────────────
+function GridPattern({ width, height, x, y, squares, ...props }: React.ComponentProps<'svg'> & { width: number; height: number; x: string; y: string; squares?: number[][] }) {
+  const patternId = React.useId()
+  return (
+    <svg aria-hidden="true" {...props}>
+      <defs>
+        <pattern id={patternId} width={width} height={height} patternUnits="userSpaceOnUse" x={x} y={y}>
+          <path d={`M.5 ${height}V.5H${width}`} fill="none" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" strokeWidth={0} fill={`url(#${patternId})`} />
+      {squares && (
+        <svg x={x} y={y} className="overflow-visible">
+          {squares.map(([sx, sy], idx) => (
+            <rect strokeWidth="0" key={idx} width={width + 1} height={height + 1} x={sx * width} y={sy * height} />
+          ))}
+        </svg>
+      )}
+    </svg>
+  )
+}
+
+function genPattern(): number[][] {
+  return Array.from({ length: 5 }, () => [
+    Math.floor(Math.random() * 4) + 7,
+    Math.floor(Math.random() * 6) + 1,
+  ])
+}
 
 const cardBase = {
   background: 'linear-gradient(145deg, rgba(14,21,37,0.85) 0%, rgba(7,7,7,0.95) 100%)',
@@ -149,105 +179,126 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
       </div>
 
       {/* Our Values */}
-      <div className="relative z-10 w-full" style={{ background: 'white' }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <p className="mb-3 text-xs tracking-[0.3em] uppercase" style={{ color: '#8A6FFF' }}>Our Values</p>
-            <h2 className="font-display text-3xl md:text-5xl font-black" style={{ color: '#070707' }}>
-              What we <span className="gradient-text">stand for.</span>
+      <div className="relative z-10 w-full" style={{ background: '#0A0F1E', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
+
+          {/* Header */}
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: '#8A6FFF' }}>[OUR VALUES]</p>
+            <h2 className="font-display text-3xl md:text-5xl font-black text-white leading-tight mb-4">
+              What we stand for.
             </h2>
-            <p className="text-sm mt-3" style={{ color: '#666' }}>
-              The principles behind every decision we make.
+            <p className="text-sm md:text-base leading-relaxed max-w-lg mx-auto" style={{ color: '#B8B8B8' }}>
+              The principles behind every decision we make, ethically, intentionally, with the human mind at the centre.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-stretch justify-center gap-4 pb-2 px-2">
+          {/* Cards row */}
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
             {[
               {
+                num: '/01',
                 title: 'State Comes First',
-                description: 'Every decision starts with one question: does this help the user feel better? If not, we don\'t build it.',
+                description: 'Every decision starts with one question: does this help the user feel better?',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.5"/>
-                    <circle cx="14" cy="14" r="5" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
-                    <circle cx="14" cy="14" r="2" fill="currentColor"/>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/>
                   </svg>
                 ),
               },
               {
+                num: '/02',
                 title: 'Outcomes Over Engagement',
-                description: 'We don\'t measure success by time in the app. We measure it by how you feel after you leave.',
+                description: 'We measure success by how you feel after you leave, not time in the app.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <path d="M6 20l5-6 4 4 7-9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="22" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.2"/>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
                   </svg>
                 ),
               },
               {
+                num: '/03',
                 title: 'Science as Foundation',
-                description: 'We don\'t follow trends. We follow evidence. Every feature is grounded in research, not assumptions.',
+                description: 'Every feature is grounded in research, not assumptions or trends.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <path d="M10 4v8l-5 9h18l-5-9V4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M10 4h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                    <circle cx="14" cy="17" r="2" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 3H5v4l7 7 7-7-4-4h-4z"/><path d="M9 3l3 4 3-4"/><path d="M12 14v7"/><path d="M9 21h6"/>
                   </svg>
                 ),
               },
               {
+                num: '/04',
                 title: 'Human Always',
                 description: 'Technology should serve people. We build tools that feel human because they are made for humans.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <circle cx="14" cy="9" r="4" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M6 23c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="7" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/>
                   </svg>
                 ),
               },
               {
+                num: '/05',
                 title: 'Long-Term Thinking',
-                description: 'We are not optimising for the next quarter. We are building something that matters over a lifetime.',
+                description: 'We are not optimising for the next quarter. We are building for a lifetime.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M14 8v6l4 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                   </svg>
                 ),
               },
-            ].map((value, i) => (
+            ].map((value, i) => {
+              const squares = genPattern()
+              return (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '60px' }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group w-56 shrink-0 transition-all duration-300 rounded-2xl flex flex-col items-center text-center p-6 cursor-default hover:-translate-y-1"
+                transition={{ duration: 0.55, delay: i * 0.08 }}
+                className="group relative overflow-hidden rounded-2xl md:rounded-3xl flex flex-col p-4 md:p-7 cursor-default"
                 style={{
-                  border: '1px solid #e2e8f0',
-                  background: 'white',
-                  transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.3s',
+                  background: '#111111',
+                  border: '1px solid rgba(255,255,255,0.10)',
+                  minHeight: '260px',
+                  transition: 'border-color 0.3s, box-shadow 0.3s',
                 }}
+                whileHover={{ y: -6 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement
-                  el.style.borderColor = '#8A6FFF'
-                  el.style.background = 'rgba(138,111,255,0.04)'
-                  el.style.boxShadow = '0 8px 32px rgba(138,111,255,0.12)'
+                  el.style.borderColor = 'rgba(255,255,255,0.30)'
+                  el.style.boxShadow = '0 16px 48px rgba(0,0,0,0.5)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLElement
-                  el.style.borderColor = '#e2e8f0'
-                  el.style.background = 'white'
+                  el.style.borderColor = 'rgba(255,255,255,0.10)'
                   el.style.boxShadow = 'none'
                 }}
               >
-                <div className="mb-5 mt-2" style={{ color: '#8A6FFF' }}>{value.icon}</div>
-                <div className="mt-auto">
-                  <h3 className="text-sm font-bold" style={{ color: '#1e293b' }}>{value.title}</h3>
-                  <p className="text-xs mt-2 leading-relaxed" style={{ color: '#64748b' }}>{value.description}</p>
+                {/* Grid pattern overlay */}
+                <div className="pointer-events-none absolute top-0 left-0 h-full w-full" style={{ maskImage: 'linear-gradient(white 40%, transparent)' }}>
+                  <GridPattern
+                    width={20} height={20} x="0" y="0"
+                    squares={squares}
+                    className="absolute inset-0 h-full w-full"
+                    style={{ fill: 'rgba(255,255,255,0.04)', stroke: 'rgba(255,255,255,0.08)' } as React.CSSProperties}
+                  />
+                </div>
+
+                {/* Icon */}
+                <div className="text-white scale-75 md:scale-100 origin-left">{value.icon}</div>
+
+                {/* Number */}
+                <span className="mt-3 md:mt-4 text-xs md:text-sm font-mono font-bold" style={{ color: 'rgba(255,255,255,0.30)' }}>{value.num}</span>
+
+                {/* Title */}
+                <h3 className="mt-2 md:mt-3 text-lg md:text-xl lg:text-2xl font-bold text-white leading-snug">{value.title}</h3>
+
+                {/* Description */}
+                <div className="mt-auto pt-3 md:pt-5" style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '1rem' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(200,200,200,0.75)' }}>{value.description}</p>
                 </div>
               </motion.div>
-            ))}
+            )})}
           </div>
         </div>
       </div>

@@ -104,7 +104,7 @@ export default function ContactPage() {
                 </h1>
 
                 <p className="text-[#B8B8B8] text-lg leading-relaxed max-w-lg mx-auto mb-12 text-center">
-                  Questions, partnerships, or just curious about MindPlayer? Drop us a message and we&apos;ll get back to you.
+                  Questions, partnerships, or just curious about Mind Player? Drop us a message and we&apos;ll get back to you.
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">

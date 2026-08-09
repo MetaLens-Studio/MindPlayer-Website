@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { blurDataURLs } from '@/lib/imagePlaceholders'
 import PageWrapper from '@/components/PageWrapper'
 import VisionSection from '@/components/VisionSection'
-import NeuralNetwork from '@/components/NeuralNetwork'
 import ScienceOutcomes from '@/components/ScienceOutcomes'
 import ScienceSections from '@/components/ScienceSections'
 
@@ -63,7 +62,7 @@ export default function SciencePage() {
           </div>
 
           {/* Right — science image with colour treatment */}
-          <div className="flex-1 flex items-center justify-center relative">
+          <div className="w-full md:flex-1 flex items-center justify-center relative">
             {/* Glow halo behind image */}
             <div
               className="absolute inset-0 pointer-events-none"
@@ -73,7 +72,25 @@ export default function SciencePage() {
               }}
             />
 
-            <div className="relative w-full max-w-2xl md:max-w-none md:scale-125 md:origin-center">
+            <div className="relative w-full md:max-w-none md:scale-125 md:origin-center">
+              {/* Mobile: crop to center the head */}
+              <div className="block md:hidden w-full h-72 overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/science-hero.webp"
+                  alt="Science — neural and molecular research"
+                  width={1515}
+                  height={1038}
+                  quality={90}
+                  priority
+                  className="w-full h-full"
+                  style={{
+                    objectFit: 'cover',
+                    objectPosition: 'right center',
+                    filter: 'saturate(0.7) brightness(0.9) drop-shadow(0 0 40px rgba(93,235,255,0.25))',
+                  }}
+                />
+              </div>
+              {/* Desktop: full image */}
               <Image
                 src="/images/science-hero.webp"
                 alt="Science — neural and molecular research"
@@ -81,7 +98,7 @@ export default function SciencePage() {
                 height={1038}
                 quality={90}
                 priority
-                className="w-full h-auto block"
+                className="hidden md:block w-full h-auto"
                 style={{
                   filter: 'saturate(0.7) brightness(0.9) drop-shadow(0 0 40px rgba(93,235,255,0.25)) drop-shadow(0 0 80px rgba(138,111,255,0.15))',
                 }}
@@ -94,7 +111,6 @@ export default function SciencePage() {
 
       <ScienceSections />
       <ScienceOutcomes />
-      <NeuralNetwork />
     </PageWrapper>
   )
 }

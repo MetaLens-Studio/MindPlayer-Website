@@ -180,9 +180,9 @@ function CardStack({ items }: { items: CardItem[] }) {
 
                       {/* Tags */}
                       {item.tags && (
-                        <div className="mt-5 flex flex-wrap gap-2">
+                        <div className="mt-5 flex flex-nowrap gap-2">
                           {item.tags.map((tag, j) => (
-                            <span key={j} className="rounded-full px-3 py-1 text-xs font-medium"
+                            <span key={j} className="rounded-full px-2 py-1 text-[10px] sm:text-xs sm:px-3 font-medium whitespace-nowrap"
                               style={{ color: item.color, background: item.image ? `${item.color}22` : `${item.color}12`, border: `1px solid ${item.color}50` }}>
                               {tag}
                             </span>
@@ -353,9 +353,9 @@ function MobileCardList({ items }: { items: CardItem[] }) {
 
             {/* Tags */}
             {item.tags && (
-              <div className="ml-11 flex flex-wrap gap-1.5">
+              <div className="ml-11 flex flex-nowrap gap-1.5">
                 {item.tags.map((tag, j) => (
-                  <span key={j} className="rounded-full px-2.5 py-0.5 text-[11px] font-medium"
+                  <span key={j} className="rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] sm:px-2.5 font-medium whitespace-nowrap"
                     style={{ color: item.color, background: `${item.color}15`, border: `1px solid ${item.color}35` }}>
                     {tag}
                   </span>

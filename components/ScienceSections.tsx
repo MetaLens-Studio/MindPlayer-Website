@@ -287,9 +287,10 @@ function OrbAnimation() {
 export default function ScienceSections() {
   return (
     <>
-      {/* THE PRINCIPLE — white background */}
-      <section className="relative overflow-hidden py-20 md:py-28" style={{ background: '#ffffff' }}>
-        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-16">
+      {/* THE PRINCIPLE */}
+      <section className="relative overflow-hidden py-20 md:py-28" style={{ background: '#0E1428', borderTop: '1px solid rgba(138,111,255,0.12)' }}>
+        <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(93,235,255,0.05) 0%, transparent 70%)' }} />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-16">
 
           {/* Header */}
           <motion.div
@@ -297,96 +298,88 @@ export default function ScienceSections() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-10 md:mb-14"
           >
             <p className="mb-3 text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: '#8A6FFF' }}>
               The Principle
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-4" style={{ color: '#0E0E1A' }}>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-4 text-white">
               Mental state{' '}
               <span style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 influences performance.
               </span>
             </h2>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto" style={{ color: '#4A4A6A' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto" style={{ color: '#B8B8B8' }}>
               By intentionally influencing these factors, we can create better conditions for focus, recovery and wellbeing.
             </p>
           </motion.div>
 
-          {/* Orb + factors layout */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
+          {/* Top row — 4 cards (desktop) / 2×2 grid (mobile) */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8"
+          >
+            {FACTORS.slice(0, 4).map((factor, i) => (
+              <div
+                key={factor}
+                className="flex items-center gap-2.5 px-4 py-3 rounded-2xl"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${i % 2 === 0 ? 'rgba(93,235,255,0.2)' : 'rgba(138,111,255,0.2)'}`,
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
+                <span className="inline-block w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ background: i % 2 === 0 ? '#5DEBFF' : '#8A6FFF' }} />
+                <span className="text-sm font-medium text-white">{factor}</span>
+              </div>
+            ))}
+          </motion.div>
 
-            {/* Left factors */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-col gap-3 lg:items-end"
-            >
-              {FACTORS.slice(0, 4).map((factor, i) => (
-                <span
-                  key={factor}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium"
-                  style={{
-                    background: i % 2 === 0 ? 'rgba(93,235,255,0.08)' : 'rgba(138,111,255,0.08)',
-                    border: `1px solid ${i % 2 === 0 ? 'rgba(93,235,255,0.25)' : 'rgba(138,111,255,0.25)'}`,
-                    color: '#2A2A4A',
-                  }}
-                >
-                  <span
-                    className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{ background: i % 2 === 0 ? '#5DEBFF' : '#8A6FFF' }}
-                  />
-                  {factor}
-                </span>
-              ))}
-            </motion.div>
+          {/* Center orb */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="flex justify-center mb-8"
+          >
+            <OrbAnimation />
+          </motion.div>
 
-            {/* Center orb */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="flex-shrink-0"
-            >
-              <OrbAnimation />
-            </motion.div>
+          {/* Bottom row — 4 cards (desktop) / 2×2 grid (mobile) */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3"
+          >
+            {FACTORS.slice(4).map((factor, i) => (
+              <div
+                key={factor}
+                className="flex items-center gap-2.5 px-4 py-3 rounded-2xl"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${i % 2 === 0 ? 'rgba(138,111,255,0.2)' : 'rgba(93,235,255,0.2)'}`,
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
+                <span className="inline-block w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ background: i % 2 === 0 ? '#8A6FFF' : '#5DEBFF' }} />
+                <span className="text-sm font-medium text-white">{factor}</span>
+              </div>
+            ))}
+          </motion.div>
 
-            {/* Right factors */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col gap-3 lg:items-start"
-            >
-              {FACTORS.slice(4).map((factor, i) => (
-                <span
-                  key={factor}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium"
-                  style={{
-                    background: i % 2 === 0 ? 'rgba(138,111,255,0.08)' : 'rgba(93,235,255,0.08)',
-                    border: `1px solid ${i % 2 === 0 ? 'rgba(138,111,255,0.25)' : 'rgba(93,235,255,0.25)'}`,
-                    color: '#2A2A4A',
-                  }}
-                >
-                  <span
-                    className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{ background: i % 2 === 0 ? '#8A6FFF' : '#5DEBFF' }}
-                  />
-                  {factor}
-                </span>
-              ))}
-            </motion.div>
-
-          </div>
         </div>
       </section>
 
       {/* RESEARCH AREAS */}
-      <section className="relative overflow-hidden py-20 md:py-28" style={{ background: '#0B0F1E' }}>
+      <section className="relative overflow-hidden py-20 md:py-28" style={{ background: '#070707', borderTop: '1px solid rgba(93,235,255,0.12)' }}>
         <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(138,111,255,0.06) 0%, transparent 60%)' }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16">
           <motion.div
