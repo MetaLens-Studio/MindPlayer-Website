@@ -90,7 +90,7 @@ float noise(in vec2 p){
 }
 float fbm(vec2 p){
   float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);
-  for(int i=0;i<4;i++){t+=a*noise(p);p*=2.*m;a*=.5;}
+  for(int i=0;i<3;i++){t+=a*noise(p);p*=2.*m;a*=.5;}
   return t;
 }
 float clouds(vec2 p){
@@ -103,25 +103,12 @@ float clouds(vec2 p){
 }
 void main(void){
   vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
-  vec3 col=vec3(0);
-  float bg=clouds(vec2(st.x+T*.4,-st.y));
-  uv *= 1.-.3*(sin(T*.2)*.5+.5);
+  float bg=clouds(vec2(st.x+T*.25,-st.y));
   vec3 cyan   = vec3(0.365,0.922,1.000);
   vec3 purple = vec3(0.541,0.435,1.000);
-  vec3 gold   = vec3(1.000,0.843,0.416);
-  vec3 deepBg = vec3(0.042,0.115,0.200);
-  for(float i=1.;i<12.;i++){
-    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
-    vec2 p=uv;
-    float d=length(p);
-    float blend=sin(i*0.85+T*0.12)*0.5+0.5;
-    vec3 themeColor=mix(cyan,purple,blend);
-    themeColor=mix(themeColor,gold,max(0.,sin(i*2.1))*0.10);
-    col+=.00125/d*themeColor*1.7;
-    float b=noise(i+p+bg*1.731);
-    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)))*mix(cyan,purple,b)*1.2;
-    col=mix(col,deepBg*bg*0.88,d*0.85);
-  }
+  vec3 deepBg = vec3(0.028,0.045,0.090);
+  vec3 col = mix(deepBg, mix(cyan, purple, uv.x*.5+.5), bg * 0.55);
+  col += mix(cyan, purple, bg) * bg * 0.18;
   float vignette=smoothstep(1.4,0.3,length((FC-.5*R)/R));
   col*=vignette;
   O=vec4(col,1);
