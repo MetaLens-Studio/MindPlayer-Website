@@ -99,10 +99,10 @@ void main(void){
   float c=fbm(vec2(st.x+T*0.10, st.y+T*0.06));
   c=clamp(c,0.0,1.0);
   c=smoothstep(0.0,1.0,c);
-  vec3 dark   = vec3(0.027,0.035,0.085);
-  vec3 cyan   = vec3(0.08,0.20,0.38);
-  vec3 purple = vec3(0.12,0.09,0.28);
-  vec3 col = mix(dark, mix(cyan,purple,uv.x*0.5+0.5), c*0.7);
+  vec3 dark   = vec3(0.04,0.06,0.14);
+  vec3 cyan   = vec3(0.18,0.55,0.80);
+  vec3 purple = vec3(0.30,0.18,0.65);
+  vec3 col = mix(dark, mix(cyan,purple,uv.x*0.5+0.5), c*0.85);
   float vignette=smoothstep(1.2,0.1,length(uv));
   col*=vignette;
   O=vec4(col,1);
