@@ -77,41 +77,26 @@ uniform float time;
 #define FC gl_FragCoord.xy
 #define T time
 #define R resolution
-#define MN min(R.x,R.y)
 
-float rnd(vec2 p){
-  p=fract(p*vec2(12.9898,78.233));
-  p+=dot(p,p+34.56);
-  return fract(p.x*p.y);
-}
-float noise(in vec2 p){
-  vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);
-  return mix(mix(rnd(i),rnd(i+vec2(1,0)),u.x),mix(rnd(i+vec2(0,1)),rnd(i+1.),u.x),u.y);
-}
-float fbm(vec2 p){
-  float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);
-  for(int i=0;i<3;i++){t+=a*noise(p);p*=2.*m;a*=.5;}
-  return t;
-}
-float clouds(vec2 p){
-  float d=1.,t=.0;
-  for(float i=.0;i<3.;i++){
-    float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);
-    t=mix(t,d,a);d=a;p*=2./(i+1.);
-  }
-  return t;
-}
 void main(void){
-  vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
-  float bg=clouds(vec2(st.x+T*.25,-st.y));
-  vec3 cyan   = vec3(0.365,0.922,1.000);
-  vec3 purple = vec3(0.541,0.435,1.000);
-  vec3 deepBg = vec3(0.028,0.045,0.090);
-  vec3 col = mix(deepBg, mix(cyan, purple, uv.x*.5+.5), bg * 0.55);
-  col += mix(cyan, purple, bg) * bg * 0.18;
-  float vignette=smoothstep(1.4,0.3,length((FC-.5*R)/R));
-  col*=vignette;
-  O=vec4(col,1);
+  vec2 uv = FC / R;
+  vec3 dark   = vec3(0.028, 0.035, 0.075);
+  vec3 cyan   = vec3(0.100, 0.250, 0.420);
+  vec3 purple = vec3(0.140, 0.110, 0.300);
+
+  float wave1 = sin(uv.x * 2.8 + T * 0.18) * 0.5 + 0.5;
+  float wave2 = sin(uv.y * 2.1 - T * 0.12 + 1.3) * 0.5 + 0.5;
+  float wave3 = sin((uv.x + uv.y) * 1.6 + T * 0.09) * 0.5 + 0.5;
+
+  float blend = wave1 * 0.45 + wave2 * 0.35 + wave3 * 0.20;
+  blend = smoothstep(0.0, 1.0, blend);
+
+  vec3 col = mix(dark, mix(cyan, purple, uv.x * 0.7 + wave2 * 0.3), blend * 0.75);
+
+  float vignette = 1.0 - smoothstep(0.3, 1.2, length(uv - 0.5) * 1.8);
+  col *= vignette;
+
+  O = vec4(col, 1.0);
 }`
 
 // ─────────────────────────────────────────────
