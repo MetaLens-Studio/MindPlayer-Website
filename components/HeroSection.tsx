@@ -89,21 +89,27 @@ float noise(in vec2 p){
   return mix(mix(rnd(i),rnd(i+vec2(1,0)),u.x),mix(rnd(i+vec2(0,1)),rnd(i+1.),u.x),u.y);
 }
 float fbm(vec2 p){
-  float t=.0,a=.5;
-  for(int i=0;i<3;i++){t+=a*noise(p);p*=2.1;a*=.5;}
+  float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);
+  for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}
+  return t;
+}
+float clouds(vec2 p){
+  float d=1.,t=.0;
+  for(float i=.0;i<3.;i++){
+    float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);
+    t=mix(t,d,a);d=a;p*=2./(i+1.);
+  }
   return t;
 }
 void main(void){
-  vec2 uv=(FC-.5*R)/MN;
-  vec2 st=uv*1.4;
-  float c=fbm(vec2(st.x+T*0.10, st.y+T*0.06));
-  c=clamp(c,0.0,1.0);
-  c=smoothstep(0.0,1.0,c);
-  vec3 dark   = vec3(0.04,0.06,0.14);
-  vec3 cyan   = vec3(0.18,0.55,0.80);
-  vec3 purple = vec3(0.30,0.18,0.65);
-  vec3 col = mix(dark, mix(cyan,purple,uv.x*0.5+0.5), c*0.85);
-  float vignette=smoothstep(1.2,0.1,length(uv));
+  vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
+  float bg=clouds(vec2(st.x+T*.4,-st.y));
+  bg=clamp(bg,0.0,1.0);
+  vec3 cyan   = vec3(0.365,0.922,1.000);
+  vec3 purple = vec3(0.541,0.435,1.000);
+  vec3 deepBg = vec3(0.042,0.115,0.200);
+  vec3 col = mix(deepBg*0.4, mix(cyan,purple,uv.x*0.5+0.5)*0.55, bg);
+  float vignette=smoothstep(1.4,0.3,length((FC-.5*R)/R));
   col*=vignette;
   O=vec4(col,1);
 }`
