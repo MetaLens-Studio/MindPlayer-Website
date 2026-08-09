@@ -77,26 +77,35 @@ uniform float time;
 #define FC gl_FragCoord.xy
 #define T time
 #define R resolution
+#define MN min(R.x,R.y)
 
+float rnd(vec2 p){
+  p=fract(p*vec2(12.9898,78.233));
+  p+=dot(p,p+34.56);
+  return fract(p.x*p.y);
+}
+float noise(in vec2 p){
+  vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);
+  return mix(mix(rnd(i),rnd(i+vec2(1,0)),u.x),mix(rnd(i+vec2(0,1)),rnd(i+1.),u.x),u.y);
+}
+float fbm(vec2 p){
+  float t=.0,a=.5;
+  for(int i=0;i<3;i++){t+=a*noise(p);p*=2.1;a*=.5;}
+  return t;
+}
 void main(void){
-  vec2 uv = FC / R;
-  vec3 dark   = vec3(0.028, 0.035, 0.075);
-  vec3 cyan   = vec3(0.100, 0.250, 0.420);
-  vec3 purple = vec3(0.140, 0.110, 0.300);
-
-  float wave1 = sin(uv.x * 2.8 + T * 0.18) * 0.5 + 0.5;
-  float wave2 = sin(uv.y * 2.1 - T * 0.12 + 1.3) * 0.5 + 0.5;
-  float wave3 = sin((uv.x + uv.y) * 1.6 + T * 0.09) * 0.5 + 0.5;
-
-  float blend = wave1 * 0.45 + wave2 * 0.35 + wave3 * 0.20;
-  blend = smoothstep(0.0, 1.0, blend);
-
-  vec3 col = mix(dark, mix(cyan, purple, uv.x * 0.7 + wave2 * 0.3), blend * 0.75);
-
-  float vignette = 1.0 - smoothstep(0.3, 1.2, length(uv - 0.5) * 1.8);
-  col *= vignette;
-
-  O = vec4(col, 1.0);
+  vec2 uv=(FC-.5*R)/MN;
+  vec2 st=uv*1.4;
+  float c=fbm(vec2(st.x+T*0.10, st.y+T*0.06));
+  c=clamp(c,0.0,1.0);
+  c=smoothstep(0.0,1.0,c);
+  vec3 dark   = vec3(0.027,0.035,0.085);
+  vec3 cyan   = vec3(0.08,0.20,0.38);
+  vec3 purple = vec3(0.12,0.09,0.28);
+  vec3 col = mix(dark, mix(cyan,purple,uv.x*0.5+0.5), c*0.7);
+  float vignette=smoothstep(1.2,0.1,length(uv));
+  col*=vignette;
+  O=vec4(col,1);
 }`
 
 // ─────────────────────────────────────────────
