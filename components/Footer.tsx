@@ -146,7 +146,7 @@ export default function Footer() {
                 alt="MindPlayer logo"
                 width={160}
                 height={50}
-                className="object-contain"
+                style={{ width: '160px', height: '50px', objectFit: 'contain' }}
               />
             </div>
             <p className="text-sm leading-relaxed text-[#B8B8B8] max-w-[220px]">
