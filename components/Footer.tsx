@@ -140,18 +140,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div className="mb-4 flex items-center">
+            <div className="mb-4">
               <Image
-                src="/images/logo.png"
+                src="/images/mindplayer-logo-new.png"
                 alt="MindPlayer logo"
-                width={96}
-                height={96}
-                className="object-contain flex-shrink-0 translate-y-1"
-                style={{ marginLeft: -30 }}
+                width={160}
+                height={50}
+                className="object-contain"
               />
-              <span className="font-display text-lg font-semibold text-white select-none -ml-5">
-                Mind<span style={{ color: '#5DEBFF' }}>Player</span>
-              </span>
             </div>
             <p className="text-sm leading-relaxed text-[#B8B8B8] max-w-[220px]">
               A mental state regulation platform designed for the future of human potential.
