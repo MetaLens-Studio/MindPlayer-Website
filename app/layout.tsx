@@ -5,6 +5,7 @@ import LenisProvider from '@/components/LenisProvider'
 import CursorLight from '@/components/CursorLight'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import SessionGuard from '@/components/SessionGuard'
 
 const inter  = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body>
         <LenisProvider>
+          <SessionGuard />
           <CursorLight />
           <Navbar />
           <div className="pt-0">
