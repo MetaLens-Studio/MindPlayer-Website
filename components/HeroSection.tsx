@@ -105,11 +105,13 @@ float clouds(vec2 p){
 void main(void){
   vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
   float bg=clouds(vec2(st.x+T*.4,-st.y));
-  bg=clamp(bg,0.0,1.0);
-  vec3 cyan   = vec3(0.365,0.922,1.000);
-  vec3 purple = vec3(0.541,0.435,1.000);
-  vec3 deepBg = vec3(0.042,0.115,0.200);
-  vec3 col = mix(deepBg*0.4, mix(cyan,purple,uv.x*0.5+0.5)*0.55, bg);
+  bg=clamp(bg*1.8,0.0,1.0);
+  vec3 cyan   = vec3(0.200,0.600,0.900);
+  vec3 purple = vec3(0.350,0.250,0.700);
+  vec3 deepBg = vec3(0.060,0.100,0.220);
+  vec3 cloudColor = mix(cyan, purple, uv.x*0.5+0.5);
+  vec3 col = mix(deepBg, cloudColor, bg*0.9);
+  col = max(col, deepBg);
   float vignette=smoothstep(1.4,0.3,length((FC-.5*R)/R));
   col*=vignette;
   O=vec4(col,1);
