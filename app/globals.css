@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes heroBg {
+  0%   { filter: hue-rotate(0deg) brightness(1); }
+  100% { filter: hue-rotate(15deg) brightness(1.08); }
+}
+
 :root {
   --bg-primary: #070707;
   --bg-secondary: #0e1525;

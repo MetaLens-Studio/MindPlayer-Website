@@ -11,12 +11,17 @@ export default function SessionGuard() {
     window.scrollTo({ top: 0, behavior: 'instant' })
 
     // On fresh session (tab closed & reopened), always land on homepage
-    const hasSession = sessionStorage.getItem('mp_session')
-    if (!hasSession) {
-      sessionStorage.setItem('mp_session', '1')
-      if (pathname !== '/') {
-        router.replace('/')
+    // Wrapped in try/catch — iOS Safari private mode throws SecurityError on sessionStorage
+    try {
+      const hasSession = sessionStorage.getItem('mp_session')
+      if (!hasSession) {
+        sessionStorage.setItem('mp_session', '1')
+        if (pathname !== '/') {
+          router.replace('/')
+        }
       }
+    } catch {
+      // sessionStorage unavailable (private mode) — just stay on current page
     }
   }, [pathname]) // eslint-disable-line react-hooks/exhaustive-deps
 

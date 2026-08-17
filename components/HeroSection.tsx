@@ -275,12 +275,6 @@ export default function HeroSection() {
           animation: 'heroBg 8s ease-in-out infinite alternate',
         }}
       />
-      <style>{`
-        @keyframes heroBg {
-          0%   { filter: hue-rotate(0deg) brightness(1); }
-          100% { filter: hue-rotate(15deg) brightness(1.08); }
-        }
-      `}</style>
 
       <canvas
         ref={canvasRef}
