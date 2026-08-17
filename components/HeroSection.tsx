@@ -184,6 +184,14 @@ export default function HeroSection() {
     const canvas = canvasRef.current
     if (!canvas) return
 
+    // Check WebGL2 support — iOS Safari may not support it
+    const testCtx = canvas.getContext('webgl2')
+    if (!testCtx) {
+      // Fallback: show CSS gradient, hide canvas
+      canvas.style.display = 'none'
+      return
+    }
+
     const mobile = window.innerWidth < 768
     // Mobile: 0.3× DPR keeps pixel count tiny; desktop: 0.6×
     const dpr = Math.max(1, window.devicePixelRatio * (mobile ? 0.3 : 0.6))
@@ -199,7 +207,10 @@ export default function HeroSection() {
     window.addEventListener('resize', resize, { passive: true })
 
     const renderer = buildRenderer(canvas, mobile)
-    if (!renderer) return
+    if (!renderer) {
+      canvas.style.display = 'none'
+      return
+    }
 
     let raf: number
     let paused = false
@@ -256,6 +267,21 @@ export default function HeroSection() {
       onMouseMove={onMouseMove}
     >
       {/* WebGL background — all screen sizes, optimised per device */}
+      {/* CSS gradient fallback for iOS / no-WebGL2 devices */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 120% 80% at 30% 60%, rgba(93,235,255,0.18) 0%, transparent 55%), radial-gradient(ellipse 100% 80% at 75% 40%, rgba(138,111,255,0.22) 0%, transparent 55%), #070707',
+          animation: 'heroBg 8s ease-in-out infinite alternate',
+        }}
+      />
+      <style>{`
+        @keyframes heroBg {
+          0%   { filter: hue-rotate(0deg) brightness(1); }
+          100% { filter: hue-rotate(15deg) brightness(1.08); }
+        }
+      `}</style>
+
       <canvas
         ref={canvasRef}
         className="absolute inset-0 h-full w-full touch-none"
