@@ -121,50 +121,78 @@ void main(void){
 // Minimal WebGL renderer (no external deps)
 // ─────────────────────────────────────────────
 function buildRenderer(canvas: HTMLCanvasElement, mobile: boolean) {
-  const gl = canvas.getContext('webgl2')
-  if (!gl) return null
+  try {
+    const gl = canvas.getContext('webgl2')
+    if (!gl) return null
 
-  const VERT = `#version 300 es
+    const VERT = `#version 300 es
 precision highp float;
 in vec4 position;
 void main(){gl_Position=position;}`
 
-  const compile = (type: number, src: string) => {
-    const s = gl.createShader(type)!
-    gl.shaderSource(s, src)
-    gl.compileShader(s)
-    return s
-  }
+    const compile = (type: number, src: string) => {
+      const s = gl.createShader(type)
+      if (!s) return null
+      gl.shaderSource(s, src)
+      gl.compileShader(s)
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        console.warn('Shader compile error:', gl.getShaderInfoLog(s))
+        gl.deleteShader(s)
+        return null
+      }
+      return s
+    }
 
-  const vs = compile(gl.VERTEX_SHADER, VERT)
-  const fs = compile(gl.FRAGMENT_SHADER, mobile ? SHADER_MOBILE : SHADER)
-  const prog = gl.createProgram()!
-  gl.attachShader(prog, vs); gl.attachShader(prog, fs)
-  gl.linkProgram(prog)
+    const vs = compile(gl.VERTEX_SHADER, VERT)
+    const fs = compile(gl.FRAGMENT_SHADER, mobile ? SHADER_MOBILE : SHADER)
+    if (!vs || !fs) return null
 
-  const buf = gl.createBuffer()
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf)
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW)
-  const pos = gl.getAttribLocation(prog, 'position')
-  gl.enableVertexAttribArray(pos)
-  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0)
+    const prog = gl.createProgram()
+    if (!prog) return null
+    gl.attachShader(prog, vs)
+    gl.attachShader(prog, fs)
+    gl.linkProgram(prog)
 
-  const uRes  = gl.getUniformLocation(prog, 'resolution')
-  const uTime = gl.getUniformLocation(prog, 'time')
-
-  return {
-    render(now: number) {
-      gl.viewport(0, 0, canvas.width, canvas.height)
-      gl.useProgram(prog)
-      gl.uniform2f(uRes, canvas.width, canvas.height)
-      gl.uniform1f(uTime, now * 1e-3)
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
-    },
-    destroy() {
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.warn('Shader link error:', gl.getProgramInfoLog(prog))
       gl.deleteProgram(prog)
-      gl.deleteShader(vs); gl.deleteShader(fs)
-      gl.deleteBuffer(buf)
-    },
+      return null
+    }
+
+    const buf = gl.createBuffer()
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf)
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW)
+    const pos = gl.getAttribLocation(prog, 'position')
+    gl.enableVertexAttribArray(pos)
+    gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0)
+
+    const uRes  = gl.getUniformLocation(prog, 'resolution')
+    const uTime = gl.getUniformLocation(prog, 'time')
+
+    return {
+      render(now: number) {
+        try {
+          gl.viewport(0, 0, canvas.width, canvas.height)
+          gl.useProgram(prog)
+          gl.uniform2f(uRes, canvas.width, canvas.height)
+          gl.uniform1f(uTime, now * 1e-3)
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+        } catch (e) {
+          console.warn('WebGL render error:', e)
+        }
+      },
+      destroy() {
+        try {
+          gl.deleteProgram(prog)
+          gl.deleteShader(vs)
+          gl.deleteShader(fs)
+          gl.deleteBuffer(buf)
+        } catch {}
+      },
+    }
+  } catch (e) {
+    console.warn('WebGL init error:', e)
+    return null
   }
 }
 
@@ -185,7 +213,8 @@ export default function HeroSection() {
     if (!canvas) return
 
     // Check WebGL2 support — iOS Safari may not support it
-    const testCtx = canvas.getContext('webgl2')
+    let testCtx: RenderingContext | null = null
+    try { testCtx = canvas.getContext('webgl2') } catch {}
     if (!testCtx) {
       // Fallback: show CSS gradient, hide canvas
       canvas.style.display = 'none'

@@ -8,7 +8,7 @@ export default function SessionGuard() {
 
   useEffect(() => {
     // Scroll to top on every page load / navigation
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    try { window.scrollTo({ top: 0, behavior: 'instant' }) } catch { window.scrollTo(0, 0) }
 
     // On fresh session (tab closed & reopened), always land on homepage
     // Wrapped in try/catch — iOS Safari private mode throws SecurityError on sessionStorage
