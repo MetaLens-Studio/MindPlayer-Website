@@ -207,25 +207,27 @@ export default function HeroSection() {
   const sx = useSpring(mouseX, { stiffness: 60, damping: 22 })
   const sy = useSpring(mouseY, { stiffness: 60, damping: 22 })
 
-  // WebGL render loop — full quality on desktop, optimised on mobile
+  // WebGL render loop — desktop only; mobile uses CSS gradient fallback
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    // Check WebGL2 support — iOS Safari may not support it
-    let testCtx: RenderingContext | null = null
-    try { testCtx = canvas.getContext('webgl2') } catch {}
-    if (!testCtx) {
-      // Fallback: show CSS gradient, hide canvas
+    // Skip WebGL entirely on mobile — too heavy for iOS GPU
+    const mobile = window.innerWidth < 768
+    if (mobile) {
       canvas.style.display = 'none'
       return
     }
 
-    const mobile = window.innerWidth < 768
-    // Mobile: 0.3× DPR keeps pixel count tiny; desktop: 0.6×
-    const dpr = Math.max(1, window.devicePixelRatio * (mobile ? 0.3 : 0.6))
-    // Mobile targets ~30fps — skip every other frame
-    const frameInterval = mobile ? 33 : 0
+    // Check WebGL2 support
+    let testCtx: RenderingContext | null = null
+    try { testCtx = canvas.getContext('webgl2') } catch {}
+    if (!testCtx) {
+      canvas.style.display = 'none'
+      return
+    }
+    const dpr = Math.max(1, window.devicePixelRatio * 0.6)
+    const frameInterval = 0
     let lastFrame = 0
 
     const resize = () => {
@@ -235,7 +237,7 @@ export default function HeroSection() {
     resize()
     window.addEventListener('resize', resize, { passive: true })
 
-    const renderer = buildRenderer(canvas, mobile)
+    const renderer = buildRenderer(canvas, false)
     if (!renderer) {
       canvas.style.display = 'none'
       return
