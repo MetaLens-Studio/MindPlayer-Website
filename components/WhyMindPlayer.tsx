@@ -27,10 +27,10 @@ function GridPattern({ width, height, x, y, squares, ...props }: React.Component
   )
 }
 
-function genPattern(): number[][] {
-  return Array.from({ length: 5 }, () => [
-    Math.floor(Math.random() * 4) + 7,
-    Math.floor(Math.random() * 6) + 1,
+function genPattern(seed: number): number[][] {
+  return Array.from({ length: 5 }, (_, i) => [
+    7 + ((seed * 3 + i * 7) % 4),
+    1 + ((seed * 5 + i * 3) % 6),
   ])
 }
 
@@ -248,7 +248,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
                 ),
               },
             ].map((value, i) => {
-              const squares = genPattern()
+              const squares = genPattern(i)
               return (
               <motion.div
                 key={value.title}
