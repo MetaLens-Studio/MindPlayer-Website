@@ -75,12 +75,9 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
   useEffect(() => {
     if (!autoRotate) return
-    const isMobile = window.innerWidth < 768
-    // On mobile: slow rotation via CSS transform only, skip JS interval entirely
-    if (isMobile) return
     let visible = true
     let id: ReturnType<typeof setInterval>
-    const start = () => { if (visible) id = setInterval(() => setRotationAngle(prev => Number(((prev + 0.3) % 360).toFixed(3))), 100) }
+    const start = () => { if (visible) id = setInterval(() => setRotationAngle(prev => Number(((prev + 0.3) % 360).toFixed(3))), 50) }
     const stop = () => clearInterval(id)
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; e.isIntersecting ? start() : stop() }, { rootMargin: '100px' })
     if (containerRef.current) io.observe(containerRef.current)
@@ -236,7 +233,8 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
                     left: '50%',
                     transform: 'translateX(-50%)',
                     width: Math.min(200, radius * 1.0, window.innerWidth - 32),
-                    background: 'rgba(10,10,20,0.98)',
+                    background: 'rgba(10,10,20,0.95)',
+                    backdropFilter: 'blur(16px)',
                     border: '1px solid rgba(93,235,255,0.2)',
                     borderRadius: 12,
                     padding: 16,

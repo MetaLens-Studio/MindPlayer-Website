@@ -63,11 +63,12 @@ export default function SciencePage() {
 
           {/* Right — science image with colour treatment */}
           <div className="w-full md:flex-1 flex items-center justify-center relative">
-            {/* Glow halo behind image — pre-softened gradient, no filter (iOS-safe) */}
+            {/* Glow halo behind image */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'radial-gradient(ellipse 70% 70% at 50% 50%, rgba(93,235,255,0.12) 0%, rgba(138,111,255,0.08) 45%, transparent 75%)',
+                background: 'radial-gradient(ellipse 80% 80% at 50% 50%, rgba(93,235,255,0.12) 0%, rgba(138,111,255,0.10) 40%, transparent 70%)',
+                filter: 'blur(24px)',
               }}
             />
 
@@ -85,7 +86,7 @@ export default function SciencePage() {
                   style={{
                     objectFit: 'cover',
                     objectPosition: 'right center',
-                    filter: 'saturate(0.7) brightness(0.9)',
+                    filter: 'saturate(0.7) brightness(0.9) drop-shadow(0 0 40px rgba(93,235,255,0.25))',
                   }}
                 />
               </div>

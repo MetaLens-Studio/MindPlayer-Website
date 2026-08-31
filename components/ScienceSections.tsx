@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const FACTORS = [
   'Stress levels',
@@ -223,30 +223,35 @@ function ResearchCard({ area, index }: { area: typeof RESEARCH_AREAS[0] & { icon
 }
 
 function OrbAnimation() {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const ring1Rotate = useTransform(scrollYProgress, [0, 1], [0, 360])
+  const ring2Rotate = useTransform(scrollYProgress, [0, 1], [0, -240])
+
   return (
-    <div className="flex items-center justify-center" style={{ height: '340px' }}>
+    <div ref={ref} className="flex items-center justify-center" style={{ height: '340px' }}>
       <div className="relative w-56 h-56 md:w-72 md:h-72">
-        {/* Outer spinning ring — CSS animation only, no framer-motion scroll tracking */}
-        <div
+        {/* Outer spinning ring */}
+        <motion.div
           className="absolute inset-0 rounded-full"
-          style={{ border: '1px solid rgba(93,235,255,0.35)', animation: 'orbSpin1 12s linear infinite' }}
+          style={{ rotate: ring1Rotate, border: '1px solid rgba(93,235,255,0.35)' }}
         >
           <div
             className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
             style={{ background: '#5DEBFF', boxShadow: '0 0 12px #5DEBFF' }}
           />
-        </div>
+        </motion.div>
 
         {/* Middle spinning ring */}
-        <div
+        <motion.div
           className="absolute inset-8 rounded-full"
-          style={{ border: '1px solid rgba(138,111,255,0.45)', animation: 'orbSpin2 8s linear infinite' }}
+          style={{ rotate: ring2Rotate, border: '1px solid rgba(138,111,255,0.45)' }}
         >
           <div
             className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full"
             style={{ background: '#8A6FFF', boxShadow: '0 0 10px #8A6FFF' }}
           />
-        </div>
+        </motion.div>
 
         {/* Core glow */}
         <div
@@ -268,9 +273,11 @@ function OrbAnimation() {
         </div>
 
         {/* Gold pulse ring */}
-        <div
+        <motion.div
           className="absolute -inset-6 rounded-full"
-          style={{ border: '1px solid rgba(255,215,106,0.18)', animation: 'orbPulse 4s ease-in-out infinite' }}
+          style={{ border: '1px solid rgba(255,215,106,0.18)' }}
+          animate={{ scale: [1, 1.06, 1], opacity: [0.4, 0.8, 0.4] }}
+          transition={{ duration: 4, repeat: Infinity }}
         />
       </div>
     </div>
@@ -320,8 +327,9 @@ export default function ScienceSections() {
                 key={factor}
                 className="flex items-center gap-2.5 px-4 py-3 rounded-2xl"
                 style={{
-                  background: 'rgba(20,24,40,0.55)',
+                  background: 'rgba(255,255,255,0.04)',
                   border: `1px solid ${i % 2 === 0 ? 'rgba(93,235,255,0.2)' : 'rgba(138,111,255,0.2)'}`,
+                  backdropFilter: 'blur(8px)',
                 }}
               >
                 <span className="inline-block w-2 h-2 rounded-full flex-shrink-0"
@@ -355,8 +363,9 @@ export default function ScienceSections() {
                 key={factor}
                 className="flex items-center gap-2.5 px-4 py-3 rounded-2xl"
                 style={{
-                  background: 'rgba(20,24,40,0.55)',
+                  background: 'rgba(255,255,255,0.04)',
                   border: `1px solid ${i % 2 === 0 ? 'rgba(138,111,255,0.2)' : 'rgba(93,235,255,0.2)'}`,
+                  backdropFilter: 'blur(8px)',
                 }}
               >
                 <span className="inline-block w-2 h-2 rounded-full flex-shrink-0"
