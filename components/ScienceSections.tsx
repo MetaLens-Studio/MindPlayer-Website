@@ -320,9 +320,8 @@ export default function ScienceSections() {
                 key={factor}
                 className="flex items-center gap-2.5 px-4 py-3 rounded-2xl"
                 style={{
-                  background: 'rgba(255,255,255,0.04)',
+                  background: 'rgba(20,24,40,0.55)',
                   border: `1px solid ${i % 2 === 0 ? 'rgba(93,235,255,0.2)' : 'rgba(138,111,255,0.2)'}`,
-                  backdropFilter: 'blur(8px)',
                 }}
               >
                 <span className="inline-block w-2 h-2 rounded-full flex-shrink-0"
@@ -356,9 +355,8 @@ export default function ScienceSections() {
                 key={factor}
                 className="flex items-center gap-2.5 px-4 py-3 rounded-2xl"
                 style={{
-                  background: 'rgba(255,255,255,0.04)',
+                  background: 'rgba(20,24,40,0.55)',
                   border: `1px solid ${i % 2 === 0 ? 'rgba(138,111,255,0.2)' : 'rgba(93,235,255,0.2)'}`,
-                  backdropFilter: 'blur(8px)',
                 }}
               >
                 <span className="inline-block w-2 h-2 rounded-full flex-shrink-0"

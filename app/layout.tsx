@@ -57,13 +57,41 @@ export const metadata: Metadata = {
 
 const EARLY_ERROR_SCRIPT = `(function(){
   var STORE_KEY='_mp_err';
+  var LOAD_KEY='_mp_loads';
+
+  // ── Reload-loop breaker: detect native renderer crashes (uncatchable by JS) ──
+  // Safari auto-retries a crashing page, re-running this script each time. If we
+  // see repeated rapid loads, the render process is crashing — switch to a
+  // no-effects "safe mode" that strips every GPU-heavy CSS property so the page
+  // can actually render.
+  try{
+    var now=Date.now();
+    var loads=JSON.parse(localStorage.getItem(LOAD_KEY)||'[]');
+    loads=loads.filter(function(t){return now-t<9000;});
+    loads.push(now);
+    localStorage.setItem(LOAD_KEY,JSON.stringify(loads));
+    if(loads.length>=3){
+      document.documentElement.setAttribute('data-safe-mode','1');
+    }
+  }catch(e){}
+
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function banner(text){
+    function attach(){
+      if(!document.body){return setTimeout(attach,50);}
+      var d=document.createElement('div');
+      d.style.cssText='position:fixed;left:0;right:0;bottom:0;background:#101018;color:#ffd76a;font-family:system-ui,sans-serif;font-size:12px;padding:10px 14px;z-index:2147483647;border-top:1px solid #333;text-align:center;';
+      d.innerHTML=esc(text)+' <button onclick="try{localStorage.removeItem(\\''+LOAD_KEY+'\\')}catch(e){};this.parentElement.remove()" style="background:#222;color:#fff;border:1px solid #444;padding:4px 10px;border-radius:4px;margin-left:8px;cursor:pointer">OK</button>';
+      document.body.appendChild(d);
+    }
+    attach();
+  }
   function overlay(title,msg){
     var d=document.createElement('div');
     d.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:#090909;color:#fff;font-family:monospace;font-size:12px;padding:20px;z-index:2147483647;overflow-y:auto;white-space:pre-wrap;word-break:break-all;';
     d.innerHTML='<div style="color:#ff4444;font-size:15px;font-weight:bold;margin-bottom:10px">'+esc(title)+'</div>'
       +'<div style="color:#ffaa44;margin-bottom:14px">'+esc(msg)+'</div>'
-      +'<button onclick="try{localStorage.removeItem(\''+STORE_KEY+'\')}catch(e){};location.reload()" style="background:#222;color:#fff;border:1px solid #444;padding:7px 14px;border-radius:5px;margin-right:8px;cursor:pointer">Clear & Reload</button>'
+      +'<button onclick="try{localStorage.removeItem(\\''+STORE_KEY+'\\')}catch(e){};location.reload()" style="background:#222;color:#fff;border:1px solid #444;padding:7px 14px;border-radius:5px;margin-right:8px;cursor:pointer">Clear & Reload</button>'
       +'<button onclick="this.parentElement.remove()" style="background:#222;color:#fff;border:1px solid #444;padding:7px 14px;border-radius:5px;cursor:pointer">Dismiss</button>';
     function attach(){document.body?document.body.appendChild(d):setTimeout(attach,50);}
     attach();
@@ -87,6 +115,11 @@ const EARLY_ERROR_SCRIPT = `(function(){
   });
   window.addEventListener('load',function(){
     try{localStorage.removeItem(STORE_KEY);}catch(e){}
+    if(document.documentElement.getAttribute('data-safe-mode')){
+      banner('Reduced-effects mode is on because the page kept crashing.');
+    }
+    // Page survived — after 5s of stability, clear the crash counter.
+    setTimeout(function(){try{localStorage.removeItem(LOAD_KEY);}catch(e){}},5000);
   });
 })();`
 
