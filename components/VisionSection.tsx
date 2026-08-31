@@ -1,81 +1,77 @@
 'use client'
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export default function VisionSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-
-  const l1 = useTransform(scrollYProgress, [0.08, 0.28], [0, 1])
-  const l2 = useTransform(scrollYProgress, [0.22, 0.42], [0, 1])
-  const l3 = useTransform(scrollYProgress, [0.36, 0.56], [0, 1])
-  const l1y = useTransform(scrollYProgress, [0.08, 0.28], [40, 0])
-  const l2y = useTransform(scrollYProgress, [0.22, 0.42], [40, 0])
-  const l3y = useTransform(scrollYProgress, [0.36, 0.56], [40, 0])
-
-  const orbScale = useTransform(scrollYProgress, [0.05, 0.6], [0.4, 1.3])
-  const orbOpacity = useTransform(scrollYProgress, [0.05, 0.25, 0.7, 0.9], [0, 1, 1, 0])
-  const ring1Rotate = useTransform(scrollYProgress, [0, 1], [0, 360])
-  const ring2Rotate = useTransform(scrollYProgress, [0, 1], [0, -240])
-
   return (
     <section
-      ref={ref}
       className="relative py-16 md:py-32 overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #0E1525 0%, #070707 100%)' }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
 
-        {/* Left – scroll-driven text */}
+        {/* Left – simple fade-in text (no scroll-driven motion values) */}
         <div className="space-y-8 md:space-y-10">
-          <motion.div style={{ opacity: l1, y: l1y }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7 }}
+          >
             <p className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
               We don&apos;t build applications.
             </p>
           </motion.div>
 
-          <motion.div style={{ opacity: l2, y: l2y }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+          >
             <p className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight gradient-text">
               We build experiences.
             </p>
           </motion.div>
 
-          <motion.div style={{ opacity: l3, y: l3y }} className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="space-y-4"
+          >
             <p className="text-[#B8B8B8] text-base md:text-xl leading-relaxed max-w-md">
               Experiences that reshape how people learn, connect, and imagine.
               Every interaction is a step toward the limitless.
             </p>
             <div className="flex items-center gap-3 mt-6">
-              {['#5DEBFF', '#8A6FFF', '#FFD76A'].map((c, i) => (
+              {(['#5DEBFF', '#8A6FFF', '#FFD76A'] as const).map((c, i) => (
                 <div key={i} className="h-1 rounded-full" style={{ width: i === 0 ? 40 : i === 1 ? 24 : 16, background: c }} />
               ))}
             </div>
           </motion.div>
         </div>
 
-        {/* Right – animated orb (hidden on small mobile, shown md+) */}
+        {/* Right – CSS-animated orb (no framer-motion scroll tracking) */}
         <div className="hidden sm:flex items-center justify-center h-[320px] md:h-[440px]">
-          <motion.div
-            style={{ scale: orbScale, opacity: orbOpacity }}
-            className="relative w-52 h-52 md:w-72 md:h-72"
-          >
+          <div className="relative w-52 h-52 md:w-72 md:h-72">
             {/* Outer spinning ring */}
-            <motion.div
+            <div
               className="absolute inset-0 rounded-full"
-              style={{ rotate: ring1Rotate, border: '1px solid rgba(93,235,255,0.25)' }}
+              style={{ border: '1px solid rgba(93,235,255,0.25)', animation: 'orbSpin1 12s linear infinite' }}
             >
               <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
                 style={{ background: '#5DEBFF', boxShadow: '0 0 12px #5DEBFF' }} />
-            </motion.div>
+            </div>
 
             {/* Middle spinning ring */}
-            <motion.div
+            <div
               className="absolute inset-8 rounded-full"
-              style={{ rotate: ring2Rotate, border: '1px solid rgba(138,111,255,0.35)' }}
+              style={{ border: '1px solid rgba(138,111,255,0.35)', animation: 'orbSpin2 8s linear infinite' }}
             >
               <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full"
                 style={{ background: '#8A6FFF', boxShadow: '0 0 10px #8A6FFF' }} />
-            </motion.div>
+            </div>
 
             {/* Core */}
             <div
@@ -97,13 +93,11 @@ export default function VisionSection() {
             </div>
 
             {/* Gold ring outermost */}
-            <motion.div
+            <div
               className="absolute -inset-6 rounded-full"
-              style={{ border: '1px solid rgba(255,215,106,0.12)' }}
-              animate={{ scale: [1, 1.06, 1], opacity: [0.5, 0.9, 0.5] }}
-              transition={{ duration: 4, repeat: Infinity }}
+              style={{ border: '1px solid rgba(255,215,106,0.12)', animation: 'orbPulse 4s ease-in-out infinite' }}
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
