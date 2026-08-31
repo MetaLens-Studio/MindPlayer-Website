@@ -353,7 +353,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.7 }}
           className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-[#B8B8B8]"
         >
-          A mental state regulation platform — designed to help you improve focus, recovery, sleep, and wellbeing through immersive experiences.
+          A mental state regulation platform designed to help you improve focus, recovery, sleep, and wellbeing through immersive experiences.
         </motion.p>
 
         {/* Buttons */}
