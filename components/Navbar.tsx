@@ -81,8 +81,8 @@ export default function Navbar() {
               <Image
                 src="/images/mindplayer-logo-new.png"
                 alt="MindPlayer logo"
-                width={160}
-                height={50}
+                width={188}
+                height={40}
                 className="object-contain flex-shrink-0"
                 priority
               />

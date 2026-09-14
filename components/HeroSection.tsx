@@ -244,11 +244,18 @@ export default function HeroSection() {
     let raf: number
     let paused = false
 
+    let firstFrame = true
     const loop = (now: number) => {
       if (!paused) raf = requestAnimationFrame(loop)
       if (frameInterval && now - lastFrame < frameInterval) return
       lastFrame = now
       renderer.render(now)
+      // Fade the canvas in only after the first real frame is drawn —
+      // prevents the black/blank-canvas flash on iOS first load.
+      if (firstFrame) {
+        firstFrame = false
+        canvas.style.opacity = '1'
+      }
     }
 
     const onVisibility = () => {
@@ -301,13 +308,13 @@ export default function HeroSection() {
         className="absolute inset-0"
         style={{
           background: 'radial-gradient(ellipse 120% 80% at 30% 60%, rgba(93,235,255,0.18) 0%, transparent 55%), radial-gradient(ellipse 100% 80% at 75% 40%, rgba(138,111,255,0.22) 0%, transparent 55%), #070707',
-          animation: 'heroBg 8s ease-in-out infinite alternate',
         }}
       />
 
       <canvas
         ref={canvasRef}
         className="absolute inset-0 h-full w-full touch-none"
+        style={{ opacity: 0, transition: 'opacity 0.5s ease' }}
       />
 
       {/* Dark vignette overlay so text stays readable */}

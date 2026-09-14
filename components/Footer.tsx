@@ -144,9 +144,9 @@ export default function Footer() {
               <Image
                 src="/images/mindplayer-logo-new.png"
                 alt="MindPlayer logo"
-                width={160}
-                height={50}
-                style={{ width: '160px', height: '50px', objectFit: 'contain' }}
+                width={188}
+                height={40}
+                style={{ width: '188px', height: '40px', objectFit: 'contain' }}
               />
             </div>
             <p className="text-sm leading-relaxed text-[#B8B8B8] max-w-[220px]">
