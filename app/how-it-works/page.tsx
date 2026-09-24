@@ -15,13 +15,11 @@ export default function HowItWorksPage() {
   return (
     <PageWrapper>
       <section
-        className="relative min-h-screen overflow-hidden flex items-center"
+        className="relative overflow-hidden md:flex md:items-center md:min-h-screen"
         style={{ background: '#070707' }}
       >
-        {/* Full-bleed image (desktop / tablet) — the image itself fades out
-           toward the left via a mask, so it dissolves gently into the
-           background instead of a solid overlay covering it */}
-        <div className="hidden md:block absolute inset-0">
+        {/* Desktop / tablet: full-bleed image that dissolves toward the left via a mask */}
+        <div className="hidden md:block absolute inset-0 z-0">
           <Image
             src="/images/how-hero.webp"
             alt="A person meditating in a calm, light-filled room"
@@ -41,8 +39,7 @@ export default function HowItWorksPage() {
             }}
           />
 
-          {/* Handwritten-style annotation — sits just left of the man's head,
-             arrow curving toward him */}
+          {/* Handwritten-style annotation — sits just left of the man's head, arrow curving toward him */}
           <div className="absolute top-[18%] right-[34%] text-right">
             <p className="text-white/90 text-lg md:text-xl leading-snug font-light">
               Calmer mind.<br />Better days.
@@ -55,7 +52,7 @@ export default function HowItWorksPage() {
         </div>
 
         {/* Text column — left */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 pt-28 pb-16">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 pt-28 pb-8 md:py-16">
           <div className="max-w-2xl">
             <p className="mb-4 md:mb-6 text-sm tracking-[0.3em] uppercase font-semibold" style={{ color: '#9AA1B2' }}>
               How It Works
@@ -71,22 +68,24 @@ export default function HowItWorksPage() {
           </div>
         </div>
 
-        {/* Mobile image — below text, full width */}
-        <div className="md:hidden absolute bottom-0 left-0 right-0 h-[42%]">
+        {/* Mobile: image as its own band below the text */}
+        <div className="md:hidden relative w-full h-[52vh] z-0">
           <Image
             src="/images/how-hero.webp"
             alt="A person meditating in a calm, light-filled room"
             fill
             sizes="100vw"
-            quality={80}
+            quality={78}
+            priority
             placeholder="blur"
             blurDataURL={HERO_BLUR}
             className="object-cover"
-            style={{ objectPosition: '62% center' }}
+            style={{ objectPosition: '64% center' }}
           />
+          {/* Gradual fade from the dark text area into the image (subtle top), tiny blend at the very bottom */}
           <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(180deg, #070707 0%, rgba(7,7,7,0.4) 22%, transparent 55%)' }}
+            className="pointer-events-none absolute inset-0"
+            style={{ background: 'linear-gradient(180deg, #070707 0%, rgba(7,7,7,0.7) 10%, rgba(7,7,7,0.25) 26%, transparent 44%, transparent 94%, rgba(7,7,7,0.7) 100%)' }}
           />
         </div>
       </section>
