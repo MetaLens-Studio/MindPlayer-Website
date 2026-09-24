@@ -154,7 +154,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
 
       {/* Our Values */}
       <div className="relative z-10 w-full" style={{ background: '#0A0F1E', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="max-w-4xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
 
           {/* Header */}
           <div className="mb-10 md:mb-12">
@@ -167,8 +167,8 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
             </p>
           </div>
 
-          {/* Values list — full-width rows */}
-          <div className="space-y-4">
+          {/* Values — full-width rows on mobile, 3 + 2 (centered) grid on desktop */}
+          <div className="flex flex-col lg:flex-row lg:flex-wrap lg:justify-center gap-4">
             {[
               {
                 num: '01',
@@ -232,7 +232,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '60px' }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="group relative flex items-center gap-4 md:gap-6 rounded-2xl md:rounded-3xl p-4 md:p-6 cursor-default overflow-hidden"
+                className="group relative flex flex-row lg:flex-col items-center lg:items-start gap-4 md:gap-5 rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-7 cursor-default overflow-hidden w-full lg:w-[calc(33.333%-0.667rem)]"
                 style={{
                   background: `linear-gradient(135deg, ${value.accent}1f 0%, rgba(10,15,30,0.5) 45%, rgba(10,15,30,0.35) 100%)`,
                   border: `1px solid ${value.accent}33`,
@@ -262,16 +262,16 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
                 </div>
 
                 {/* Text */}
-                <div className="relative flex-1 min-w-0">
+                <div className="relative flex-1 lg:flex-none min-w-0 lg:w-full">
                   <span className="text-sm md:text-base font-bold" style={{ color: value.accent }}>{value.num}</span>
-                  <h3 className="mt-0.5 text-lg md:text-2xl font-bold text-white leading-snug">{value.title}</h3>
-                  <p className="mt-1.5 text-sm md:text-base leading-relaxed" style={{ color: '#B8B8B8' }}>{value.description}</p>
+                  <h3 className="mt-0.5 text-lg md:text-xl font-bold text-white leading-snug">{value.title}</h3>
+                  <p className="mt-1.5 text-sm md:text-[15px] leading-relaxed" style={{ color: '#B8B8B8' }}>{value.description}</p>
                 </div>
 
-                {/* Chevron */}
+                {/* Chevron — inline (mobile), top-right (desktop grid) */}
                 <svg
                   width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
-                  className="relative shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                  className="relative shrink-0 lg:absolute lg:top-6 lg:right-6 transition-transform duration-300 group-hover:translate-x-1"
                   style={{ color: value.accent }}
                   aria-hidden="true"
                 >
