@@ -49,6 +49,9 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
           alt=""
           fill
           sizes="100vw"
+          quality={70}
+          placeholder="blur"
+          blurDataURL={blurDataURLs['about-bg.webp']}
           className="object-cover"
           style={{ opacity: 0.55, objectPosition: '65% 35%' }}
           priority

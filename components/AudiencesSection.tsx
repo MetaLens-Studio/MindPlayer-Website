@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { blurDataURLs } from '@/lib/imagePlaceholders'
 
 const AUDIENCES = [
   {
@@ -84,6 +85,9 @@ export default function AudiencesSection() {
                 width={260}
                 height={176}
                 quality={70}
+                sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 260px"
+                placeholder="blur"
+                blurDataURL={blurDataURLs[a.image.replace('/images/', '')]}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
