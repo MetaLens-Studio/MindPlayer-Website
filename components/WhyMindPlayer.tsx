@@ -2,37 +2,7 @@
 // v2
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import React from 'react'
 import { blurDataURLs } from '@/lib/imagePlaceholders'
-
-// ── GridPattern ──────────────────────────────
-function GridPattern({ width, height, x, y, squares, ...props }: React.ComponentProps<'svg'> & { width: number; height: number; x: string; y: string; squares?: number[][] }) {
-  const patternId = React.useId()
-  return (
-    <svg aria-hidden="true" {...props}>
-      <defs>
-        <pattern id={patternId} width={width} height={height} patternUnits="userSpaceOnUse" x={x} y={y}>
-          <path d={`M.5 ${height}V.5H${width}`} fill="none" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" strokeWidth={0} fill={`url(#${patternId})`} />
-      {squares && (
-        <svg x={x} y={y} className="overflow-visible">
-          {squares.map(([sx, sy], idx) => (
-            <rect strokeWidth="0" key={idx} width={width + 1} height={height + 1} x={sx * width} y={sy * height} />
-          ))}
-        </svg>
-      )}
-    </svg>
-  )
-}
-
-function genPattern(seed: number): number[][] {
-  return Array.from({ length: 5 }, (_, i) => [
-    7 + ((seed * 3 + i * 7) % 4),
-    1 + ((seed * 5 + i * 3) % 6),
-  ])
-}
 
 const cardBase = {
   background: 'linear-gradient(145deg, rgba(14,21,37,0.85) 0%, rgba(7,7,7,0.95) 100%)',
@@ -184,125 +154,131 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
 
       {/* Our Values */}
       <div className="relative z-10 w-full" style={{ background: '#0A0F1E', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-5 md:px-8 py-16 md:py-24">
 
           {/* Header */}
-          <div className="mb-12 text-center">
-            <p className="mb-3 text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: '#8A6FFF' }}>[OUR VALUES]</p>
+          <div className="mb-10 md:mb-12">
+            <p className="mb-3 text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>What We Stand For</p>
             <h2 className="font-display text-3xl md:text-5xl font-black text-white leading-tight mb-4">
-              What we stand for.
+              What we <span className="gradient-text">stand for.</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed max-w-lg mx-auto" style={{ color: '#B8B8B8' }}>
+            <p className="text-sm md:text-base leading-relaxed max-w-xl" style={{ color: '#B8B8B8' }}>
               The principles behind every decision we make, ethically, intentionally, with the human mind at the centre.
             </p>
           </div>
 
-          {/* Cards row */}
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
+          {/* Values list — full-width rows */}
+          <div className="space-y-4">
             {[
               {
-                num: '/01',
+                num: '01',
+                accent: '#5DEBFF',
                 title: 'State Comes First',
                 description: 'Every decision starts with one question: does this help the user feel better?',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/>
                   </svg>
                 ),
               },
               {
-                num: '/02',
+                num: '02',
+                accent: '#6E8BFF',
                 title: 'Outcomes Over Engagement',
                 description: 'We measure success by how you feel after you leave, not time in the app.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
                   </svg>
                 ),
               },
               {
-                num: '/03',
+                num: '03',
+                accent: '#43E0C7',
                 title: 'Science as Foundation',
                 description: 'Every feature is grounded in research, not assumptions or trends.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M9 3H5v4l7 7 7-7-4-4h-4z"/><path d="M9 3l3 4 3-4"/><path d="M12 14v7"/><path d="M9 21h6"/>
                   </svg>
                 ),
               },
               {
-                num: '/04',
+                num: '04',
+                accent: '#9B7BFF',
                 title: 'Human Always',
                 description: 'Technology should serve people. We build tools that feel human because they are made for humans.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="7" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/>
                   </svg>
                 ),
               },
               {
-                num: '/05',
+                num: '05',
+                accent: '#5DEBFF',
                 title: 'Long-Term Thinking',
                 description: 'We are not optimising for the next quarter. We are building for a lifetime.',
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
                   </svg>
                 ),
               },
-            ].map((value, i) => {
-              const squares = genPattern(i)
-              return (
+            ].map((value, i) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '60px' }}
-                transition={{ duration: 0.55, delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl md:rounded-3xl flex flex-col p-4 md:p-7 cursor-default"
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                className="group relative flex items-center gap-4 md:gap-6 rounded-2xl md:rounded-3xl p-4 md:p-6 cursor-default overflow-hidden"
                 style={{
-                  background: '#111111',
-                  border: '1px solid rgba(255,255,255,0.10)',
-                  minHeight: '260px',
-                  transition: 'border-color 0.3s, box-shadow 0.3s',
+                  background: `linear-gradient(135deg, ${value.accent}1f 0%, rgba(10,15,30,0.5) 45%, rgba(10,15,30,0.35) 100%)`,
+                  border: `1px solid ${value.accent}33`,
+                  transition: 'border-color 0.3s, box-shadow 0.3s, transform 0.3s',
                 }}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -3 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement
-                  el.style.borderColor = 'rgba(255,255,255,0.30)'
-                  el.style.boxShadow = '0 16px 48px rgba(0,0,0,0.5)'
+                  el.style.borderColor = `${value.accent}80`
+                  el.style.boxShadow = `0 12px 40px rgba(0,0,0,0.4), 0 0 24px ${value.accent}22`
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLElement
-                  el.style.borderColor = 'rgba(255,255,255,0.10)'
+                  el.style.borderColor = `${value.accent}33`
                   el.style.boxShadow = 'none'
                 }}
               >
-                {/* Grid pattern overlay */}
-                <div className="pointer-events-none absolute top-0 left-0 h-full w-full" style={{ maskImage: 'linear-gradient(white 40%, transparent)' }}>
-                  <GridPattern
-                    width={20} height={20} x="0" y="0"
-                    squares={squares}
-                    className="absolute inset-0 h-full w-full"
-                    style={{ fill: 'rgba(255,255,255,0.04)', stroke: 'rgba(255,255,255,0.08)' } as React.CSSProperties}
-                  />
+                {/* soft accent glow, top-left */}
+                <div className="pointer-events-none absolute inset-0" style={{ background: `radial-gradient(ellipse 40% 80% at 8% 30%, ${value.accent}1a, transparent 70%)` }} />
+
+                {/* Icon circle */}
+                <div
+                  className="relative shrink-0 flex items-center justify-center rounded-full w-14 h-14 md:w-[68px] md:h-[68px]"
+                  style={{ background: `${value.accent}14`, border: `1px solid ${value.accent}40`, color: value.accent }}
+                >
+                  {value.icon}
                 </div>
 
-                {/* Icon */}
-                <div className="text-white scale-75 md:scale-100 origin-left">{value.icon}</div>
-
-                {/* Number */}
-                <span className="mt-3 md:mt-4 text-xs md:text-sm font-mono font-bold" style={{ color: 'rgba(255,255,255,0.30)' }}>{value.num}</span>
-
-                {/* Title */}
-                <h3 className="mt-2 md:mt-3 text-lg md:text-xl lg:text-2xl font-bold text-white leading-snug">{value.title}</h3>
-
-                {/* Description */}
-                <div className="mt-auto pt-3 md:pt-5" style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '1rem' }}>
-                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(200,200,200,0.75)' }}>{value.description}</p>
+                {/* Text */}
+                <div className="relative flex-1 min-w-0">
+                  <span className="text-sm md:text-base font-bold" style={{ color: value.accent }}>{value.num}</span>
+                  <h3 className="mt-0.5 text-lg md:text-2xl font-bold text-white leading-snug">{value.title}</h3>
+                  <p className="mt-1.5 text-sm md:text-base leading-relaxed" style={{ color: '#B8B8B8' }}>{value.description}</p>
                 </div>
+
+                {/* Chevron */}
+                <svg
+                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
+                  className="relative shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                  style={{ color: value.accent }}
+                  aria-hidden="true"
+                >
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
               </motion.div>
-            )})}
+            ))}
           </div>
         </div>
       </div>
