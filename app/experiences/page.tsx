@@ -67,7 +67,7 @@ export default function ExperiencesPage() {
         </div>
 
         {/* Mobile: image as its own band below the text */}
-        <div className="md:hidden relative w-full h-[46vh] z-0">
+        <div className="md:hidden relative w-full h-[52vh] z-0">
           <Image
             src="/images/experiences-hero.webp"
             alt=""
@@ -80,9 +80,10 @@ export default function ExperiencesPage() {
             className="object-cover pointer-events-none"
             style={{ objectPosition: '64% center' }}
           />
+          {/* Gradual fade from the dark text area into the image (subtle top), tiny blend at the very bottom */}
           <div
             className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, #05080f 0%, transparent 20%, transparent 82%, #05080f 100%)' }}
+            style={{ background: 'linear-gradient(180deg, #05080f 0%, rgba(5,8,15,0.7) 10%, rgba(5,8,15,0.25) 26%, transparent 44%, transparent 94%, rgba(5,8,15,0.7) 100%)' }}
           />
         </div>
 

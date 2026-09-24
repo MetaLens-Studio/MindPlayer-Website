@@ -73,7 +73,7 @@ export default function SciencePage() {
         </div>
 
         {/* Mobile: image as its own band below the text */}
-        <div className="md:hidden relative w-full h-[46vh] z-0">
+        <div className="md:hidden relative w-full h-[52vh] z-0">
           <Image
             src="/images/science-hero-bg.webp"
             alt=""
@@ -86,10 +86,10 @@ export default function SciencePage() {
             className="object-cover pointer-events-none"
             style={{ objectPosition: '58% center' }}
           />
-          {/* Fade the top of the image into the dark text area, and the bottom into the next section */}
+          {/* Gradual fade from the dark text area into the image (subtle top), tiny blend at the very bottom */}
           <div
             className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, #070707 0%, transparent 20%, transparent 82%, #070707 100%)' }}
+            style={{ background: 'linear-gradient(180deg, #070707 0%, rgba(7,7,7,0.7) 10%, rgba(7,7,7,0.25) 26%, transparent 44%, transparent 94%, rgba(7,7,7,0.7) 100%)' }}
           />
         </div>
       </div>
