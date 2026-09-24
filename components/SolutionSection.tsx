@@ -39,8 +39,18 @@ function CardStack({ items }: { items: CardItem[] }) {
   React.useEffect(() => {
     const update = () => {
       const vw = window.innerWidth
-      if (vw < 480) { setCardWidth(Math.min(vw - 32, 360)); setCardHeight(300) }
-      else if (vw < 768) { setCardWidth(Math.min(vw - 48, 480)); setCardHeight(340) }
+      const vh = window.innerHeight
+      if (vw < 480) {
+        // Mobile: tall portrait card (~2x height, ~1x width)
+        const w = Math.min(vw - 40, 340)
+        setCardWidth(w)
+        setCardHeight(Math.min(Math.round(w * 1.9), Math.round(vh * 0.72)))
+      }
+      else if (vw < 768) {
+        const w = Math.min(vw - 56, 400)
+        setCardWidth(w)
+        setCardHeight(Math.min(Math.round(w * 1.5), Math.round(vh * 0.72)))
+      }
       else if (vw < 1024) { setCardWidth(Math.min(vw - 80, 560)); setCardHeight(380) }
       else { setCardWidth(620); setCardHeight(420) }
     }
