@@ -384,7 +384,7 @@ function MobileCardList({ items }: { items: CardItem[] }) {
 export default function SolutionSection({ hideHeader }: { hideHeader?: boolean } = {}) {
   return (
     <section
-      className="relative py-24 overflow-hidden min-h-screen flex flex-col justify-center"
+      className="relative py-12 md:py-24 overflow-hidden md:min-h-screen flex flex-col justify-center"
       style={{ background: '#070707' }}
     >
       {/* Cozy gradient blobs */}
