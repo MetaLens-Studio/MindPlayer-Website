@@ -64,16 +64,7 @@ export default function Navbar() {
       >
         <div className={`mx-auto max-w-7xl px-2 transition-all duration-300 ${scrolled ? 'mt-2' : 'mt-1'}`}>
           <div
-            className={`flex items-center justify-between px-2 py-2 transition-all duration-500 md:rounded-2xl md:px-6 md:py-3`}
-            style={scrolled ? {
-              background: 'rgba(7,7,7,0.45)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '999px',
-              paddingTop: '6px',
-              paddingBottom: '6px',
-            } : {}}
+            className={`mp-nav-pill flex items-center justify-between px-2 py-2 md:rounded-2xl md:px-6 md:py-3 ${scrolled ? 'is-scrolled' : ''}`}
           >
 
             {/* Logo */}
@@ -151,7 +142,7 @@ export default function Navbar() {
         initial={false}
         animate={{ opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? 'auto' : 'none' }}
         className="fixed inset-0 z-40 md:hidden flex flex-col items-center justify-center overflow-y-auto"
-        style={{ background: 'rgba(7,7,7,0.96)', backdropFilter: 'blur(16px)' }}
+        style={{ background: '#08080b' }}
       >
         <nav className="flex flex-col items-center gap-3 w-full px-8 py-24">
           {NAV.map(({ label, href }, i) => (
