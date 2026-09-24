@@ -16,45 +16,50 @@ export default function SciencePage() {
   return (
     <PageWrapper>
       <div
-        className="relative overflow-hidden md:flex md:items-center md:min-h-screen"
+        className="relative flex items-center min-h-[88vh] md:min-h-screen overflow-hidden"
         style={{ background: '#070707' }}
       >
-        {/* Desktop / tablet: full-bleed image with left gradient (md+) */}
-        <div className="hidden md:block absolute inset-0 z-0">
-          <Image
-            src="/images/science-hero-bg.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            quality={80}
-            priority
-            placeholder="blur"
-            blurDataURL={HERO_BLUR}
-            className="object-cover pointer-events-none"
-            style={{ objectPosition: '72% center' }}
-          />
-          {/* Dark gradient on the left so the copy stays readable, image open on the right */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(90deg, rgba(7,7,7,0.96) 0%, rgba(7,7,7,0.85) 22%, rgba(7,7,7,0.55) 42%, rgba(7,7,7,0.18) 60%, transparent 76%)',
-            }}
-          />
-          {/* Subtle scrim under the navbar */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, rgba(7,7,7,0.6) 0%, transparent 16%)' }}
-          />
-          {/* Bottom fade into the next section */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, transparent 68%, rgba(7,7,7,0.6) 88%, #070707 100%)' }}
-          />
-        </div>
+        {/* Full-bleed image — all screen sizes (left-to-right layout) */}
+        <Image
+          src="/images/science-hero-bg.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={80}
+          priority
+          placeholder="blur"
+          blurDataURL={HERO_BLUR}
+          className="object-cover object-[68%_center] md:object-[72%_center] pointer-events-none"
+        />
 
-        {/* Copy — left aligned (on top of image on desktop, above image on mobile) */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 pt-28 pb-8 md:py-16">
+        {/* Left dark gradient — wider/stronger on mobile so the copy stays readable */}
+        <div
+          className="md:hidden pointer-events-none absolute inset-0 z-[1]"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(7,7,7,0.98) 0%, rgba(7,7,7,0.94) 28%, rgba(7,7,7,0.72) 52%, rgba(7,7,7,0.35) 74%, rgba(7,7,7,0.05) 100%)',
+          }}
+        />
+        <div
+          className="hidden md:block pointer-events-none absolute inset-0 z-[1]"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(7,7,7,0.96) 0%, rgba(7,7,7,0.85) 22%, rgba(7,7,7,0.55) 42%, rgba(7,7,7,0.18) 60%, transparent 76%)',
+          }}
+        />
+        {/* Subtle scrim under the navbar */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1]"
+          style={{ background: 'linear-gradient(180deg, rgba(7,7,7,0.6) 0%, transparent 16%)' }}
+        />
+        {/* Bottom fade into the next section */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1]"
+          style={{ background: 'linear-gradient(180deg, transparent 70%, rgba(7,7,7,0.55) 88%, #070707 100%)' }}
+        />
+
+        {/* Copy — left aligned */}
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 pt-24 pb-16">
           <div className="max-w-xl">
             <p className="mb-4 md:mb-6 text-sm tracking-[0.3em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>
               Science
@@ -70,27 +75,6 @@ export default function SciencePage() {
               We combine this knowledge with immersive technology to help support better mental states.
             </p>
           </div>
-        </div>
-
-        {/* Mobile: image as its own band below the text */}
-        <div className="md:hidden relative w-full h-[52vh] z-0">
-          <Image
-            src="/images/science-hero-bg.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            quality={78}
-            priority
-            placeholder="blur"
-            blurDataURL={HERO_BLUR}
-            className="object-cover pointer-events-none"
-            style={{ objectPosition: '58% center' }}
-          />
-          {/* Gradual fade from the dark text area into the image (subtle top), tiny blend at the very bottom */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, #070707 0%, rgba(7,7,7,0.7) 10%, rgba(7,7,7,0.25) 26%, transparent 44%, transparent 94%, rgba(7,7,7,0.7) 100%)' }}
-          />
         </div>
       </div>
 
