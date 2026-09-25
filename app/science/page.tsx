@@ -16,7 +16,7 @@ export default function SciencePage() {
   return (
     <PageWrapper>
       <div
-        className="relative flex items-center min-h-[88vh] md:min-h-screen overflow-hidden"
+        className="relative flex items-center min-h-[100svh] md:min-h-screen overflow-hidden"
         style={{ background: '#070707' }}
       >
         {/* Full-bleed image — all screen sizes (left-to-right layout) */}
@@ -29,7 +29,7 @@ export default function SciencePage() {
           priority
           placeholder="blur"
           blurDataURL={HERO_BLUR}
-          className="object-cover object-[68%_center] md:object-[72%_center] pointer-events-none"
+          className="object-cover object-[56%_center] md:object-[72%_center] pointer-events-none"
         />
 
         {/* Left dark gradient — wider/stronger on mobile so the copy stays readable */}
