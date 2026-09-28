@@ -13,47 +13,52 @@ const HERO_BLUR = 'data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoOAA
 export default function ExperiencesPage() {
   return (
     <PageWrapper>
-      {/* Hero — full-bleed on desktop, stacked (text over image) on mobile */}
+      {/* Hero — full-bleed left-to-right on all screen sizes */}
       <div
-        className="relative overflow-hidden md:flex md:items-center md:min-h-screen"
+        className="relative flex items-center min-h-[100svh] md:min-h-screen overflow-hidden"
         style={{ background: '#05080f' }}
       >
-        {/* Desktop / tablet: full-bleed image with left gradient (md+) */}
-        <div className="hidden md:block absolute inset-0 z-0">
-          <Image
-            src="/images/experiences-hero.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            quality={80}
-            priority
-            placeholder="blur"
-            blurDataURL={HERO_BLUR}
-            className="object-cover pointer-events-none"
-            style={{ objectPosition: '72% center' }}
-          />
-          {/* Dark gradient on the left so the copy stays readable, image open on the right */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(90deg, rgba(5,8,15,0.94) 0%, rgba(5,8,15,0.78) 22%, rgba(5,8,15,0.45) 42%, rgba(5,8,15,0.12) 60%, transparent 74%)',
-            }}
-          />
-          {/* Subtle scrim under the navbar */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, rgba(5,8,15,0.55) 0%, transparent 16%)' }}
-          />
-          {/* Bottom fade into the next section */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, transparent 68%, rgba(5,8,15,0.6) 88%, #05080f 100%)' }}
-          />
-        </div>
+        {/* Full-bleed image — all screen sizes */}
+        <Image
+          src="/images/experiences-hero.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={80}
+          priority
+          placeholder="blur"
+          blurDataURL={HERO_BLUR}
+          className="object-cover object-[62%_center] md:object-[72%_center] pointer-events-none"
+        />
+
+        {/* Left dark gradient — wider/stronger on mobile so the copy stays readable */}
+        <div
+          className="md:hidden pointer-events-none absolute inset-0 z-[1]"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(5,8,15,0.97) 0%, rgba(5,8,15,0.9) 28%, rgba(5,8,15,0.62) 52%, rgba(5,8,15,0.25) 74%, rgba(5,8,15,0.02) 100%)',
+          }}
+        />
+        <div
+          className="hidden md:block pointer-events-none absolute inset-0 z-[1]"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(5,8,15,0.94) 0%, rgba(5,8,15,0.78) 22%, rgba(5,8,15,0.45) 42%, rgba(5,8,15,0.12) 60%, transparent 74%)',
+          }}
+        />
+        {/* Subtle scrim under the navbar */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1]"
+          style={{ background: 'linear-gradient(180deg, rgba(5,8,15,0.55) 0%, transparent 16%)' }}
+        />
+        {/* Bottom fade into the next section */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1]"
+          style={{ background: 'linear-gradient(180deg, transparent 72%, rgba(5,8,15,0.55) 88%, #05080f 100%)' }}
+        />
 
         {/* Copy — left aligned */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 pt-28 pb-8 md:py-16">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 pt-24 pb-16">
           <div className="max-w-4xl">
             <p className="mb-4 md:mb-6 text-sm tracking-[0.3em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>Experiences</p>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black text-white leading-[1.05] mb-6 md:mb-8 sm:whitespace-nowrap">
@@ -65,28 +70,6 @@ export default function ExperiencesPage() {
             </p>
           </div>
         </div>
-
-        {/* Mobile: image as its own band below the text */}
-        <div className="md:hidden relative w-full h-[52vh] z-0">
-          <Image
-            src="/images/experiences-hero.webp"
-            alt=""
-            fill
-            sizes="100vw"
-            quality={78}
-            priority
-            placeholder="blur"
-            blurDataURL={HERO_BLUR}
-            className="object-cover pointer-events-none"
-            style={{ objectPosition: '64% center' }}
-          />
-          {/* Gradual fade from the dark text area into the image (subtle top), tiny blend at the very bottom */}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, #05080f 0%, rgba(5,8,15,0.7) 10%, rgba(5,8,15,0.25) 26%, transparent 44%, transparent 94%, rgba(5,8,15,0.7) 100%)' }}
-          />
-        </div>
-
       </div>
 
       <SolutionSection hideHeader />
