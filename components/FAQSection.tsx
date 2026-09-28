@@ -157,7 +157,7 @@ export default function FAQSection({ hideHeader }: { hideHeader?: boolean } = {}
         <div className={`mp-faq-intro ${introReady ? 'mp-faq-intro--active' : ''}`}>
           <span className="mp-faq-intro__beam" aria-hidden="true" />
           <span className="mp-faq-intro__pulse" aria-hidden="true" />
-          <span className="mp-faq-intro__label">MindPlayer FAQ</span>
+          <span className="mp-faq-intro__label">Mind Player FAQ</span>
           <span className="mp-faq-intro__meter" aria-hidden="true" />
           <span className="mp-faq-intro__tick" aria-hidden="true" />
         </div>
@@ -170,7 +170,7 @@ export default function FAQSection({ hideHeader }: { hideHeader?: boolean } = {}
               Everything you need to <span className="gradient-text">know.</span>
             </h2>
             <p className="max-w-xl text-base" style={{ color: '#B8B8B8' }}>
-              Clear answers about MindPlayer — what it is, how it works, and how to get started.
+              Clear answers about Mind Player — what it is, how it works, and how to get started.
             </p>
           </header>
         )}

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions — MindPlayer',
+  title: 'Terms & Conditions — Mind Player',
   description: 'The terms that govern your use of the Mind Player platform.',
 }
 

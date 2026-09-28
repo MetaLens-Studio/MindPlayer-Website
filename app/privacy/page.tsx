@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — MindPlayer',
+  title: 'Privacy Policy — Mind Player',
   description: 'How Mind Player collects, uses and protects your personal data.',
 }
 

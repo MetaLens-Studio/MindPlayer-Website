@@ -5,8 +5,8 @@ import AudiencesSection from '@/components/AudiencesSection'
 import Testimonials from '@/components/Testimonials'
 
 export const metadata: Metadata = {
-  title: 'About — MindPlayer',
-  description: 'Why MindPlayer? Immersion, intelligence, and human-centered design — built for every mind.',
+  title: 'About — Mind Player',
+  description: 'Why Mind Player? Immersion, intelligence, and human-centered design — built for every mind.',
 }
 
 export default function AboutPage() {

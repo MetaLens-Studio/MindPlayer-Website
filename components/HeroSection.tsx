@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
 
 // ─────────────────────────────────────────────
-// MindPlayer-themed GLSL shader — full quality (desktop)
+// Mind Player-themed GLSL shader — full quality (desktop)
 // ─────────────────────────────────────────────
 const SHADER = `#version 300 es
 precision highp float;

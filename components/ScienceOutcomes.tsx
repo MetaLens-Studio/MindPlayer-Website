@@ -102,7 +102,7 @@ const OUTCOMES = [
     id: 6,
     title: 'Better Wellbeing',
     date: 'Wellbeing',
-    content: 'Build a healthier relationship with your mind. Consistent use of MindPlayer supports long-term mental resilience, balance, and overall wellbeing.',
+    content: 'Build a healthier relationship with your mind. Consistent use of Mind Player supports long-term mental resilience, balance, and overall wellbeing.',
     category: 'Wellbeing',
     icon: WellbeingIcon,
     relatedIds: [2, 3],

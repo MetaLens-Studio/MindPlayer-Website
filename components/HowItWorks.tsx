@@ -17,7 +17,7 @@ const STEPS = [
   {
     num: '02',
     title: 'Understand Your Current State',
-    desc: 'MindPlayer reads where you are right now — mentally and emotionally — so the experience meets you exactly where you need it.',
+    desc: 'Mind Player reads where you are right now — mentally and emotionally — so the experience meets you exactly where you need it.',
     color: '#8A6FFF',
     tags: ['State Sensing', 'Emotional Mapping', 'Real-time Insight'],
     image: '/images/step-state.webp',
@@ -44,7 +44,7 @@ const STEPS = [
   {
     num: '05',
     title: 'Support Better Mental States',
-    desc: 'Over time MindPlayer helps you build lasting mental resilience — better focus, deeper sleep, faster recovery, and lasting emotional balance.',
+    desc: 'Over time Mind Player helps you build lasting mental resilience — better focus, deeper sleep, faster recovery, and lasting emotional balance.',
     color: '#5DEBFF',
     tags: ['Long-term Resilience', 'Progress Tracking', 'Mental Wellness'],
     image: '/images/step-support.webp',

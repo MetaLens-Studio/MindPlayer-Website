@@ -6,8 +6,8 @@ import ScienceOutcomes from '@/components/ScienceOutcomes'
 import ScienceSections from '@/components/ScienceSections'
 
 export const metadata: Metadata = {
-  title: 'Science — MindPlayer',
-  description: 'The neuroscience behind MindPlayer — brainwave entrainment, spatial audio, and immersive environment design.',
+  title: 'Science — Mind Player',
+  description: 'The neuroscience behind Mind Player — brainwave entrainment, spatial audio, and immersive environment design.',
 }
 
 const HERO_BLUR = 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoOAAcAA4BaJYgCdAEPDe8ncwAA/rXT37N39e+Whj4mEj9cXBTd3upXPbGawZ1gm/58AAAA'

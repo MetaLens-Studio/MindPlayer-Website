@@ -5,7 +5,7 @@ import HowItWorks from '@/components/HowItWorks'
 import Timeline from '@/components/Timeline'
 
 export const metadata: Metadata = {
-  title: 'How It Works — MindPlayer',
+  title: 'How It Works — Mind Player',
   description: 'Four simple steps to mental clarity — choose your goal, enter the experience, regulate your state, create your Minds.',
 }
 

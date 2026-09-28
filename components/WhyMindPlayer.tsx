@@ -38,7 +38,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
         >
           <p className="mb-4 text-xs tracking-[0.3em] uppercase" style={{ color: '#8A6FFF' }}>Why Us</p>
           <h2 className="font-display text-4xl md:text-6xl font-bold text-white">
-            Why <span className="gradient-text">MindPlayer</span>
+            Why <span className="gradient-text">Mind Player</span>
           </h2>
         </motion.div>
       )}
@@ -158,7 +158,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
 
           {/* Header */}
           <div className="mb-10 md:mb-12">
-            <p className="mb-3 text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>What We Stand For</p>
+            <p className="mb-3 text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>Our Principles</p>
             <h2 className="font-display text-3xl md:text-5xl font-black text-white leading-tight mb-4">
               What we <span className="gradient-text">stand for.</span>
             </h2>

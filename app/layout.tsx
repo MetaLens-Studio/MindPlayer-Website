@@ -19,12 +19,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://mindplayer.app'),
   title: {
-    default: 'MindPlayer — Your Mind. Limitless.',
-    template: '%s | MindPlayer',
+    default: 'Mind Player — Your Mind. Limitless.',
+    template: '%s | Mind Player',
   },
   description: 'A mental state regulation platform — improve focus, recovery, sleep, and wellbeing through immersive experiences.',
   keywords: ['mental performance', 'focus', 'brainwave entrainment', 'spatial audio', 'VR wellness', 'sleep improvement', 'cognitive performance'],
-  authors: [{ name: 'MindPlayer' }],
+  authors: [{ name: 'Mind Player' }],
   robots: {
     index: true,
     follow: true,
@@ -34,21 +34,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://mindplayer.app',
-    siteName: 'MindPlayer',
-    title: 'MindPlayer — Your Mind. Limitless.',
+    siteName: 'Mind Player',
+    title: 'Mind Player — Your Mind. Limitless.',
     description: 'Improve focus, recovery, sleep, and wellbeing through science-backed immersive experiences.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'MindPlayer — Immersive mental performance platform',
+        alt: 'Mind Player — Immersive mental performance platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MindPlayer — Your Mind. Limitless.',
+    title: 'Mind Player — Your Mind. Limitless.',
     description: 'Improve focus, recovery, sleep, and wellbeing through science-backed immersive experiences.',
     images: ['/og-image.jpg'],
   },

@@ -4,7 +4,7 @@ import PageWrapper from '@/components/PageWrapper'
 import SolutionSection from '@/components/SolutionSection'
 
 export const metadata: Metadata = {
-  title: 'Experiences — MindPlayer',
+  title: 'Experiences — Mind Player',
   description: 'VR, AR, Mobile, and AI — five dimensions of immersive mental state regulation.',
 }
 

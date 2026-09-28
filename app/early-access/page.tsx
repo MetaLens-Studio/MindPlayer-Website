@@ -157,7 +157,7 @@ export default function EarlyAccessPage() {
                   className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-[#070707] transition-opacity hover:opacity-90"
                   style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)' }}
                 >
-                  Explore MindPlayer
+                  Explore Mind Player
                 </Link>
               </motion.div>
             )}

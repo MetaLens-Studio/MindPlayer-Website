@@ -69,7 +69,7 @@ export default function Footer() {
         {/* Brand */}
         <Image
           src="/images/mindplayer-logo-new.png"
-          alt="MindPlayer logo"
+          alt="Mind Player logo"
           width={188}
           height={40}
           style={{ width: '188px', height: '40px', objectFit: 'contain' }}

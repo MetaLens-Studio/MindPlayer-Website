@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 
 export const metadata: Metadata = {
-  title: 'Cookies Policy — MindPlayer',
+  title: 'Cookies Policy — Mind Player',
   description: 'Understand how Mind Player uses cookies and similar technologies to enhance your experience.',
 }
 

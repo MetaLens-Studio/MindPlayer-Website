@@ -34,7 +34,7 @@ export default function NotFound() {
         className="relative inline-flex items-center gap-2 rounded-full px-7 py-3 font-semibold text-sm text-[#070707] transition-opacity hover:opacity-90"
         style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)' }}
       >
-        Back to MindPlayer
+        Back to Mind Player
       </Link>
     </div>
   )

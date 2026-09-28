@@ -50,7 +50,7 @@ export default function AudiencesSection() {
           Built for <span className="gradient-text">Every Mind</span>
         </h2>
         <p className="mt-3 text-sm" style={{ color: '#B8B8B8' }}>
-          Whether you seek peak performance or quiet clarity — MindPlayer adapts to you.
+          Whether you seek peak performance or quiet clarity — Mind Player adapts to you.
         </p>
       </motion.div>
 

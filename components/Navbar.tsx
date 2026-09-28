@@ -71,7 +71,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <Image
                 src="/images/mindplayer-logo-new.png"
-                alt="MindPlayer logo"
+                alt="Mind Player logo"
                 width={188}
                 height={40}
                 className="object-contain flex-shrink-0"

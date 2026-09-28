@@ -4,8 +4,8 @@ import FAQSection from '@/components/FAQSection'
 import CTASection from '@/components/CTASection'
 
 export const metadata: Metadata = {
-  title: 'FAQ — MindPlayer',
-  description: 'Everything you need to know about MindPlayer — mental state regulation, early access, and more.',
+  title: 'FAQ — Mind Player',
+  description: 'Everything you need to know about Mind Player — mental state regulation, early access, and more.',
 }
 
 export default function FAQPage() {

@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 const TESTIMONIALS = [
   {
-    quote: "MindPlayer changed how I approach my work day. Within two weeks my focus sessions went from 20 minutes to over 90 minutes uninterrupted.",
+    quote: "Mind Player changed how I approach my work day. Within two weeks my focus sessions went from 20 minutes to over 90 minutes uninterrupted.",
     name: "Priya Sharma",
     designation: "Data Scientist at QuantumLeap",
     src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop",
@@ -17,7 +17,7 @@ const TESTIMONIALS = [
     src: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop",
   },
   {
-    quote: "As an athlete, recovery is everything. MindPlayer's recovery protocols cut my mental fatigue in half and keep me sharp through back-to-back training days.",
+    quote: "As an athlete, recovery is everything. Mind Player's recovery protocols cut my mental fatigue in half and keep me sharp through back-to-back training days.",
     name: "Isabella Rossi",
     designation: "Professional Athlete",
     src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop",
