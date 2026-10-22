@@ -7,12 +7,12 @@ const AUDIENCES = [
   {
     title: 'Professionals',
     desc: 'Reclaim deep focus, eliminate mental fatigue, and perform at the highest level every day.',
-    image: '/images/exp-focus.webp',
+    image: '/images/professionals-new.webp',
   },
   {
     title: 'Students',
     desc: 'Enter flow states on demand. Absorb information faster, retain more, stress less.',
-    image: '/images/Cognitive.webp',
+    image: '/images/students-new.webp',
   },
   {
     title: 'Athletes',
@@ -27,7 +27,7 @@ const AUDIENCES = [
   {
     title: 'High Performers',
     desc: 'Optimize every cognitive variable — from decision quality to emotional regulation.',
-    image: '/images/intelligence.webp',
+    image: '/images/high-performers-new.webp',
   },
   {
     title: 'Seekers of Clarity',
