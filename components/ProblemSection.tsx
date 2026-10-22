@@ -26,7 +26,7 @@ const CARDS = [
     title: 'Sleep',
     description: 'Blue light, racing thoughts, and chronic stress disrupt the sleep cycles your brain needs to consolidate and repair.',
     color: '#8A6FFF',
-    image: '/images/Sleep.webp',
+    image: '/images/sleep-new.webp',
     accent: 'rgba(138,111,255,0.18)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -42,7 +42,7 @@ const CARDS = [
     title: 'Recovery',
     description: 'Mental and physical fatigue accumulate faster than ever — without the right tools, true restoration is impossible.',
     color: '#FFD76A',
-    image: '/images/Recovery.webp',
+    image: '/images/recovery-new.webp',
     accent: 'rgba(255,215,106,0.15)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -57,7 +57,7 @@ const CARDS = [
     title: 'Motivation',
     description: 'Burnout, low dopamine, and constant comparison drain the drive you need to pursue what actually matters.',
     color: '#FFD76A',
-    image: '/images/Recovery.webp',
+    image: '/images/motivation-new.webp',
     accent: 'rgba(255,215,106,0.15)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -70,7 +70,7 @@ const CARDS = [
     title: 'Emotional Balance',
     description: 'Unregulated stress responses, anxiety loops, and emotional dysregulation quietly erode your quality of life.',
     color: '#FF6B9D',
-    image: '/images/Emotional-Balance.webp',
+    image: '/images/emotional-new.webp',
     accent: 'rgba(255,107,157,0.15)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -84,7 +84,7 @@ const CARDS = [
     title: 'Cognitive Performance',
     description: 'Decision fatigue, information overload, and poor mental hygiene cap your potential far below what you\'re capable of.',
     color: '#5DEBFF',
-    image: '/images/Cognitive.webp',
+    image: '/images/cognitive-new.webp',
     accent: 'rgba(93,235,255,0.15)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -100,7 +100,7 @@ const CARDS = [
     title: 'Creativity',
     description: 'Mental rigidity, stress, and routine suppress original thinking and the imaginative flow states that fuel great work.',
     color: '#8A6FFF',
-    image: '/images/Sleep.webp',
+    image: '/images/creativity-new.webp',
     accent: 'rgba(138,111,255,0.18)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">

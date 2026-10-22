@@ -1,4 +1,10 @@
 export const blurDataURLs: Record<string, string> = {
+  "sleep-new.webp": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoMABIAPu1iqU2ppaOiMAgBMB2JZQAAW+s/i3NkyOm3MAD+8pXjQH5Wai6G4NCTHOIkpaS+lNP+Xky5uu6j8AAA",
+  "recovery-new.webp": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoMAAoAA4BaJYgCdAYtBEFLrbzQAAD+6KhlWeed2CQMLJ1S2pZKOWU2dDT/2CLIfsKH+kA73lOX45EWcqBq2GzA5qsIeNFMeodPZGfAAAA=",
+  "motivation-new.webp": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAgAA4BaJQBOgBus6EqFQAD+yPmF6UraVFZZ134MX0/3N1aPFrMeTEAO36U8g3wgpxw9gOD3I1V9AAA=",
+  "emotional-new.webp": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoMAAoAA4BaJYgCdAD0MiPY2FVQAP7rMr29j3sM8FWMWiyK7sL4TJe6geA9Tof9MumKiplJUQDtas88UfpVkkMp4wIAAA==",
+  "cognitive-new.webp": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMAAoAA4BaJYgCdAD5j7lafmgAAP6cAiglmmW5CWCjPjD16Bf4tPiirVUMzKzkA000ISVxrv/81ZdI16VsNynT1LbKLQezdA0+T9Y9ZPAogAAA",
+  "creativity-new.webp": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAA8AA4BaJbACdAEO9EDZQTAA/vHUBfkxe5XiRKQo06Q0J9iLgMSnXKcUEbSYLn+fgzvb9hmI2mwdWkmFF8wA",
   "experiences-bg.webp": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoIAAgABUB8JYwAA3AA/vDGKZhfEAAA",
   "howitworksbg.webp": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoIAAgABUB8JYwAAudmZaXQAP7unHQhN7kXSYn50leaAAAA",
   "about-bg.webp": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoIAAgABUB8JQBOgCgAAP7wir+qH/e8FxEWuvpYz6MAAA==",
