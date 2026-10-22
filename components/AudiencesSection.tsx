@@ -17,12 +17,12 @@ const AUDIENCES = [
   {
     title: 'Athletes',
     desc: 'Accelerate recovery, build mental resilience, and prime your mind for peak performance.',
-    image: '/images/Recovery.webp',
+    image: '/images/athletes-new.webp',
   },
   {
     title: 'Creators',
     desc: 'Break creative blocks, sustain inspiration, and produce your best work consistently.',
-    image: '/images/Sleep.webp',
+    image: '/images/creators-new.webp',
   },
   {
     title: 'High Performers',
