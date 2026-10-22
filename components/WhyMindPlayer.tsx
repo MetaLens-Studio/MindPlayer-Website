@@ -267,16 +267,6 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
                   <h3 className="mt-0.5 text-lg md:text-xl font-bold text-white leading-snug">{value.title}</h3>
                   <p className="mt-1.5 text-sm md:text-[15px] leading-relaxed" style={{ color: '#B8B8B8' }}>{value.description}</p>
                 </div>
-
-                {/* Chevron — inline (mobile), top-right (desktop grid) */}
-                <svg
-                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
-                  className="relative shrink-0 lg:absolute lg:top-6 lg:right-6 transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ color: value.accent }}
-                  aria-hidden="true"
-                >
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
               </motion.div>
             ))}
           </div>
