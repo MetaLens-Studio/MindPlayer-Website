@@ -12,7 +12,7 @@ const AUDIENCES = [
   {
     title: 'Students',
     desc: 'Enter flow states on demand. Absorb information faster, retain more, stress less.',
-    image: '/images/students-new.webp',
+    image: '/images/students-v2.webp',
   },
   {
     title: 'Athletes',
