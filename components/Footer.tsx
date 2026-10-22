@@ -65,7 +65,8 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative z-10 max-w-2xl mx-auto px-6 md:px-8 pt-16 pb-8">
+      {/* ── Mobile / tablet: stacked single column ── */}
+      <div className="lg:hidden relative z-10 max-w-2xl mx-auto px-6 md:px-8 pt-16 pb-8">
         {/* Brand */}
         <Image
           src="/images/mindplayer-logo-new.png"
@@ -95,7 +96,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="group flex items-center justify-between text-lg text-[#D5D9E2] hover:text-white transition-colors duration-200 border-b border-transparent"
+              className="group flex items-center justify-between text-lg text-[#D5D9E2] hover:text-white transition-colors duration-200"
             >
               <span>{link.label}</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#5A6070] group-hover:text-[#5DEBFF] transition-colors duration-200" aria-hidden="true">
@@ -105,19 +106,14 @@ export default function Footer() {
           ))}
         </nav>
 
-        {/* Divider */}
         <div className="my-8 h-px w-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
 
-        {/* Early access CTA */}
         <motion.a
           href="/early-access"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="flex w-full items-center justify-center gap-3 rounded-full py-4 text-sm font-bold tracking-[0.12em] uppercase text-[#070707] transition-shadow duration-300"
-          style={{
-            background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)',
-            boxShadow: '0 0 28px rgba(93,235,255,0.30)',
-          }}
+          style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)', boxShadow: '0 0 28px rgba(93,235,255,0.30)' }}
         >
           Get Early Access
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -126,35 +122,118 @@ export default function Footer() {
         </motion.a>
         <p className="mt-3 text-center text-sm text-[#8A90A0]">No spam. Just early access.</p>
 
-        {/* Stay connected */}
         <p className="mt-12 mb-6 text-center text-xs tracking-[0.25em] uppercase text-[#8A90A0]">Stay Connected</p>
         <div className="flex items-center justify-center gap-8">
           {SOCIALS.map(s => (
-            <a
-              key={s.label}
-              href={s.href}
-              aria-label={s.label}
-              className="text-[#9AA0AE] hover:text-white transition-colors duration-200"
-            >
+            <a key={s.label} href={s.href} aria-label={s.label} className="text-[#9AA0AE] hover:text-white transition-colors duration-200">
               {s.icon}
             </a>
           ))}
         </div>
 
-        {/* Divider */}
         <div className="mt-10 mb-6 h-px w-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
 
-        {/* Bottom */}
         <p className="text-center text-sm text-[#8A90A0]">© 2026 Mind Player. All rights reserved.</p>
         <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm">
           {LEGAL.map((l, i) => (
             <span key={l.href} className="flex items-center gap-x-3">
-              <Link href={l.href} className="text-[#9AA0AE] hover:text-white transition-colors duration-200">
-                {l.label}
-              </Link>
+              <Link href={l.href} className="text-[#9AA0AE] hover:text-white transition-colors duration-200">{l.label}</Link>
               {i < LEGAL.length - 1 && <span className="text-[#3A3F4A]">|</span>}
             </span>
           ))}
+        </div>
+      </div>
+
+      {/* ── Desktop: three columns with dividers, then a bottom bar ── */}
+      <div className="hidden lg:block relative z-10 max-w-7xl mx-auto px-12 pt-20 pb-8">
+        <div className="flex items-stretch">
+          {/* Brand */}
+          <div className="flex-[1.25] pr-12">
+            <Image
+              src="/images/mindplayer-logo-new.png"
+              alt="Mind Player logo"
+              width={200}
+              height={42}
+              style={{ width: '200px', height: '42px', objectFit: 'contain' }}
+            />
+            <p className="mt-6 text-base leading-relaxed text-[#B8B8B8] max-w-xs">
+              A mental state regulation platform designed for the future of human potential.
+            </p>
+            <a
+              href="mailto:hello@mindplayer.com"
+              className="mt-6 inline-flex items-center gap-2.5 text-base text-[#5DEBFF] hover:text-white transition-colors duration-200"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+                <path d="M3 6.5l9 6 9-6" />
+              </svg>
+              hello@mindplayer.com
+            </a>
+          </div>
+
+          <div className="w-px self-stretch" style={{ background: 'rgba(255,255,255,0.08)' }} />
+
+          {/* Navigation */}
+          <div className="flex-1 px-12">
+            <p className="mb-6 text-xs tracking-[0.25em] uppercase text-[#8A90A0]">Navigation</p>
+            <nav className="grid grid-cols-2 grid-rows-3 grid-flow-col gap-x-10 gap-y-5">
+              {NAV_LINKS.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-center justify-between text-lg text-[#D5D9E2] hover:text-white transition-colors duration-200"
+                >
+                  <span>{link.label}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#5A6070] group-hover:text-[#5DEBFF] transition-colors duration-200" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6" />
+                  </svg>
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="w-px self-stretch" style={{ background: 'rgba(255,255,255,0.08)' }} />
+
+          {/* CTA + social */}
+          <div className="flex-1 pl-12 flex flex-col">
+            <motion.a
+              href="/early-access"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex w-full items-center justify-center gap-3 rounded-full py-4 text-sm font-bold tracking-[0.12em] uppercase text-[#070707] transition-shadow duration-300"
+              style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)', boxShadow: '0 0 28px rgba(93,235,255,0.30)' }}
+            >
+              Get Early Access
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </motion.a>
+            <p className="mt-4 text-center text-sm text-[#8A90A0]">No spam. Just early access.</p>
+            <p className="mt-9 mb-5 text-center text-xs tracking-[0.25em] uppercase text-[#8A90A0]">Stay Connected</p>
+            <div className="flex items-center justify-center gap-7">
+              {SOCIALS.map(s => (
+                <a key={s.label} href={s.href} aria-label={s.label} className="text-[#9AA0AE] hover:text-white transition-colors duration-200">
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Horizontal divider */}
+        <div className="mt-14 mb-6 h-px w-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
+
+        {/* Bottom bar */}
+        <div className="flex items-center justify-between">
+          <p className="text-sm text-[#8A90A0]">© 2026 Mind Player. All rights reserved.</p>
+          <div className="flex items-center gap-x-3 text-sm">
+            {LEGAL.map((l, i) => (
+              <span key={l.href} className="flex items-center gap-x-3">
+                <Link href={l.href} className="text-[#9AA0AE] hover:text-white transition-colors duration-200">{l.label}</Link>
+                {i < LEGAL.length - 1 && <span className="text-[#3A3F4A]">|</span>}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
