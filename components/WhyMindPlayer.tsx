@@ -59,7 +59,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#8A6FFF'; el.style.boxShadow = '0 0 24px rgba(138,111,255,0.6), 0 0 60px rgba(138,111,255,0.2), inset 0 0 24px rgba(138,111,255,0.1)' }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.06)'; el.style.boxShadow = 'none' }}
           >
-            <Image src="/images/immersion.webp" alt="Immersion" fill sizes="(max-width:768px) 100vw, 66vw" quality={72} priority placeholder="blur" blurDataURL={blurDataURLs['immersion.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/images/immersion-new.webp" alt="Immersion" fill sizes="(max-width:768px) 100vw, 66vw" quality={72} priority placeholder="blur" blurDataURL={blurDataURLs['immersion-new.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(7,7,7,0.65) 0%, rgba(7,7,7,0.35) 100%)' }} />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(93,235,255,0.12), transparent 60%)' }} />
@@ -131,7 +131,7 @@ export default function WhyMindPlayer({ hideHeader }: { hideHeader?: boolean } =
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#8A6FFF'; el.style.boxShadow = '0 0 24px rgba(138,111,255,0.6), 0 0 60px rgba(138,111,255,0.2), inset 0 0 24px rgba(138,111,255,0.1)' }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.06)'; el.style.boxShadow = 'none' }}
           >
-            <Image src="/images/human-centered.webp" alt="Human-Centered Design" fill sizes="(max-width:768px) 100vw, 33vw" quality={72} placeholder="blur" blurDataURL={blurDataURLs['human-centered.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Image src="/images/human-centered-new.webp" alt="Human-Centered Design" fill sizes="(max-width:768px) 100vw, 33vw" quality={72} placeholder="blur" blurDataURL={blurDataURLs['human-centered-new.webp']} className="object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(7,7,7,0.65) 0%, rgba(7,7,7,0.35) 100%)' }} />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(255,215,106,0.1), transparent 65%)' }} />

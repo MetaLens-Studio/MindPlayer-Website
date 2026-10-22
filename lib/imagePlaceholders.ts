@@ -5,6 +5,8 @@ export const blurDataURLs: Record<string, string> = {
   "emotional-new.webp": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoMAAoAA4BaJYgCdAD0MiPY2FVQAP7rMr29j3sM8FWMWiyK7sL4TJe6geA9Tof9MumKiplJUQDtas88UfpVkkMp4wIAAA==",
   "cognitive-new.webp": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMAAoAA4BaJYgCdAD5j7lafmgAAP6cAiglmmW5CWCjPjD16Bf4tPiirVUMzKzkA000ISVxrv/81ZdI16VsNynT1LbKLQezdA0+T9Y9ZPAogAAA",
   "creativity-new.webp": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAA8AA4BaJbACdAEO9EDZQTAA/vHUBfkxe5XiRKQo06Q0J9iLgMSnXKcUEbSYLn+fgzvb9hmI2mwdWkmFF8wA",
+  "immersion-new.webp": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoMAAgAA4BaJYgCdADc+FVVNgAA/sKy7cF8R0Q9blxg5PT8uKExvevsGPt2cLruvr7f6auiwfv+iLlSWC8YDiFsy8Ud0MDLkN50HAAA",
+  "human-centered-new.webp": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoMAAgAA4BaJZQCsAEPD29k8AAA/vlRmgDFWrp91TGeYUWuVyvh6rceAAA=",
   "experiences-bg.webp": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoIAAgABUB8JYwAA3AA/vDGKZhfEAAA",
   "howitworksbg.webp": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoIAAgABUB8JYwAAudmZaXQAP7unHQhN7kXSYn50leaAAAA",
   "about-bg.webp": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoIAAgABUB8JQBOgCgAAP7wir+qH/e8FxEWuvpYz6MAAA==",
