@@ -368,14 +368,15 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.95 }}
           className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-3 md:gap-4"
         >
-          <button
+          <Link
+            href="/about"
             className="rounded-full px-6 md:px-9 py-3 md:py-4 text-sm font-bold tracking-[0.18em] uppercase text-[#070707] transition-shadow duration-200"
             style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)', boxShadow: '0 0 28px rgba(93,235,255,0.35)' }}
             onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 55px rgba(93,235,255,0.55)')}
             onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 0 28px rgba(93,235,255,0.35)')}
           >
             Explore
-          </button>
+          </Link>
           <Link
             href="/early-access"
             className="rounded-full px-6 md:px-9 py-3 md:py-4 text-sm font-semibold tracking-[0.18em] uppercase text-white transition-colors duration-200"
