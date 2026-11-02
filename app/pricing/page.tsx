@@ -162,9 +162,6 @@ export default function PricingPage() {
                 style={{ border: '1px solid rgba(255,255,255,0.18)' }}>
                 Unlock Premium
               </Link>
-              <Link href="/contact" className="text-sm font-semibold text-[#5DEBFF] hover:text-white transition-colors duration-200">
-                Contact Mind Player →
-              </Link>
             </div>
           </div>
 
