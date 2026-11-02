@@ -11,8 +11,8 @@ const STEPS = [
     desc: 'Select your desired outcome — focus, sleep, relaxation, recovery, or peak performance. Every journey starts with intention.',
     color: '#5DEBFF',
     tags: ['Focus', 'Sleep', 'Relaxation', 'Recovery', 'Performance'],
-    image: '/images/step-goal.webp',
-    imgW: 831, imgH: 449,
+    image: '/images/step-goal-new.webp',
+    imgW: 900, imgH: 335,
   },
   {
     num: '02',
@@ -20,8 +20,8 @@ const STEPS = [
     desc: 'Mind Player reads where you are right now — mentally and emotionally — so the experience meets you exactly where you need it.',
     color: '#8A6FFF',
     tags: ['State Sensing', 'Emotional Mapping', 'Real-time Insight'],
-    image: '/images/step-state.webp',
-    imgW: 725, imgH: 597,
+    image: '/images/step-state-new.webp',
+    imgW: 900, imgH: 600,
   },
   {
     num: '03',

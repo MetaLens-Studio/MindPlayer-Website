@@ -12,6 +12,8 @@ export const blurDataURLs: Record<string, string> = {
   "students-v2.webp": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAAcAA4BaJQBOgCPwzJWMcmAA/t2dOUAJSpLGuiOOCFkEA2wFeISfD09LymxSYESAoS7WSAeDRRMj6YlamgAA",
   "creators-new.webp": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA4BaJbACdADdbux3gAD+72NMW/9wn7rA8JQoglfL3KRcQPd4yg2XqcSCOz6AwJAyixRP16ndFsd+l4AA",
   "athletes-new.webp": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoMAAgAA4BaJYwCw7Dx6QRAAP73nnY+sruJ3oNrZEAsKXsgktzuqJFmoEdCrwu1v2AGoAAA",
+  "step-goal-new.webp": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoMAAQAA4BaJbACdAELXapk1AD+8XuOhdT/OsasqUBXVmwyugHjkvX+Udn3K1KaP60GgAAA",
+  "step-state-new.webp": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAABwAQCdASoMAAgAA4BaJZwC7AF1AAD+8ztb0TeSizY0vSvA16DqZmO7ZuHNBoiwBMlgAA==",
   "experiences-bg.webp": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoIAAgABUB8JYwAA3AA/vDGKZhfEAAA",
   "howitworksbg.webp": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoIAAgABUB8JYwAAudmZaXQAP7unHQhN7kXSYn50leaAAAA",
   "about-bg.webp": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoIAAgABUB8JQBOgCgAAP7wir+qH/e8FxEWuvpYz6MAAA==",
