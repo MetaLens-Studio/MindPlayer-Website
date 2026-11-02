@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import PageWrapper from '@/components/PageWrapper'
+import PricingPlans from '@/components/PricingPlans'
 
 export const metadata: Metadata = {
   title: 'Pricing — Mind Player',
@@ -17,48 +18,6 @@ const Dash = () => (
     <path d="M5 12h14" />
   </svg>
 )
-
-const FREE_INCLUDED = [
-  'Access to selected Free content',
-  'Selected Free Mind Player Originals',
-  'Limited personal Mind creation',
-  'Basic activity and progress tracking',
-  'Access to the Feed and community',
-  'Connect with other users',
-  'Discover and book Mind Experts',
-  'Join eligible Spaces and Events',
-]
-const FREE_NOT = [
-  'Premium content',
-  'Unlimited Mind creation',
-  'AI Mind Coach',
-  'Detailed insights and weekly summaries',
-]
-const PREMIUM_FEATURES = [
-  'Full Music, Sounds & Visuals libraries',
-  'Full Guided Content library',
-  'Access to all Mind Player Originals',
-  'Unlimited personal Mind creation',
-  'Combine any available content',
-  'Access to the AI Mind Coach',
-  'Complete activity & progress tracking',
-  'Detailed weekly summaries',
-  'Personalized insights & recommendations',
-]
-const ENTERPRISE_FEATURES = [
-  'Premium access for licensed users',
-  'Complete content library',
-  'AI Mind Coach with customized limits',
-  'Centralized user & licence management',
-  'Centralized billing',
-  'Organization-level insights & reporting',
-  'Private Spaces and Events',
-  'Customized onboarding',
-  'Mobile and VR access',
-  'Priority support',
-  'Custom content & experiences',
-  'Technical integrations',
-]
 
 const COMPARE: { feature: string; free: string; premium: string; enterprise: string }[] = [
   { feature: 'Free content', free: 'y', premium: 'y', enterprise: 'y' },
@@ -109,98 +68,8 @@ export default function PricingPage() {
           </div>
 
           {/* Plan cards */}
-          <div className="mt-14 grid gap-6 lg:grid-cols-3 items-start">
-
-            {/* Free */}
-            <div className="rounded-3xl p-7 md:p-8 flex flex-col h-full"
-              style={{ background: 'rgba(14,21,37,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <h3 className="text-xl font-bold text-white">Free</h3>
-              <div className="mt-4 flex items-end gap-2">
-                <span className="font-display text-4xl font-black text-white">$0</span>
-                <span className="pb-1 text-sm text-[#8A90A0]">Free forever</span>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-[#B8B8B8]">
-                Experience the core of Mind Player and begin building better mental states.
-              </p>
-              <Link href="/early-access"
-                className="mt-6 flex w-full items-center justify-center rounded-full py-3.5 text-sm font-bold tracking-[0.1em] uppercase text-white transition-colors duration-200"
-                style={{ border: '1px solid rgba(93,235,255,0.4)' }}>
-                Start Free
-              </Link>
-              <p className="mt-2 text-center text-xs text-[#8A90A0]">No credit card required.</p>
-
-              <div className="mt-7 space-y-3">
-                {FREE_INCLUDED.map(f => (
-                  <div key={f} className="flex items-start gap-3 text-sm text-[#D5D9E2]"><Check /><span>{f}</span></div>
-                ))}
-                {FREE_NOT.map(f => (
-                  <div key={f} className="flex items-start gap-3 text-sm text-[#6B7180]"><Dash /><span>{f}</span></div>
-                ))}
-              </div>
-            </div>
-
-            {/* Premium (highlighted) */}
-            <div className="relative rounded-3xl p-7 md:p-8 flex flex-col h-full lg:-mt-4 overflow-hidden"
-              style={{
-                background: 'linear-gradient(160deg, rgba(93,235,255,0.10) 0%, rgba(138,111,255,0.08) 40%, rgba(14,21,37,0.6) 100%)',
-                border: '1px solid rgba(93,235,255,0.45)',
-                boxShadow: '0 0 40px rgba(93,235,255,0.12)',
-              }}>
-              <div className="absolute top-5 right-5 rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.14em] uppercase text-[#070707]"
-                style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)' }}>Most Popular</div>
-
-              <h3 className="text-xl font-bold text-white">Premium</h3>
-              <div className="mt-4 flex items-end gap-2">
-                <span className="font-display text-4xl font-black text-white">$12.99</span>
-                <span className="pb-1 text-sm text-[#8A90A0]">/ month</span>
-              </div>
-              <p className="mt-1 text-sm text-[#B8B8B8]">or <span className="text-white font-semibold">$69.99 / year</span> · equivalent to $5.83/month</p>
-
-              <div className="mt-4 rounded-xl px-4 py-3" style={{ background: 'rgba(93,235,255,0.08)', border: '1px solid rgba(93,235,255,0.25)' }}>
-                <p className="text-xs tracking-[0.12em] uppercase font-semibold" style={{ color: '#5DEBFF' }}>Limited Launch Offer</p>
-                <p className="mt-1 text-sm text-white"><span className="font-bold">$59.99 / year</span> — first 250 Premium Annual members</p>
-              </div>
-
-              <Link href="/early-access"
-                className="mt-6 flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-sm font-bold tracking-[0.1em] uppercase text-[#070707] transition-shadow duration-200"
-                style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)', boxShadow: '0 0 28px rgba(93,235,255,0.3)' }}>
-                Unlock Premium
-              </Link>
-              <p className="mt-2 text-center text-xs text-[#8A90A0]">AI Mind Coach usage limits apply. Cancel anytime.</p>
-
-              <p className="mt-7 text-xs tracking-[0.14em] uppercase text-[#8A90A0]">Everything in Free, plus</p>
-              <div className="mt-4 space-y-3">
-                {PREMIUM_FEATURES.map(f => (
-                  <div key={f} className="flex items-start gap-3 text-sm text-[#D5D9E2]"><Check /><span>{f}</span></div>
-                ))}
-              </div>
-            </div>
-
-            {/* Enterprise */}
-            <div className="rounded-3xl p-7 md:p-8 flex flex-col h-full"
-              style={{ background: 'rgba(14,21,37,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <h3 className="text-xl font-bold text-white">Enterprise</h3>
-              <div className="mt-4 flex items-end gap-2">
-                <span className="font-display text-4xl font-black text-white">Custom</span>
-                <span className="pb-1 text-sm text-[#8A90A0]">pricing</span>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-[#B8B8B8]">
-                Bring Mind Player to your organization with a plan adapted to your number of users, goals and technical requirements.
-              </p>
-              <Link href="/contact"
-                className="mt-6 flex w-full items-center justify-center rounded-full py-3.5 text-sm font-bold tracking-[0.1em] uppercase text-white transition-colors duration-200"
-                style={{ border: '1px solid rgba(138,111,255,0.5)' }}>
-                Contact Mind Player
-              </Link>
-              <p className="mt-2 text-center text-xs text-[#8A90A0]">Tailored commercial proposal.</p>
-
-              <p className="mt-7 text-xs tracking-[0.14em] uppercase text-[#8A90A0]">Enterprise plans may include</p>
-              <div className="mt-4 space-y-3">
-                {ENTERPRISE_FEATURES.map(f => (
-                  <div key={f} className="flex items-start gap-3 text-sm text-[#D5D9E2]"><Check /><span>{f}</span></div>
-                ))}
-              </div>
-            </div>
+          <div className="mt-14">
+            <PricingPlans />
           </div>
 
           {/* Compare plans */}
