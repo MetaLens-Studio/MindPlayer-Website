@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import WhyMindPlayer from '@/components/WhyMindPlayer'
 import AudiencesSection from '@/components/AudiencesSection'
-import Testimonials from '@/components/Testimonials'
+// Testimonials hidden until we have real testimonials — restore when ready.
+// import Testimonials from '@/components/Testimonials'
 
 export const metadata: Metadata = {
   title: 'About — Mind Player',
@@ -32,7 +33,7 @@ export default function AboutPage() {
 
       <WhyMindPlayer hideHeader />
       <AudiencesSection />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </PageWrapper>
   )
 }
