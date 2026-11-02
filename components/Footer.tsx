@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Experiences', href: '/experiences' },
   { label: 'Science', href: '/science' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
 ]
 
@@ -91,7 +92,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <p className="mt-12 mb-5 text-xs tracking-[0.25em] uppercase text-[#8A90A0]">Navigation</p>
-        <nav className="grid grid-cols-2 grid-rows-3 grid-flow-col gap-x-8 gap-y-4">
+        <nav className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-8 gap-y-4">
           {NAV_LINKS.map(link => (
             <Link
               key={link.href}
@@ -176,7 +177,7 @@ export default function Footer() {
           {/* Navigation */}
           <div className="flex-1 px-12">
             <p className="mb-6 text-xs tracking-[0.25em] uppercase text-[#8A90A0]">Navigation</p>
-            <nav className="grid grid-cols-2 grid-rows-3 grid-flow-col gap-x-10 gap-y-5">
+            <nav className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-10 gap-y-5">
               {NAV_LINKS.map(link => (
                 <Link
                   key={link.href}
