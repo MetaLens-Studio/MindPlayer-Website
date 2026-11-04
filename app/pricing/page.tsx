@@ -26,11 +26,6 @@ const COMPARE: { feature: string; free: string; premium: string; enterprise: str
   { feature: 'All Mind Player Originals', free: '-', premium: 'y', enterprise: 'According to plan' },
   { feature: 'Personal Mind creation', free: 'Limited', premium: 'Unlimited', enterprise: 'Customized' },
   { feature: 'AI Mind Coach', free: '-', premium: 'With limits', enterprise: 'Customized limits' },
-  { feature: 'Basic activity & progress', free: 'y', premium: 'y', enterprise: 'y' },
-  { feature: 'Detailed insights', free: '-', premium: 'y', enterprise: 'Available' },
-  { feature: 'Weekly summaries', free: '-', premium: 'y', enterprise: 'Available' },
-  { feature: 'Community & Feed', free: 'y', premium: 'y', enterprise: 'Included or customized' },
-  { feature: 'Book Mind Experts', free: 'y', premium: 'y', enterprise: 'Available' },
   { feature: 'Centralized billing', free: '-', premium: '-', enterprise: 'Available' },
   { feature: 'User & licence management', free: '-', premium: '-', enterprise: 'Available' },
   { feature: 'Organization reporting', free: '-', premium: '-', enterprise: 'Available' },
@@ -96,49 +91,6 @@ export default function PricingPage() {
                   ))}
                 </tbody>
               </table>
-            </div>
-          </div>
-
-          {/* Creators & Mind Experts */}
-          <div className="mt-24 md:mt-28">
-            <div className="text-center max-w-2xl mx-auto">
-              <p className="mb-3 text-sm tracking-[0.3em] uppercase font-semibold" style={{ color: '#8A6FFF' }}>For Creators & Mind Experts</p>
-              <h2 className="font-display text-3xl md:text-4xl font-black text-white">Create, connect and earn inside Mind Player</h2>
-              <p className="mt-4 text-base leading-relaxed" style={{ color: '#B8B8B8' }}>
-                Creators and Mind Experts can use either the Free or Premium plan — status is separate from your subscription.
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              <div className="rounded-3xl p-7 md:p-8" style={{ background: 'rgba(14,21,37,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <h3 className="text-xl font-bold text-white">Creators</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#B8B8B8]">
-                  Creators are Mind Player users who want to monetize experiences inside the platform.
-                </p>
-                <div className="mt-5 space-y-3">
-                  {['Create paid Spaces', 'Create paid Events', 'Build and monetize their community'].map(f => (
-                    <div key={f} className="flex items-start gap-3 text-sm text-[#D5D9E2]"><Check /><span>{f}</span></div>
-                  ))}
-                </div>
-                <p className="mt-5 text-sm leading-relaxed text-[#8A90A0]">
-                  Creators are not presented as verified professionals and do not appear in the Mind Experts marketplace.
-                </p>
-              </div>
-
-              <div className="rounded-3xl p-7 md:p-8" style={{ background: 'rgba(14,21,37,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <h3 className="text-xl font-bold text-white">Mind Experts</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#B8B8B8]">
-                  Mind Experts are professionals whose credentials and areas of expertise have been manually reviewed by the Mind Player team.
-                </p>
-                <div className="mt-5 space-y-3">
-                  {['Appear in the Mind Experts marketplace', 'Promote professional services', 'Receive session bookings', 'Offer paid individual & group sessions', 'Create paid Spaces and Events'].map(f => (
-                    <div key={f} className="flex items-start gap-3 text-sm text-[#D5D9E2]"><Check /><span>{f}</span></div>
-                  ))}
-                </div>
-                <p className="mt-5 text-sm leading-relaxed text-[#8A90A0]">
-                  Mind Player retains a 20% platform commission from each completed Mind Expert session.
-                </p>
-              </div>
             </div>
           </div>
 

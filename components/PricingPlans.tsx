@@ -33,9 +33,7 @@ const PLANS: Plan[] = [
     includes: [
       'Selected Free content & Originals',
       'Limited personal Mind creation',
-      'Basic activity & progress tracking',
-      'Feed, community & connections',
-      'Discover and book Mind Experts',
+      'Core immersive experiences',
     ],
     note: 'No credit card required.',
   },
@@ -54,7 +52,6 @@ const PLANS: Plan[] = [
       'All Mind Player Originals',
       'Unlimited personal Mind creation',
       'Access to the AI Mind Coach',
-      'Detailed insights & weekly summaries',
     ],
     note: 'AI Mind Coach usage limits apply. Cancel anytime.',
   },
@@ -155,6 +152,7 @@ export default function PricingPlans() {
                     <span className="font-display text-4xl font-black text-white flex items-baseline">
                       <NumberFlow
                         value={yearly ? plan.yearly! : plan.monthly!}
+                        locales="en-US"
                         format={{ style: 'currency', currency: 'USD', currencyDisplay: 'narrowSymbol' }}
                       />
                     </span>
@@ -164,10 +162,33 @@ export default function PricingPlans() {
                   </span>
                 </div>
                 {plan.kind === 'paid' && yearly && (
-                  <p className="mt-1 text-sm text-[#8A90A0]">Equivalent to $5.83/month · launch offer $59.99/yr (first 250)</p>
+                  <p className="mt-1 text-sm text-[#8A90A0]">Equivalent to $5.83 / month — save 55%</p>
                 )}
                 {plan.kind === 'paid' && !yearly && (
                   <p className="mt-1 text-sm text-[#8A90A0]">or $69.99 / year — save 55%</p>
+                )}
+
+                {/* Launch offer — highlighted */}
+                {plan.kind === 'paid' && (
+                  <div
+                    className="mt-4 rounded-2xl px-4 py-3"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(93,235,255,0.16), rgba(138,111,255,0.16))',
+                      border: '1px solid rgba(93,235,255,0.55)',
+                      boxShadow: '0 0 24px rgba(93,235,255,0.18)',
+                    }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="rounded-full px-2 py-0.5 text-[10px] font-black tracking-[0.12em] uppercase text-[#070707]"
+                        style={{ background: 'linear-gradient(135deg, #5DEBFF, #8A6FFF)' }}>
+                        Launch Offer
+                      </span>
+                      <span className="text-sm font-black text-white">$59.99 / year</span>
+                    </div>
+                    <p className="mt-1.5 text-xs font-semibold text-[#5DEBFF]">
+                      First 250 users only · Save 64%
+                    </p>
+                  </div>
                 )}
 
                 {/* Name + description */}

@@ -46,7 +46,7 @@ const STEPS = [
     title: 'Support Better Mental States',
     desc: 'Over time Mind Player helps you build lasting mental resilience — better focus, deeper sleep, faster recovery, and lasting emotional balance.',
     color: '#5DEBFF',
-    tags: ['Long-term Resilience', 'Progress Tracking', 'Mental Wellness'],
+    tags: ['Long-term Resilience', 'Mental Wellness'],
     image: '/images/step-support.webp',
     imgW: 868, imgH: 462,
   },
